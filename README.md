@@ -453,11 +453,11 @@ source install/setup.bash
 ```
 
 
-## 8. Phase 1 — Random Data Collection
+## 8. Phase 1: Random Data Collection
 
 ### 8.1 Launch the Hardware Nodes
 
-You need **four terminals**. In each, first run:
+It needs **five terminals**. In each, first run:
 ```bash
 cd ~/droplet_runner_ws && source install/setup.bash
 export PYTHONPATH="$HOME/cyberrunner/dreamerv3:$HOME/cyberrunner/dreamerv3/dreamerv3:$PYTHONPATH"
@@ -465,7 +465,7 @@ export JAX_PLATFORMS=cpu
 export CUDA_VISIBLE_DEVICES=""
 ```
 
-**Terminal 1 — Camera:**
+**Terminal 1: Camera**
 ```bash
 ros2 run droplet_camera cam_publisher --ros-args -p device_id:=4 -p width:=1280 -p height:=720
 ```
@@ -476,17 +476,21 @@ ros2 run droplet_camera cam_publisher --ros-args -p device_id:=4 -p width:=1280 
 > ```
 > Look for the See3CAM entry and use the number from `/dev/videoN`.
 
-**Terminal 2 — Motor driver:**
+**Terminal 2: Run RQT**
+In the second terminal, just write ```rqt``` and hit enter
+
+
+**Terminal 3: Motor driver**
 ```bash
 ros2 run droplet_motor motor_driver --ros-args -p port:=/dev/ttyUSB0
 ```
 
-**Terminal 3 — State estimator:**
+**Terminal 4: State estimator**
 ```bash
 ros2 run droplet_state estimator
 ```
 
-**Terminal 4 — Data collector:**
+**Terminal 5: Data collector**
 ```bash
 ros2 run droplet_state data_collector
 ```
@@ -496,11 +500,11 @@ ros2 run droplet_state data_collector
 The data collector will print: `Place droplet at start, then press ENTER to begin episode.`
 
 For each episode:
-1. Place a fresh ~3 mm red-dyed droplet at the path start position.
-2. Press ENTER in Terminal 4.
-3. The system applies random motor commands while recording (image, vector, action, reward) at 20 Hz.
+1. Place a fresh red-dyed droplet (20-30 microliter volume) at the path start position.
+2. Press ENTER in Terminal 5.
+3. The system applies random motor commands while recording (image, vector, action, reward).
 4. The episode ends automatically when the droplet goes out of bounds (`max_deviation`), reaches the goal, or hits `max_episode_steps`.
-5. Wipe the board, re-oil if needed, and repeat.
+5. Wipe the droplet (if it breaks) or bring it at start position, re-oil if needed, and repeat.
 
 **Collect 50 episodes** for the first training cycle. Each episode saves as `episode_XXXX.npz` in `~/droplet_runner_ws/episodes/`.
 
@@ -516,7 +520,7 @@ episode_XXXX.npz:
   is_terminal: (T,)             bool     — True at final step
 ```
 
-### 8.4 Verify Collected Data
+### 8.4 Verify Collected Data (not necesaary always, can ignore)
 
 ```python
 import numpy as np
@@ -534,16 +538,16 @@ for f in files[:5]:
 ```
 
 
-## 9. Phase 2 — Transfer Episodes to HPC and Train
+## 9. Phase 2: Transfer Episodes to HPC and Train
 
-### 9.1 Critical Pre-Training Cleanup on HPC
+### 9.1 Critical pre-training cleanup on HPC
 
 **ALWAYS perform this cleanup before starting a fresh training run.** Failure to do so causes the replay buffer to mix old and new episodes, leading to corrupted training.
 
 ```bash
-ssh raa524@sol.cc.lehigh.edu
+ssh username
 
-cd ~/mvk2_proj/raa524/droplet_runner
+cd ~/directory_path/droplet_runner
 
 # 1. Delete old replay buffer
 rm -rf logdir/replay/*
@@ -562,7 +566,7 @@ rm -f episodes/episode_*.npz
 ```bash
 # From the laptop:
 scp ~/droplet_runner_ws/episodes/episode_*.npz \
-    raa524@sol.cc.lehigh.edu:~/mvk2_proj/raa524/droplet_runner/episodes/
+    raa524@sol.cc.lehigh.edu (username for HPC):~/directory_path/droplet_runner/episodes/
 ```
 
 ### 9.3 Adjust Training Parameters (if needed)
@@ -570,8 +574,8 @@ scp ~/droplet_runner_ws/episodes/episode_*.npz \
 SSH into Sol and check `train_offline.py`:
 
 ```bash
-ssh raa524@sol.cc.lehigh.edu
-cd ~/mvk2_proj/raa524/droplet_runner
+ssh username
+cd ~/directory_path/droplet_runner
 grep -n "batch_length\|batch_size\|steps" train_offline.py
 ```
 
@@ -589,7 +593,7 @@ Default training parameters:
   ```
 - For very long episodes (>500 steps, e.g., S-shape), consider `batch_length = 128` and `--steps 100000`.
 
-### 9.4 Submit the Training Job
+### 9.4 Submit the training job
 
 ```bash
 cd ~/mvk2_proj/raa524/droplet_runner
@@ -602,7 +606,7 @@ To use the faster `lake-gpu` partition:
 sbatch --partition=lake-gpu train_dreamer.slurm
 ```
 
-### 9.5 Monitor Training
+### 9.5 Monitor training
 
 ```bash
 # Check job status
@@ -612,10 +616,10 @@ squeue -u raa524
 tail -f logdir/train_JOBID.log
 
 # Check for errors
-cat logdir/train_JOBID.err
+nano logdir/train_JOBID.err
 ```
 
-Training takes ~45 minutes for 50K steps on `lake-gpu` (L40S), ~85 minutes on `ima40-gpu` (A40).
+Training takes usually 45 minutes for 50,000 steps on `lake-gpu` (L40S), ~85 minutes on `ima40-gpu` (A40).
 
 **Signs of successful training:**
 - Log file shows training metrics updating every ~60 seconds.
@@ -641,11 +645,11 @@ cp ~/droplet_runner_ws/policy/checkpoint.ckpt \
 ```
 
 
-## 10. Phase 3 — Deploy Trained Policy on Hardware
+## 10. Phase 3: Deploy Trained Policy on Hardware
 
-### 10.1 Launch Hardware Nodes (Same as Data Collection)
+### 10.1 Launch hardware nodes (Same as Data collection)
 
-**Terminals 1–3:** Camera, motor driver, estimator (same commands as Section 8.1).
+**Terminals 1–3:** Camera, rqt, motor driver, estimator (same commands as Section 8.1).
 
 **Terminal 4 — Policy runner (instead of data collector):**
 ```bash
@@ -656,27 +660,27 @@ export CUDA_VISIBLE_DEVICES=""
 ros2 run droplet_state policy_runner
 ```
 
-### 10.2 Run Evaluation Episodes
+### 10.2 Run evaluation episodes
 
 1. Place droplet at start position.
-2. Press ENTER in Terminal 4.
+2. Press ENTER in Terminal 5.
 3. Watch the trained policy navigate the droplet.
 4. The episode ends when the droplet reaches the goal, drifts out of bounds, or hits the step limit.
 5. Action logs are saved to `~/droplet_runner_ws/action_logs/mbrl_actions_epHHMMSS.csv`.
 
-### 10.3 Evaluate Success Rate
+### 10.3 Evaluate success rate
 
-Run 10 episodes and record success/failure. Typical results:
-- **I-shape (straight):** 100% after Cycle 1 (50 episodes, 50K steps)
-- **L-shape (90° turn):** 95% after Cycle 2 (100 episodes, 50K steps)
+Run 20 episodes and record success/failure. Typical results:
+- **I-shape (straight):** 100% after Cycle 1 (50 episodes, 50,000 steps)
+- **L-shape (90° turn):** 95% after Cycle 2 (100 episodes, 50,000 steps)
 - **Arc-inside:** 100% after Cycle 3 (with `batch_length=32`)
 
-If the success rate is below your target, proceed to Cycle 2 (Section 11).
+If the success rate is below the desired target, proceed to Cycle 2 (Section 11).
 
 
-## 11. Phase 4 — Iterative Improvement (Cycle 2+)
+## 11. Phase 4: Iterative improvement (Cycle 2+)
 
-### 11.1 Collect Policy-Guided Episodes
+### 11.1 Collect policy-guided episodes
 
 Instead of random episodes, use the trained policy with exploration noise:
 
@@ -688,9 +692,9 @@ The data collector automatically detects `~/droplet_runner_ws/policy/checkpoint.
 
 Collect 50 more episodes with the trained policy. These episodes are richer because the droplet reaches further along the path, providing the world model with experience in regions the random policy rarely visits.
 
-### 11.2 Retrain (Two Strategies)
+### 11.2 Retrain (Two strategies)
 
-**Strategy A — Fresh training (recommended for first few cycles):**
+**Strategy A: Fresh training (recommended for first few cycles):**
 ```bash
 # On HPC: full cleanup + transfer all episodes (old + new)
 rm -rf logdir/replay/*
@@ -699,7 +703,7 @@ rm -f episodes/episode_*.npz
 ```
 Then transfer ALL episodes (from both cycles) and train.
 
-**Strategy B — Continuation training:**
+**Strategy B: Continuation training:**
 ```bash
 # On HPC: keep checkpoint, clean replay, transfer all episodes
 rm -rf logdir/replay/*
@@ -714,7 +718,7 @@ Repeat the cycle until the success rate is satisfactory. Typically 2–3 cycles 
 
 ## 12. Switching Between Geometries
 
-### To Switch to a Different Geometry (e.g., from U-shape to L-shape):
+### To switch to a different geometry (e.g., from U-shape to L-shape):
 
 ```bash
 # Step 1: Switch the waypoints symlink
@@ -728,7 +732,7 @@ cp ~/droplet_runner_ws/policy/checkpoint_Lshape.ckpt \
 
 That is it. No code changes, no rebuild. The `path_tracker.py`, `data_collector.py`, and `policy_runner.py` all read `path_waypoints_mm.json` at startup.
 
-### To Save the Current Geometry's Checkpoint Before Switching:
+### To save the current geometry's Checkpoint before switching:
 
 ```bash
 cp ~/droplet_runner_ws/policy/checkpoint.ckpt \
@@ -741,8 +745,8 @@ cp ~/droplet_runner_ws/policy/checkpoint.ckpt \
 The PID controller serves as a model-free baseline for comparison:
 
 ```bash
-# Terminals 1-3: camera, motor, estimator (same as always)
-# Terminal 4:
+# Terminals 1-4: camera, rqt, motor, estimator (same as always)
+# Terminal 5:
 ros2 run droplet_state pid_controller
 ```
 
@@ -758,15 +762,15 @@ Results are saved to `~/droplet_runner_ws/pid_results.json` and per-episode CSV 
 
 ## 14. Running the Open-Loop Ablation
 
-The open-loop replay plays back motor commands from a successful closed-loop episode WITHOUT camera feedback, demonstrating that the MBRL policy actively uses visual feedback:
+The open-loop replay plays back motor commands from a successful closed-loop episode WITHOUT camera feedback, demonstrating that the MBRL policy actively uses visual feedback.
 
 ```bash
-# Terminal 4 (camera, motor, estimator must be running):
+# Terminal 5 (camera, rqt, motor, estimator must be running):
 ros2 run droplet_state open_loop_replay \
     --ros-args -p csv_file:=/path/to/successful_episode.csv
 ```
 
-Use a CSV file from `action_logs/` recorded during a successful policy_runner episode. The replay sends the same motor commands but does not read the camera — the droplet will drift off the path, proving closed-loop necessity.
+Use a CSV file from `action_logs/` recorded during a successful policy_runner episode. The replay sends the same motor commands but does not read the camera, the droplet will drift off the path, proving closed-loop necessity.
 
 
 ## 15. Troubleshooting
@@ -780,7 +784,7 @@ v4l2-ctl --list-devices
 ros2 run droplet_camera cam_publisher --ros-args -p device_id:=N
 ```
 
-### Motor Errors / Torque Overload
+### Motor errors / torque overload
 
 The motor driver automatically reboots motors on startup. If motors become unresponsive:
 1. Power-cycle the U2D2.
@@ -790,10 +794,11 @@ The motor driver automatically reboots motors on startup. If motors become unres
 ### Droplet Not Detected
 
 - Verify the red dye is dark enough (HSV saturation ≥ 150).
+- Check proper lighting and whether it is visible in RQT.
 - Check the debug image topic: `ros2 topic echo /debug_image --no-arr | head`
 - Adjust HSV ranges in `droplet_detector.py` if using a different dye color.
 
-### JAX Falls Back to CPU on HPC
+### JAX falls back to CPU on HPC
 
 If training completes in seconds instead of minutes, JAX is not using the GPU. Verify the SLURM script includes:
 ```bash
@@ -801,63 +806,16 @@ export LD_LIBRARY_PATH=/share/Apps/cascade24v2/gcc-12.4.0/cuda-12.6.2-4bnnvhtdke
 export XLA_FLAGS="--xla_gpu_cuda_data_dir=/share/Apps/cascade24v2/gcc-12.4.0/cuda-12.6.2-4bnnvhtdkeytxwmiohbirolvkkxh6qpi"
 ```
 
-### "Not enough data" Error During Training
+### "Not enough data" Error during training
 
 The total number of steps across all episodes must exceed `batch_size × batch_length` (default: 16 × 64 = 1024 steps). Collect more episodes or reduce `batch_length`.
 
-### Replay Buffer Contamination
+### Replay Buffer contamination
 
 If a trained policy behaves erratically, the replay buffer may contain episodes from a different geometry. **Always** run the full cleanup sequence (Section 9.1) before starting fresh training.
 
 
-## 16. Configuration Reference
-
-### Key Parameters in `data_collector.py`
-
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `max_episode_steps` | 600 | Maximum steps per episode (increase for long paths) |
-| `control_hz` | 20.0 | Control frequency in Hz |
-| `max_action` | 150.0 | Maximum motor current (mA) |
-| `HOLD_THRESHOLD` | 5 | Kalman-predict frames before action freeze |
-
-### Key Parameters in `path_tracker.py`
-
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `lambda_distance` | 0.1 | Distance penalty weight in reward |
-| `max_deviation` | 60.0 | mm — terminate if droplet deviates this far |
-| `goal_radius` | 10.0 | mm — success if within this distance of end |
-
-### Key Parameters in `train_offline.py`
-
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `batch_size` | 16 | Number of sequences per training batch |
-| `batch_length` | 64 | Length of each sequence (reduce to 32 if episodes are short) |
-| `--steps` | 50000 | Total gradient updates |
-| Action normalization | `/150.0` | Converts current units to [-1, 1] range |
-
-### Key Parameters in `policy_runner.py`
-
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `action_scale` | 150.0 | Scales [-1,1] policy output back to motor current |
-| `control_hz` | 20.0 | Must match data collection frequency |
-| `max_episode_steps` | 600 | Maximum steps during evaluation |
-
-### Board / Camera Parameters
-
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| Board ROI (pixels) | (338,126) → (908,648) | Board region in camera frame |
-| Board size (mm) | 266 × 241 | Physical board dimensions |
-| Camera resolution | 1280 × 720 | Runtime resolution |
-| Calibration resolution | 1024 × 768 | OCamCalib calibration resolution |
-| Kalman max predict | 90 frames (~3 sec) | Frames before prediction gives up |
-
-
-## 17. Important Rules and Lessons Learned
+## 16. Important rules and lessons learned
 
 1. **Never manually tilt the board during data collection.** Manual tilting corrupts the action data because recorded motor commands do not match the applied forces. Use only the random policy or trained policy for data collection.
 
@@ -869,16 +827,12 @@ If a trained policy behaves erratically, the replay buffer may contain episodes 
 
 5. **Episode actions are stored in raw current units** ([-150, 150]). The `train_offline.py` script normalizes them by dividing by 150.0 to get [-1, 1] for the agent. The `policy_runner.py` multiplies the agent's output by 150.0 to convert back. These must match.
 
-6. **DreamerV3 runs on CPU during deployment** — always set `JAX_PLATFORMS=cpu` and `CUDA_VISIBLE_DEVICES=""` on the laptop to avoid attempting GPU initialization.
+6. **DreamerV3 runs on CPU during deployment** Always set `JAX_PLATFORMS=cpu` and `CUDA_VISIBLE_DEVICES=""` on the laptop to avoid attempting GPU initialization.
 
-7. **The `droplet_env.py` file is dead code** — it was designed for online training but is bypassed by `train_offline.py`. Similarly, `export_policy.py` is unused; direct `scp` of `checkpoint.ckpt` suffices.
+7. **OCamCalib distortion amplifies coordinates near board edges.** For geometries that approach the board edges, add intermediate waypoints to prevent large coordinate jumps. 
 
-8. **For curved geometries**, use the Kasa circle fit for generating waypoints. Linearly interpolating measured points on a curve produces poor results because waypoints cut across the arc.
-
-9. **OCamCalib distortion amplifies coordinates near board edges.** For geometries that approach the board edges, add intermediate waypoints to prevent large coordinate jumps. The S-shape board was specifically designed as a compact 315 mm path to keep the geometry near the board center.
-
-10. **The `lake-gpu` partition (L40S) trains approximately 2× faster than `ima40-gpu` (A40)** — prefer it when available.
+8. **Fixed lighting inside the lab** — Do not light up too much near the setup, it degrades the performance. 
 
 ---
 
-*DropletRunner — Kothare Research Group, Lehigh University*
+*DropletRunner — Rajneesh Anand from Kothare Research Group, Lehigh University*
