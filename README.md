@@ -130,12 +130,12 @@ droplet_runner/
 </p>
 <p align="center"><b>Figure 1.</b> DropletRunner platform assembly.</p>
 
-## 4. Software Setup — Laptop (Ubuntu)
+## 4. Software Setup — Laptop (Ubuntu) (see setup_laptop.sh for details)
 
 ### 4.1 Prerequisites
 
 - Ubuntu 22.04 LTS
-- ROS2 Humble Hawksbill (full desktop install)
+- ROS2 Humble (full desktop install)
 - Python 3.10
 - Conda (Miniconda or Anaconda)
 
@@ -154,14 +154,14 @@ echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### 4.3 Create a Conda Environment for CPU Inference
+### 4.3 Create a Conda Environment for CPU Inference 
 
 ```bash
 conda create -n droplet python=3.10 -y
 conda activate droplet
 ```
 
-### 4.4 Install Python Dependencies
+### 4.4 Install Python Dependencies 
 
 ```bash
 # Core dependencies
@@ -173,7 +173,7 @@ pip install cv-bridge-msgs
 # Dynamixel SDK
 pip install dynamixel-sdk
 
-# JAX (CPU only — no GPU needed on laptop)
+# JAX
 pip install "jax[cpu]"
 
 # DreamerV3 dependencies
@@ -195,7 +195,7 @@ pip install -e ~/cyberrunner/dreamerv3
 pip install --upgrade pip   # restore latest pip
 ```
 
-### 4.6 Create and Build the ROS2 Workspace
+### 4.6 Create and Build the ROS2 Workspace 
 
 ```bash
 mkdir -p ~/droplet_runner_ws/src
@@ -235,23 +235,11 @@ export CUDA_VISIBLE_DEVICES=""
 ```
 
 
-## 5. Software Setup — HPC (Sol Cluster)
+## 5. Software Setup — HPC (see setup_hpc.sh for details)
 
 ### 5.1 One-Time Setup
 
-SSH into Sol and run the setup script:
-
-```bash
-ssh raa524@sol.cc.lehigh.edu
-cd ~/mvk2_proj/raa524/droplet_runner
-bash setup_hpc.sh
-```
-
-This script:
-1. Creates a `dreamer` conda environment with Python 3.10.
-2. Installs JAX with CUDA 12 support.
-3. Clones and installs DreamerV3 from the CyberRunner repo.
-4. Verifies GPU access.
+Follow setup_hpc.sh
 
 ### 5.2 Verify GPU Manually (Optional)
 
@@ -268,18 +256,6 @@ export XLA_FLAGS="--xla_gpu_cuda_data_dir=/share/Apps/cascade24v2/gcc-12.4.0/cud
 python3 -c "import jax; print(jax.devices())"
 # Should show: [GpuDevice(id=0, ...)]
 ```
-
-### 5.3 Key HPC Details
-
-| Setting | Value |
-|---------|-------|
-| SSH host | `raa524@sol.cc.lehigh.edu` |
-| Project directory | `~/mvk2_proj/raa524/droplet_runner` |
-| SLURM account | `mvk2_113026` |
-| Preferred partition | `ima40-gpu` (A40) or `lake-gpu` (L40S, ~2x faster) |
-| Conda environment | `dreamer` |
-| CUDA path | `/share/Apps/cascade24v2/gcc-12.4.0/cuda-12.6.2-...` |
-| DreamerV3 source | `~/cyberrunner/dreamerv3` |
 
 
 ## 6. Camera Calibration (OCamCalib)
