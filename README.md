@@ -260,7 +260,7 @@ python3 -c "import jax; print(jax.devices())"
 
 ## 6. Camera Calibration (OCamCalib)
 
-The system uses the Scaramuzza omnidirectional camera model (OCamCalib toolbox for MATLAB). Calibration was performed at 1024×768 resolution, and the camera runs at 1280×720 — the code handles the rescaling internally.
+The system uses the Scaramuzza omnidirectional camera model (OCamCalib toolbox for MATLAB). Calibration was performed at 1024×768 resolution, and the camera runs at 1280×720. The code handles the rescaling internally.
 
 The calibration file is at `src/droplet_state/calib/calib_results.txt` and contains:
 - Direct polynomial (`ss`): pixel → 3D ray direction
@@ -268,34 +268,39 @@ The calibration file is at `src/droplet_state/calib/calib_results.txt` and conta
 - Optical center (`cx`, `cy`) in calibration resolution
 - Affine parameters (`c`, `d`, `e`)
 
-**You should not need to recalibrate** unless the camera or its mounting changes. If recalibration is needed, use the OCamCalib MATLAB toolbox with a checkerboard pattern at the native 1024×768 resolution.
+**One should not need to recalibrate** unless the camera or its mounting changes. If recalibration is needed, use the OCamCalib MATLAB toolbox with a checkerboard pattern at the native 1024×768 resolution.
 
+## WORKFLOW of the code/commands in each terminal
 
 ## 7. Defining a New Geometry (End-to-End Example)
 
 This section walks through adding a completely new path geometry. We will use a hypothetical **"U-shape"** as the example.
 
-### Step 7.1 — Paint the Path on the Board
+### Step 7.1: Paint the path on the board
 
 Using a marker or paint, draw the desired path on the silicone-oil-coated PLA board. Mark the start point and end point clearly. For curved paths, add evenly-spaced reference dots along the curve.
 
-### Step 7.2 — Measure Waypoint Coordinates
+### Step 7.2: Measure waypoint coordinates
 
 Launch the estimator to get real-time mm coordinates:
 
-**Terminal 1 — Camera:**
-```bash
-cd ~/droplet_runner_ws && source install/setup.bash
-ros2 run droplet_camera cam_publisher --ros-args -p device_id:=4 -p width:=1280 -p height:=720
+```
+ros2 run droplet_state estimator
 ```
 
-**Terminal 2 — Motor driver** (needed for estimator to initialize, even if not used):
+**Terminal 1: Camera:**
+```bash
+cd ~/droplet_runner_ws && source install/setup.bash
+ros2 run droplet_camera cam_publisher --ros-args -p device_id:=4 -p width:=1280 -p height:=720    # device_id:= xxxx depends on the cable number connected with laptop, check it
+```
+
+**Terminal 2: Motor driver** (needed for estimator to initialize, even if not used):
 ```bash
 cd ~/droplet_runner_ws && source install/setup.bash
 ros2 run droplet_motor motor_driver --ros-args -p port:=/dev/ttyUSB0
 ```
 
-**Terminal 3 — State estimator:**
+**Terminal 3: State estimator:**
 ```bash
 cd ~/droplet_runner_ws && source install/setup.bash
 export PYTHONPATH="$HOME/cyberrunner/dreamerv3:$HOME/cyberrunner/dreamerv3/dreamerv3:$PYTHONPATH"
@@ -304,7 +309,7 @@ export CUDA_VISIBLE_DEVICES=""
 ros2 run droplet_state estimator
 ```
 
-Now place a droplet on each reference point along the path and read off the `(x_mm, y_mm)` coordinates from the estimator log. Record 7–12 points along the path, always starting with the start point and ending with the end point.
+Now place a droplet on each reference point along the path and read off the `(x_mm, y_mm)` coordinates from the estimator log. Record 10–15 points along the path, always starting with the start point and ending with the end point.
 
 **Example measurements for our U-shape:**
 ```
@@ -312,19 +317,24 @@ Point 1 (start):  (80.0, -50.0) mm
 Point 2:          (80.0, -20.0) mm
 Point 3:          (80.0,  10.0) mm
 Point 4 (curve):  (60.0,  30.0) mm
-Point 5 (curve):  (30.0,  30.0) mm
-Point 6:          (10.0,  10.0) mm
-Point 7:          (10.0, -20.0) mm
-Point 8 (end):    (10.0, -50.0) mm
+Point 5 (curve):  (50.0,  30.0) mm
+Point 6 (curve):  (40.0,  30.0) mm
+Point 7 (curve):  (35.0,  30.0) mm
+Point 8 (curve):  (30.0,  30.0) mm
+Point 9 (curve):  (25.0,  30.0) mm
+Point 10 (curve):  (20.0,  30.0) mm
+Point 11:          (10.0,  10.0) mm
+Point 12:          (10.0, -20.0) mm
+Point 13 (end):    (10.0, -50.0) mm
 ```
 
-### Step 7.3 — Generate Dense Waypoints
+### Step 7.3: Generate dense waypoints
 
 There are two cases:
 
-**Case A: Straight-line segments (L-shape, I-shape, S-shape)**
+**Case A: Straight-line segments (I-shape, L-shape, L-out-shape)**
 
-For paths made of straight segments connected by corners, generate waypoints by linearly interpolating between measured points at ~2 mm spacing:
+For paths made of straight segments connected by corners, generate waypoints by linearly interpolating between measured points at ~2 mm spacing.
 
 ```python
 import numpy as np
@@ -355,9 +365,9 @@ with open("path_waypoints_mm_Ushape.json", "w") as f:
     json.dump(waypoints, f, indent=2)
 ```
 
-**Case B: Curved paths (Arc-inside, Arc-outside)**
+**Case B: Curved paths (Arc-shape, Arc-out-shape)**
 
-For arc/curved paths, first fit a circle to the measured points using Kasa's least-squares method, then generate waypoints along the fitted arc:
+For arc/curved paths, first fit a circle to the measured points using Kasa's least-squares method, then generate waypoints along the fitted arc.
 
 ```python
 import numpy as np
@@ -407,35 +417,34 @@ with open("path_waypoints_mm_Ushape.json", "w") as f:
     json.dump(waypoints, f, indent=2)
 ```
 
-### Step 7.4 — Install the Waypoints File
+### Step 7.4: Install the Waypoints File
 
 ```bash
 # Copy the generated file to the config directory
-cp path_waypoints_mm_Ushape.json \
-   ~/droplet_runner_ws/src/droplet_state/config/
+cp ~/path_waypoints_mm_Ushape.json (#wherever your filepath) \~/droplet_runner_ws/src/droplet_state/config/
 
 # Create (or update) the symlink to activate this geometry
 cd ~/droplet_runner_ws/src/droplet_state/config/
 ln -sf path_waypoints_mm_Ushape.json path_waypoints_mm.json
 ```
 
-### Step 7.5 — Adjust Path Tracker Parameters (if needed)
+### Step 7.5: Adjust path tracker parameters (if needed)
 
 Edit `path_tracker.py` if the new geometry requires different tolerances:
 
 ```python
-self.max_deviation = 60.0    # mm — increase for wider paths, decrease for narrow channels
-self.goal_radius = 10.0      # mm — success threshold near the end waypoint
+self.max_deviation = 30.0    # mm, increase for wider paths, decrease for narrow channels
+self.goal_radius = 10.0      # mm, success threshold near the end waypoint
 ```
 
-For narrow-channel geometries (like the S-shape with painted walls), use `max_deviation = 20.0`. For open-surface geometries (I-shape, L-shape, arcs), use `max_deviation = 60.0`.
+For narrow-channel geometries (like the S-shape with painted walls), use `max_deviation = 20.0`. For open-surface geometries (I-shape, L-shape, arcs), use `max_deviation = 30.0`.
 
 Also in `data_collector.py`:
 ```python
 self.max_episode_steps = 600  # Increase for longer paths (e.g., 1000 for S-shape)
 ```
 
-### Step 7.6 — Rebuild the ROS2 Workspace
+### Step 7.6: Rebuild the ROS2 Workspace
 
 ```bash
 cd ~/droplet_runner_ws
