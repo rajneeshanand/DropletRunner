@@ -420,7 +420,7 @@ with open("path_waypoints_mm_Ushape.json", "w") as f:
 
 ```bash
 # Copy the generated file to the config directory
-cp ~/path_waypoints_mm_Ushape.json (#wherever your filepath) \~/droplet_runner_ws/src/droplet_state/config/
+cp ~/path_waypoints_mm_Ushape.json (#wherever filepath) \~/droplet_runner_ws/src/droplet_state/config/
 
 # Create (or update) the symlink to activate this geometry
 cd ~/droplet_runner_ws/src/droplet_state/config/
@@ -586,7 +586,7 @@ Default training parameters:
 ```
 
 **When to change `batch_length`:**
-- If your episodes are shorter than 64 steps on average, set `batch_length = 32`:
+- If episodes are shorter than 64 steps on average, set `batch_length = 32`:
   ```bash
   sed -i "s/'batch_length': 64/'batch_length': 32/" train_offline.py
   ```
@@ -788,7 +788,7 @@ ros2 run droplet_camera cam_publisher --ros-args -p device_id:=N
 The motor driver automatically reboots motors on startup. If motors become unresponsive:
 1. Power-cycle the U2D2.
 2. Check `/dev/ttyUSB0` exists: `ls -la /dev/ttyUSB*`
-3. Ensure your user is in the `dialout` group: `sudo usermod -aG dialout $USER`
+3. Ensure user is in the `dialout` group: `sudo usermod -aG dialout $USER`
 
 ### Droplet Not Detected
 
