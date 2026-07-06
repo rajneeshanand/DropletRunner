@@ -10,7 +10,7 @@ A complete guide to setting up, running, and training the DropletRunner system â
 2. [Repository Structure](#2-repository-structure)
 3. [Hardware Setup](#3-hardware-setup)
 4. [Software Setup: Laptop (Ubuntu)](#4-software-setup--laptop-ubuntu)
-5. [Software Setup: HPC (Sol Cluster)](#5-software-setup--hPC-sol-cluster)
+5. [Software Setup: HPC (Sol Cluster)](#5-software-setup--hpc-sol-cluster)
 6. [Camera Calibration (OCamCalib)](#6-camera-calibration-ocamcalib)
 7. [Defining a new geometry (End-to-End workflow)](#7-defining-a-new-geometry-end-to-end-example)
 8. [Phase 1: Data collection with random mode](#8-phase-1--random-data-collection)
@@ -21,8 +21,7 @@ A complete guide to setting up, running, and training the DropletRunner system â
 13. [Running the PID Baseline](#13-running-the-pid-baseline)
 14. [Running the open-loop ablation](#14-running-the-open-loop-ablation)
 15. [Troubleshooting](#15-troubleshooting)
-16. [Configuration reference](#16-configuration-reference)
-17. [Important rules and lessons learned](#17-important-rules-and-lessons-learned)
+16. [Important rules and lessons learned](#17-important-rules-and-lessons-learned)
 
 ---
 
