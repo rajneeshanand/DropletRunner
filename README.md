@@ -57,13 +57,13 @@ droplet_runner_ws/
 │       ├── calib/
 │       │   └── calib_results.txt       # OCamCalib calibration file
 │       ├── config/
-│       │   ├── corner_markers.json     # Board corner pixel coordinates
-│       │   ├── path_waypoints_mm.json  # SYMLINK → active geometry
-│       │   ├── path_waypoints_mm_Ishape.json
-│       │   ├── path_waypoints_mm_Lshape.json
-│       │   ├── path_waypoints_mm_Lshape_outside.json
-│       │   ├── path_waypoints_mm_ARC.json
-│       │   └── path_waypoints_mm_ARC_outside.json
+│       |   ├── corner_markers.json                     # Board corner pixel coordinates
+│       │   ├── path_waypoints_mm.json                  # SYMLINK → waypoints for active geometry 
+│       │   ├── path_waypoints_mm_Ishape.json           # Waypoints for I-shape
+│       │   ├── path_waypoints_mm_Lshape.json           # Waypoints for L-shape
+│       │   ├── path_waypoints_mm_Lshape_outside.json   # Waypoints for L-out-shape    
+│       │   ├── path_waypoints_mm_ARC.json              # Waypoints for Arc-shape
+│       │   └── path_waypoints_mm_ARC_outside.json      # Waypoints for Arc-out-shape
 │       └── droplet_state/
 │           ├── camera_model.py         # OCamCalib Scaramuzza model
 │           ├── droplet_detector.py     # HSV red-droplet detection
@@ -77,8 +77,8 @@ droplet_runner_ws/
 ├── episodes/                   # Collected episode .npz files
 ├── policy/
 │   ├── checkpoint.ckpt         # Active DreamerV3 checkpoint
-│   ├── checkpoint_Ishape.ckpt  # Saved per-geometry checkpoints
-│   ├── checkpoint_Lshape.ckpt
+│   ├── checkpoint_Ishape.ckpt  # Saved checkpoints for I-shape
+│   ├── checkpoint_Lshape.ckpt  # Saved checkpoints for L-shape
 │   └── ...
 ├── action_logs/                # CSV logs from policy_runner
 └── pid_logs/                   # CSV logs from pid_controller
