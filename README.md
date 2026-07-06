@@ -114,7 +114,7 @@ droplet_runner/
 | Droplet | 20-30 microliter red-dyed water droplet volume | Navigation target |
 | Corner markers | 4 blue dots on board corners | Tilt estimation reference |
 
-### Physical Assembly
+### Physical Assembly (See Figure 1)
 
 1. Mount the two Dynamixel motors orthogonally beneath the PLA board (Motor 1 = axis 1, Motor 2 = axis 2).
 2. Connect both motors to the U2D2 interface (daisy-chain with 3-pin Dynamixel cable).
@@ -125,6 +125,10 @@ droplet_runner/
 7. Place 4 small blue markers at the board corners (TL, TR, BR, BL).
 8. Coat the board surface with silicone oil (AR 20).
 
+<p align="center">
+  <img src="images/Figure S1.png" alt="DropletRunner Hardware Assembly" width="700">
+</p>
+<p align="center"><b>Figure 1.</b> DropletRunner platform assembly.</p>
 
 ## 4. Software Setup — Laptop (Ubuntu)
 
