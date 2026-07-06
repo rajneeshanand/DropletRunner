@@ -28,18 +28,15 @@ A complete guide to setting up, running, and training the DropletRunner system �
 
 ## 1. System Overview
 
-DropletRunner uses a two-axis tilt platform to navigate a liquid droplet (red-dyed water on a silicone-oil-coated PLA board) through maze-like geometries. A DreamerV3 world-model agent learns to control the platform from offline experience, running at 20 Hz.
-
-The workflow follows an **offline MBRL paradigm**:
+DropletRunner uses a two-axis tilt platform to navigate a liquid droplet through maze-like geometries. A DreamerV3 world-model agent learns to control the platform from offline experience. The workflow follows an **offline MBRL paradigm**:
 
 ```
 [Laptop] Collect random episodes on hardware
         ↓  scp episodes/
-[HPC]   Train DreamerV3 offline (GPU, ~45 min for 50K steps)
+[HPC]   Train DreamerV3 offline (HPC GPU takes approximately 45 min for 50,000 steps)
         ↓  scp checkpoint.ckpt
-[Laptop] Deploy trained policy on hardware at 20 Hz (CPU-only inference)
+[Laptop] Deploy trained policy (CPU-only inference)
 ```
-
 This cycle repeats: if the policy is not good enough, collect more episodes (using the policy with exploration noise) and retrain.
 
 
