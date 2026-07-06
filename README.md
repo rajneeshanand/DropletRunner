@@ -91,11 +91,10 @@ droplet_runner/
 ├── train_offline.py        # Offline DreamerV3 training script
 ├── train_dreamer.slurm     # SLURM job submission script
 ├── setup_hpc.sh            # One-time HPC environment setup
-├── droplet_env.py          # Offline replay environment (not used by train_offline.py)
 ├── episodes/               # Episodes transferred from laptop
 └── logdir/
     ├── checkpoint.ckpt     # Trained checkpoint (transfer back to laptop)
-    ├── config.yaml         # DreamerV3 config snapshot
+    ├── config.yaml         # DreamerV3 config 
     ├── metrics.jsonl       # Training metrics log
     └── replay/             # Embodied replay buffer (chunked format)
 ```
@@ -107,12 +106,12 @@ droplet_runner/
 
 | Component | Model | Role |
 |-----------|-------|------|
-| Tilt motors (×2) | Dynamixel XL330-M077-T | Two-axis current-mode actuation |
-| USB interface | U2D2 (Robotis) | Motor ↔ USB communication |
-| Camera | See3CAM_24CUG (e-con Systems) | Overhead vision at 1280×720 |
-| Board | 3D-printed PLA, 266×241 mm | Tilting platform |
+| Tilt motors (x2) | Dynamixel XL330-M077-T | Two-axis current-mode actuation |
+| USB interface | U2D2  | Motor ↔ USB communication |
+| Camera | See3CAM_24CUG  | Overhead vision at 1280×720 |
+| Board | 3D-printed PLA | Tilting platform |
 | Surface | AR 20 silicone oil film | Low-friction droplet transport |
-| Droplet | ~3 mm red-dyed water | Navigation target |
+| Droplet | 20-30 microliter red-dyed water droplet volume | Navigation target |
 | Corner markers | 4 blue dots on board corners | Tilt estimation reference |
 
 ### Physical Assembly
