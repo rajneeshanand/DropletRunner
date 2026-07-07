@@ -1,6 +1,6 @@
 # DropletRunner: Autonomous Droplet Navigation via Model-Based Reinforcement Learning
 
-A complete guide to setting up, running, and training the DropletRunner system — from hardware assembly through data collection, offline DreamerV3 training on HPC, and real-time policy deployment.
+A complete guide to setting up, running, and training the DropletRunner system, from hardware assembly through data collection, offline DreamerV3 training on HPC, and real-time policy deployment.
 
 ---
 
