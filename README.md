@@ -4,6 +4,20 @@ A complete guide to setting up, running, and training the DropletRunner system; 
 
 ---
 
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <video src="videos/Arc-shape.mp4" width="100%" autoplay loop muted></video>
+      <br><b>Arc-inside</b>
+    </td>
+    <td align="center" width="50%">
+      <video src="videos/Arc-out-shape.mp4" width="100%" autoplay loop muted></video>
+      <br><b>Arc-outside</b>
+    </td>
+  </tr>
+</table>
+
+---
 ## Table of Contents
 
 1. [System Overview](#1-system-overview)
