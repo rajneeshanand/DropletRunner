@@ -1,0 +1,36 @@
+[1.995s] Invoking command in '/home/rajneesh/droplet_runner_ws/build/droplet_camera': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_camera/build
+[2.884s] running develop
+[3.451s] Removing /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages/droplet-camera.egg-link (link to .)
+[3.529s] Invoked command in '/home/rajneesh/droplet_runner_ws/build/droplet_camera' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_camera/build
+[3.537s] Invoking command in '/home/rajneesh/droplet_runner_ws/src/droplet_camera': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/droplet_camera build --build-base /home/rajneesh/droplet_runner_ws/build/droplet_camera/build install --record /home/rajneesh/droplet_runner_ws/build/droplet_camera/install.log --single-version-externally-managed install_data --force
+[4.362s] running egg_info
+[4.364s] writing ../../build/droplet_camera/droplet_camera.egg-info/PKG-INFO
+[4.366s] writing dependency_links to ../../build/droplet_camera/droplet_camera.egg-info/dependency_links.txt
+[4.366s] writing entry points to ../../build/droplet_camera/droplet_camera.egg-info/entry_points.txt
+[4.366s] writing requirements to ../../build/droplet_camera/droplet_camera.egg-info/requires.txt
+[4.367s] writing top-level names to ../../build/droplet_camera/droplet_camera.egg-info/top_level.txt
+[4.373s] reading manifest file '../../build/droplet_camera/droplet_camera.egg-info/SOURCES.txt'
+[4.376s] writing manifest file '../../build/droplet_camera/droplet_camera.egg-info/SOURCES.txt'
+[4.379s] running build
+[4.379s] running build_py
+[4.380s] creating /home/rajneesh/droplet_runner_ws/build/droplet_camera/build
+[4.380s] creating /home/rajneesh/droplet_runner_ws/build/droplet_camera/build/lib
+[4.381s] creating /home/rajneesh/droplet_runner_ws/build/droplet_camera/build/lib/droplet_camera
+[4.381s] copying droplet_camera/cam_publisher.py -> /home/rajneesh/droplet_runner_ws/build/droplet_camera/build/lib/droplet_camera
+[4.382s] copying droplet_camera/__init__.py -> /home/rajneesh/droplet_runner_ws/build/droplet_camera/build/lib/droplet_camera
+[4.383s] running install
+[4.383s] running install_lib
+[4.383s] creating /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages/droplet_camera
+[4.384s] copying /home/rajneesh/droplet_runner_ws/build/droplet_camera/build/lib/droplet_camera/cam_publisher.py -> /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages/droplet_camera
+[4.384s] copying /home/rajneesh/droplet_runner_ws/build/droplet_camera/build/lib/droplet_camera/__init__.py -> /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages/droplet_camera
+[4.385s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages/droplet_camera/cam_publisher.py to cam_publisher.cpython-310.pyc
+[4.387s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages/droplet_camera/__init__.py to __init__.cpython-310.pyc
+[4.388s] running install_data
+[4.388s] copying resource/droplet_camera -> /home/rajneesh/droplet_runner_ws/install/droplet_camera/share/ament_index/resource_index/packages
+[4.389s] copying package.xml -> /home/rajneesh/droplet_runner_ws/install/droplet_camera/share/droplet_camera
+[4.389s] running install_egg_info
+[4.398s] Copying ../../build/droplet_camera/droplet_camera.egg-info to /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages/droplet_camera-0.0.0-py3.10.egg-info
+[4.401s] running install_scripts
+[4.463s] Installing cam_publisher script to /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/droplet_camera
+[4.464s] writing list of installed files to '/home/rajneesh/droplet_runner_ws/build/droplet_camera/install.log'
+[4.524s] Invoked command in '/home/rajneesh/droplet_runner_ws/src/droplet_camera' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/droplet_camera build --build-base /home/rajneesh/droplet_runner_ws/build/droplet_camera/build install --record /home/rajneesh/droplet_runner_ws/build/droplet_camera/install.log --single-version-externally-managed install_data --force

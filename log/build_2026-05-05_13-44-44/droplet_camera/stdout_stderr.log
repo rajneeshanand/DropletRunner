@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing droplet_camera.egg-info/PKG-INFO
+writing dependency_links to droplet_camera.egg-info/dependency_links.txt
+writing entry points to droplet_camera.egg-info/entry_points.txt
+writing requirements to droplet_camera.egg-info/requires.txt
+writing top-level names to droplet_camera.egg-info/top_level.txt
+reading manifest file 'droplet_camera.egg-info/SOURCES.txt'
+writing manifest file 'droplet_camera.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages/droplet-camera.egg-link (link to .)
+Installing cam_publisher script to /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/droplet_camera
+
+Installed /home/rajneesh/droplet_runner_ws/build/droplet_camera
+running symlink_data
+symbolically linking /home/rajneesh/droplet_runner_ws/build/droplet_camera/resource/droplet_camera -> /home/rajneesh/droplet_runner_ws/install/droplet_camera/share/ament_index/resource_index/packages
+symbolically linking /home/rajneesh/droplet_runner_ws/build/droplet_camera/package.xml -> /home/rajneesh/droplet_runner_ws/install/droplet_camera/share/droplet_camera

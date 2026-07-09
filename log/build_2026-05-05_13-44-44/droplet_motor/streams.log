@@ -1,0 +1,24 @@
+[1.318s] Invoking command in '/home/rajneesh/droplet_runner_ws/build/droplet_motor': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_motor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_motor/build --no-deps symlink_data
+[1.660s] running develop
+[1.840s] running egg_info
+[1.840s] creating droplet_motor.egg-info
+[1.840s] writing droplet_motor.egg-info/PKG-INFO
+[1.840s] writing dependency_links to droplet_motor.egg-info/dependency_links.txt
+[1.841s] writing entry points to droplet_motor.egg-info/entry_points.txt
+[1.841s] writing requirements to droplet_motor.egg-info/requires.txt
+[1.841s] writing top-level names to droplet_motor.egg-info/top_level.txt
+[1.841s] writing manifest file 'droplet_motor.egg-info/SOURCES.txt'
+[1.843s] reading manifest file 'droplet_motor.egg-info/SOURCES.txt'
+[1.843s] writing manifest file 'droplet_motor.egg-info/SOURCES.txt'
+[1.844s] running build_ext
+[1.845s] Creating /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages/droplet-motor.egg-link (link to .)
+[1.846s] Installing motor_driver script to /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/droplet_motor
+[1.846s] 
+[1.846s] Installed /home/rajneesh/droplet_runner_ws/build/droplet_motor
+[1.846s] running symlink_data
+[1.846s] creating /home/rajneesh/droplet_runner_ws/install/droplet_motor/share/ament_index
+[1.846s] creating /home/rajneesh/droplet_runner_ws/install/droplet_motor/share/ament_index/resource_index
+[1.846s] creating /home/rajneesh/droplet_runner_ws/install/droplet_motor/share/ament_index/resource_index/packages
+[1.846s] symbolically linking /home/rajneesh/droplet_runner_ws/build/droplet_motor/resource/droplet_motor -> /home/rajneesh/droplet_runner_ws/install/droplet_motor/share/ament_index/resource_index/packages
+[1.846s] symbolically linking /home/rajneesh/droplet_runner_ws/build/droplet_motor/package.xml -> /home/rajneesh/droplet_runner_ws/install/droplet_motor/share/droplet_motor
+[1.880s] Invoked command in '/home/rajneesh/droplet_runner_ws/build/droplet_motor' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_motor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_motor/build --no-deps symlink_data

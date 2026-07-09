@@ -1,0 +1,24 @@
+[2.689s] Invoking command in '/home/rajneesh/droplet_runner_ws/build/droplet_state': PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_state/build --no-deps symlink_data
+[3.665s] running develop
+[4.251s] running egg_info
+[4.252s] creating droplet_state.egg-info
+[4.252s] writing droplet_state.egg-info/PKG-INFO
+[4.253s] writing dependency_links to droplet_state.egg-info/dependency_links.txt
+[4.253s] writing entry points to droplet_state.egg-info/entry_points.txt
+[4.254s] writing requirements to droplet_state.egg-info/requires.txt
+[4.254s] writing top-level names to droplet_state.egg-info/top_level.txt
+[4.254s] writing manifest file 'droplet_state.egg-info/SOURCES.txt'
+[4.258s] reading manifest file 'droplet_state.egg-info/SOURCES.txt'
+[4.260s] writing manifest file 'droplet_state.egg-info/SOURCES.txt'
+[4.265s] running build_ext
+[4.265s] Creating /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet-state.egg-link (link to .)
+[4.271s] Installing estimator script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[4.271s] 
+[4.272s] Installed /home/rajneesh/droplet_runner_ws/build/droplet_state
+[4.272s] running symlink_data
+[4.272s] creating /home/rajneesh/droplet_runner_ws/install/droplet_state/share/ament_index
+[4.273s] creating /home/rajneesh/droplet_runner_ws/install/droplet_state/share/ament_index/resource_index
+[4.273s] creating /home/rajneesh/droplet_runner_ws/install/droplet_state/share/ament_index/resource_index/packages
+[4.273s] symbolically linking /home/rajneesh/droplet_runner_ws/build/droplet_state/resource/droplet_state -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/ament_index/resource_index/packages
+[4.274s] symbolically linking /home/rajneesh/droplet_runner_ws/build/droplet_state/package.xml -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state
+[4.328s] Invoked command in '/home/rajneesh/droplet_runner_ws/build/droplet_state' returned '0': PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_state/build --no-deps symlink_data
