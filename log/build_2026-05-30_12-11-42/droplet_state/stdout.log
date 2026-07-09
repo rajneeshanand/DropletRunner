@@ -1,0 +1,54 @@
+running develop
+Removing /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet-state.egg-link (link to .)
+running egg_info
+writing ../../build/droplet_state/droplet_state.egg-info/PKG-INFO
+writing dependency_links to ../../build/droplet_state/droplet_state.egg-info/dependency_links.txt
+writing entry points to ../../build/droplet_state/droplet_state.egg-info/entry_points.txt
+writing requirements to ../../build/droplet_state/droplet_state.egg-info/requires.txt
+writing top-level names to ../../build/droplet_state/droplet_state.egg-info/top_level.txt
+reading manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'
+writing manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'
+running build
+running build_py
+copying droplet_state/path_tracker.py -> /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state
+copying droplet_state/pid_controller.py -> /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state
+running install
+running install_lib
+copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/policy_runner.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/droplet_detector.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/marker_detector.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/path_tracker.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/estimator.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/__init__.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/camera_model.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/data_collector.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/pid_controller.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/policy_runner.py to policy_runner.cpython-310.pyc
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/droplet_detector.py to droplet_detector.cpython-310.pyc
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/marker_detector.py to marker_detector.cpython-310.pyc
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/path_tracker.py to path_tracker.cpython-310.pyc
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/estimator.py to estimator.cpython-310.pyc
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/camera_model.py to camera_model.cpython-310.pyc
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/data_collector.py to data_collector.cpython-310.pyc
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/pid_controller.py to pid_controller.cpython-310.pyc
+running install_data
+copying resource/droplet_state -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/ament_index/resource_index/packages
+copying package.xml -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state
+copying config/path_waypoints.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+copying config/path_waypoints_mm_ARC.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+copying config/path_waypoints_mm_Lshape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+copying config/path_waypoints_Ishape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+copying config/path_waypoints_mm.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+copying config/path_waypoints_mm_Ishape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+copying config/corner_markers.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+copying config/path_waypoints_mm_Sshape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+copying calib/calib_results.txt -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/calib
+running install_egg_info
+Copying ../../build/droplet_state/droplet_state.egg-info to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state-0.0.0-py3.10.egg-info
+running install_scripts
+Installing data_collector script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+Installing estimator script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+Installing pid_controller script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+Installing policy_runner script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+writing list of installed files to '/home/rajneesh/droplet_runner_ws/build/droplet_state/install.log'

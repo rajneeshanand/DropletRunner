@@ -1,0 +1,152 @@
+[0.000000] (-) TimerEvent: {}
+[0.000367] (-) JobUnselected: {'identifier': 'droplet_camera'}
+[0.000456] (-) JobUnselected: {'identifier': 'droplet_motor'}
+[0.000541] (droplet_state) JobQueued: {'identifier': 'droplet_state', 'dependencies': OrderedDict()}
+[0.000598] (droplet_state) JobStarted: {'identifier': 'droplet_state'}
+[0.098049] (-) TimerEvent: {}
+[0.198444] (-) TimerEvent: {}
+[0.299014] (-) TimerEvent: {}
+[0.399391] (-) TimerEvent: {}
+[0.499846] (-) TimerEvent: {}
+[0.600321] (-) TimerEvent: {}
+[0.701359] (-) TimerEvent: {}
+[0.802032] (-) TimerEvent: {}
+[0.902336] (-) TimerEvent: {}
+[1.002655] (-) TimerEvent: {}
+[1.103206] (-) TimerEvent: {}
+[1.204117] (-) TimerEvent: {}
+[1.305080] (-) TimerEvent: {}
+[1.405530] (-) TimerEvent: {}
+[1.506307] (-) TimerEvent: {}
+[1.606603] (-) TimerEvent: {}
+[1.706991] (-) TimerEvent: {}
+[1.807641] (-) TimerEvent: {}
+[1.907920] (-) TimerEvent: {}
+[2.008179] (-) TimerEvent: {}
+[2.108442] (-) TimerEvent: {}
+[2.210324] (-) TimerEvent: {}
+[2.310641] (-) TimerEvent: {}
+[2.410981] (-) TimerEvent: {}
+[2.511529] (-) TimerEvent: {}
+[2.612183] (-) TimerEvent: {}
+[2.635498] (droplet_state) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--uninstall', '--editable', '--build-directory', '/home/rajneesh/droplet_runner_ws/build/droplet_state/build'], 'cwd': '/home/rajneesh/droplet_runner_ws/build/droplet_state', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'USER': 'rajneesh', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/rajneesh', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/rajneesh/droplet_runner_ws', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '1958', 'SYSTEMD_EXEC_PID': '8559', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3', '_CONDA_ROOT': '/home/rajneesh/miniconda3', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '53672', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/rajneesh/droplet_runner_ws/install', 'CUDA_VISIBLE_DEVICES': '', 'ROS_DISTRO': 'humble', 'LOGNAME': 'rajneesh', 'JOURNAL_STREAM': '8:60068', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'rajneesh', 'TERM': 'xterm-256color', 'JAX_PLATFORMS': 'cpu', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', '_CE_CONDA': '', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/rajneesh/miniconda3/bin:/home/rajneesh/miniconda3/condabin:/opt/ros/humble/bin:/home/rajneesh/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/rajneesh-HP-Laptop-15g-dr0xxx:@/tmp/.ICE-unix/7561,unix/rajneesh-HP-Laptop-15g-dr0xxx:/tmp/.ICE-unix/7561', 'INVOCATION_ID': '6f63c1b61c8b486da71f76e0fef73a99', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.ANDFP3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/rajneesh/droplet_runner_ws/install/droplet_state:/home/rajneesh/droplet_runner_ws/install/droplet_motor:/home/rajneesh/droplet_runner_ws/install/droplet_camera:/opt/ros/humble', 'CONDA_PYTHON_EXE': '/home/rajneesh/miniconda3/bin/python', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:1d123796-236a-4bf9-9e50-fda9cd73c04c', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', 'GJS_DEBUG_OUTPUT': 'stderr', '_CONDA_EXE': '/home/rajneesh/miniconda3/bin/conda', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/rajneesh/droplet_runner_ws/build/droplet_state', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/rajneesh/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/droplet_runner_ws/build/droplet_state:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:/home/rajneesh/droplet_runner_ws/build/droplet_motor:/home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages:/home/rajneesh/droplet_runner_ws/build/droplet_camera:/home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'CONDA_PREFIX': '/home/rajneesh/miniconda3', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.712225] (-) TimerEvent: {}
+[2.812540] (-) TimerEvent: {}
+[2.912860] (-) TimerEvent: {}
+[3.013136] (-) TimerEvent: {}
+[3.074144] (droplet_state) StdoutLine: {'line': b'running develop\n'}
+[3.113327] (-) TimerEvent: {}
+[3.213717] (-) TimerEvent: {}
+[3.314080] (-) TimerEvent: {}
+[3.414396] (-) TimerEvent: {}
+[3.514684] (-) TimerEvent: {}
+[3.528788] (droplet_state) StdoutLine: {'line': b'Removing /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet-state.egg-link (link to .)\n'}
+[3.570961] (droplet_state) CommandEnded: {'returncode': 0}
+[3.572024] (droplet_state) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/droplet_state', 'build', '--build-base', '/home/rajneesh/droplet_runner_ws/build/droplet_state/build', 'install', '--record', '/home/rajneesh/droplet_runner_ws/build/droplet_state/install.log', '--single-version-externally-managed', 'install_data', '--force'], 'cwd': '/home/rajneesh/droplet_runner_ws/src/droplet_state', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'USER': 'rajneesh', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/rajneesh', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/rajneesh/droplet_runner_ws', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '1958', 'SYSTEMD_EXEC_PID': '8559', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3', '_CONDA_ROOT': '/home/rajneesh/miniconda3', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '53672', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/rajneesh/droplet_runner_ws/install', 'CUDA_VISIBLE_DEVICES': '', 'ROS_DISTRO': 'humble', 'LOGNAME': 'rajneesh', 'JOURNAL_STREAM': '8:60068', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'rajneesh', 'TERM': 'xterm-256color', 'JAX_PLATFORMS': 'cpu', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', '_CE_CONDA': '', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/rajneesh/miniconda3/bin:/home/rajneesh/miniconda3/condabin:/opt/ros/humble/bin:/home/rajneesh/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/rajneesh-HP-Laptop-15g-dr0xxx:@/tmp/.ICE-unix/7561,unix/rajneesh-HP-Laptop-15g-dr0xxx:/tmp/.ICE-unix/7561', 'INVOCATION_ID': '6f63c1b61c8b486da71f76e0fef73a99', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.ANDFP3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/rajneesh/droplet_runner_ws/install/droplet_state:/home/rajneesh/droplet_runner_ws/install/droplet_motor:/home/rajneesh/droplet_runner_ws/install/droplet_camera:/opt/ros/humble', 'CONDA_PYTHON_EXE': '/home/rajneesh/miniconda3/bin/python', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:1d123796-236a-4bf9-9e50-fda9cd73c04c', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', 'GJS_DEBUG_OUTPUT': 'stderr', '_CONDA_EXE': '/home/rajneesh/miniconda3/bin/conda', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/rajneesh/droplet_runner_ws/build/droplet_state', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/rajneesh/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3:/home/rajneesh/cyberrunner/dreamerv3/dreamerv3:/home/rajneesh/droplet_runner_ws/build/droplet_state:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:/home/rajneesh/droplet_runner_ws/build/droplet_motor:/home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages:/home/rajneesh/droplet_runner_ws/build/droplet_camera:/home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'CONDA_PREFIX': '/home/rajneesh/miniconda3', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[3.614980] (-) TimerEvent: {}
+[3.715412] (-) TimerEvent: {}
+[3.815686] (-) TimerEvent: {}
+[3.916368] (-) TimerEvent: {}
+[3.937358] (droplet_state) StdoutLine: {'line': b'running egg_info\n'}
+[3.938066] (droplet_state) StdoutLine: {'line': b'writing ../../build/droplet_state/droplet_state.egg-info/PKG-INFO\n'}
+[4.016472] (-) TimerEvent: {}
+[4.118314] (-) TimerEvent: {}
+[4.158716] (droplet_state) StdoutLine: {'line': b'writing dependency_links to ../../build/droplet_state/droplet_state.egg-info/dependency_links.txt\n'}
+[4.218474] (-) TimerEvent: {}
+[4.318981] (-) TimerEvent: {}
+[4.377944] (droplet_state) StdoutLine: {'line': b'writing entry points to ../../build/droplet_state/droplet_state.egg-info/entry_points.txt\n'}
+[4.414999] (droplet_state) StdoutLine: {'line': b'writing requirements to ../../build/droplet_state/droplet_state.egg-info/requires.txt\n'}
+[4.418654] (droplet_state) StdoutLine: {'line': b'writing top-level names to ../../build/droplet_state/droplet_state.egg-info/top_level.txt\n'}
+[4.419372] (-) TimerEvent: {}
+[4.439601] (droplet_state) StdoutLine: {'line': b"reading manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'\n"}
+[4.519603] (-) TimerEvent: {}
+[4.620950] (-) TimerEvent: {}
+[4.721487] (-) TimerEvent: {}
+[4.821978] (-) TimerEvent: {}
+[4.922465] (-) TimerEvent: {}
+[5.023378] (-) TimerEvent: {}
+[5.123883] (-) TimerEvent: {}
+[5.227485] (-) TimerEvent: {}
+[5.319641] (droplet_state) StdoutLine: {'line': b"writing manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'\n"}
+[5.320342] (droplet_state) StdoutLine: {'line': b'running build\n'}
+[5.320885] (droplet_state) StdoutLine: {'line': b'running build_py\n'}
+[5.321438] (droplet_state) StdoutLine: {'line': b'copying droplet_state/path_tracker.py -> /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state\n'}
+[5.321839] (droplet_state) StdoutLine: {'line': b'copying droplet_state/pid_controller.py -> /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state\n'}
+[5.327711] (-) TimerEvent: {}
+[5.354876] (droplet_state) StdoutLine: {'line': b'running install\n'}
+[5.355311] (droplet_state) StdoutLine: {'line': b'running install_lib\n'}
+[5.356335] (droplet_state) StdoutLine: {'line': b'copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/policy_runner.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state\n'}
+[5.427864] (-) TimerEvent: {}
+[5.528430] (-) TimerEvent: {}
+[5.629498] (-) TimerEvent: {}
+[5.730413] (-) TimerEvent: {}
+[5.830868] (-) TimerEvent: {}
+[5.931830] (-) TimerEvent: {}
+[6.032905] (-) TimerEvent: {}
+[6.134028] (-) TimerEvent: {}
+[6.234959] (-) TimerEvent: {}
+[6.336105] (-) TimerEvent: {}
+[6.436673] (-) TimerEvent: {}
+[6.471775] (droplet_state) StdoutLine: {'line': b'copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/droplet_detector.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state\n'}
+[6.515132] (droplet_state) StdoutLine: {'line': b'copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/marker_detector.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state\n'}
+[6.536964] (-) TimerEvent: {}
+[6.637828] (-) TimerEvent: {}
+[6.738755] (-) TimerEvent: {}
+[6.839660] (-) TimerEvent: {}
+[6.910082] (droplet_state) StdoutLine: {'line': b'copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/path_tracker.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state\n'}
+[6.911315] (droplet_state) StdoutLine: {'line': b'copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/estimator.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state\n'}
+[6.939831] (-) TimerEvent: {}
+[6.957097] (droplet_state) StdoutLine: {'line': b'copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/__init__.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state\n'}
+[6.961288] (droplet_state) StdoutLine: {'line': b'copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/camera_model.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state\n'}
+[7.039960] (-) TimerEvent: {}
+[7.140425] (-) TimerEvent: {}
+[7.240831] (-) TimerEvent: {}
+[7.341363] (-) TimerEvent: {}
+[7.361357] (droplet_state) StdoutLine: {'line': b'copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/data_collector.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state\n'}
+[7.411317] (droplet_state) StdoutLine: {'line': b'copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/pid_controller.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state\n'}
+[7.414729] (droplet_state) StdoutLine: {'line': b'byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/policy_runner.py to policy_runner.cpython-310.pyc\n'}
+[7.424311] (droplet_state) StdoutLine: {'line': b'byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/droplet_detector.py to droplet_detector.cpython-310.pyc\n'}
+[7.427356] (droplet_state) StdoutLine: {'line': b'byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/marker_detector.py to marker_detector.cpython-310.pyc\n'}
+[7.430588] (droplet_state) StdoutLine: {'line': b'byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/path_tracker.py to path_tracker.cpython-310.pyc\n'}
+[7.435757] (droplet_state) StdoutLine: {'line': b'byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/estimator.py to estimator.cpython-310.pyc\n'}
+[7.441491] (-) TimerEvent: {}
+[7.444476] (droplet_state) StdoutLine: {'line': b'byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/__init__.py to __init__.cpython-310.pyc\n'}
+[7.445385] (droplet_state) StdoutLine: {'line': b'byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/camera_model.py to camera_model.cpython-310.pyc\n'}
+[7.452471] (droplet_state) StdoutLine: {'line': b'byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/data_collector.py to data_collector.cpython-310.pyc\n'}
+[7.469321] (droplet_state) StdoutLine: {'line': b'byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/pid_controller.py to pid_controller.cpython-310.pyc\n'}
+[7.483786] (droplet_state) StdoutLine: {'line': b'running install_data\n'}
+[7.484760] (droplet_state) StdoutLine: {'line': b'copying resource/droplet_state -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/ament_index/resource_index/packages\n'}
+[7.485475] (droplet_state) StdoutLine: {'line': b'copying package.xml -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state\n'}
+[7.486077] (droplet_state) StdoutLine: {'line': b'copying config/path_waypoints.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config\n'}
+[7.541681] (-) TimerEvent: {}
+[7.642466] (-) TimerEvent: {}
+[7.645829] (droplet_state) StdoutLine: {'line': b'copying config/path_waypoints_mm_ARC.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config\n'}
+[7.647161] (droplet_state) StdoutLine: {'line': b'copying config/path_waypoints_mm_Lshape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config\n'}
+[7.691325] (droplet_state) StdoutLine: {'line': b'copying config/path_waypoints_Ishape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config\n'}
+[7.743632] (-) TimerEvent: {}
+[7.844102] (-) TimerEvent: {}
+[7.944398] (-) TimerEvent: {}
+[7.986616] (droplet_state) StdoutLine: {'line': b'copying config/path_waypoints_mm.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config\n'}
+[7.987007] (droplet_state) StdoutLine: {'line': b'copying config/path_waypoints_mm_Ishape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config\n'}
+[8.009228] (droplet_state) StdoutLine: {'line': b'copying config/corner_markers.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config\n'}
+[8.033729] (droplet_state) StdoutLine: {'line': b'copying config/path_waypoints_mm_Sshape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config\n'}
+[8.041145] (droplet_state) StdoutLine: {'line': b'copying calib/calib_results.txt -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/calib\n'}
+[8.044507] (-) TimerEvent: {}
+[8.062261] (droplet_state) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.068105] (droplet_state) StdoutLine: {'line': b'Copying ../../build/droplet_state/droplet_state.egg-info to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state-0.0.0-py3.10.egg-info\n'}
+[8.085822] (droplet_state) StdoutLine: {'line': b'running install_scripts\n'}
+[8.144704] (-) TimerEvent: {}
+[8.195451] (droplet_state) StdoutLine: {'line': b'Installing data_collector script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state\n'}
+[8.197697] (droplet_state) StdoutLine: {'line': b'Installing estimator script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state\n'}
+[8.200853] (droplet_state) StdoutLine: {'line': b'Installing pid_controller script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state\n'}
+[8.201425] (droplet_state) StdoutLine: {'line': b'Installing policy_runner script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state\n'}
+[8.203644] (droplet_state) StdoutLine: {'line': b"writing list of installed files to '/home/rajneesh/droplet_runner_ws/build/droplet_state/install.log'\n"}
+[8.244923] (-) TimerEvent: {}
+[8.265031] (droplet_state) CommandEnded: {'returncode': 0}
+[8.345040] (-) TimerEvent: {}
+[8.445473] (-) TimerEvent: {}
+[8.545932] (-) TimerEvent: {}
+[8.646265] (-) TimerEvent: {}
+[8.746575] (-) TimerEvent: {}
+[8.795647] (droplet_state) JobEnded: {'identifier': 'droplet_state', 'rc': 0}
+[8.799861] (-) EventReactorShutdown: {}
