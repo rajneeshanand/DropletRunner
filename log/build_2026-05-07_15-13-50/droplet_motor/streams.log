@@ -1,0 +1,17 @@
+[2.217s] Invoking command in '/home/rajneesh/droplet_runner_ws/build/droplet_motor': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_motor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_motor/build --no-deps symlink_data
+[2.680s] running develop
+[2.994s] running egg_info
+[2.995s] writing droplet_motor.egg-info/PKG-INFO
+[2.995s] writing dependency_links to droplet_motor.egg-info/dependency_links.txt
+[2.995s] writing entry points to droplet_motor.egg-info/entry_points.txt
+[2.996s] writing requirements to droplet_motor.egg-info/requires.txt
+[2.996s] writing top-level names to droplet_motor.egg-info/top_level.txt
+[3.000s] reading manifest file 'droplet_motor.egg-info/SOURCES.txt'
+[3.015s] writing manifest file 'droplet_motor.egg-info/SOURCES.txt'
+[3.021s] running build_ext
+[3.021s] Creating /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages/droplet-motor.egg-link (link to .)
+[3.022s] Installing motor_driver script to /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/droplet_motor
+[3.022s] 
+[3.022s] Installed /home/rajneesh/droplet_runner_ws/build/droplet_motor
+[3.023s] running symlink_data
+[3.079s] Invoked command in '/home/rajneesh/droplet_runner_ws/build/droplet_motor' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_motor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_motor/build --no-deps symlink_data

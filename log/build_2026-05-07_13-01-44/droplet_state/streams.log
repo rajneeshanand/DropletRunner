@@ -1,0 +1,18 @@
+[0.697s] Invoking command in '/home/rajneesh/droplet_runner_ws/build/droplet_state': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_state/build --no-deps symlink_data
+[0.994s] running develop
+[1.182s] running egg_info
+[1.182s] writing droplet_state.egg-info/PKG-INFO
+[1.182s] writing dependency_links to droplet_state.egg-info/dependency_links.txt
+[1.182s] writing entry points to droplet_state.egg-info/entry_points.txt
+[1.182s] writing requirements to droplet_state.egg-info/requires.txt
+[1.182s] writing top-level names to droplet_state.egg-info/top_level.txt
+[1.184s] reading manifest file 'droplet_state.egg-info/SOURCES.txt'
+[1.185s] writing manifest file 'droplet_state.egg-info/SOURCES.txt'
+[1.187s] running build_ext
+[1.187s] Creating /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet-state.egg-link (link to .)
+[1.188s] Installing data_collector script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[1.188s] Installing estimator script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[1.188s] 
+[1.189s] Installed /home/rajneesh/droplet_runner_ws/build/droplet_state
+[1.189s] running symlink_data
+[1.223s] Invoked command in '/home/rajneesh/droplet_runner_ws/build/droplet_state' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_state/build --no-deps symlink_data
