@@ -1,0 +1,49 @@
+[0.968s] Invoking command in '/home/rajneesh/droplet_runner_ws/build/droplet_state': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_state/build
+[1.372s] running develop
+[1.639s] Removing /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet-state.egg-link (link to .)
+[1.676s] Invoked command in '/home/rajneesh/droplet_runner_ws/build/droplet_state' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_state/build
+[1.680s] Invoking command in '/home/rajneesh/droplet_runner_ws/src/droplet_state': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/droplet_state build --build-base /home/rajneesh/droplet_runner_ws/build/droplet_state/build install --record /home/rajneesh/droplet_runner_ws/build/droplet_state/install.log --single-version-externally-managed install_data --force
+[2.031s] running egg_info
+[2.033s] writing ../../build/droplet_state/droplet_state.egg-info/PKG-INFO
+[2.033s] writing dependency_links to ../../build/droplet_state/droplet_state.egg-info/dependency_links.txt
+[2.033s] writing entry points to ../../build/droplet_state/droplet_state.egg-info/entry_points.txt
+[2.033s] writing requirements to ../../build/droplet_state/droplet_state.egg-info/requires.txt
+[2.033s] writing top-level names to ../../build/droplet_state/droplet_state.egg-info/top_level.txt
+[2.057s] reading manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'
+[2.059s] writing manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'
+[2.059s] running build
+[2.060s] running build_py
+[2.060s] copying droplet_state/data_collector.py -> /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state
+[2.096s] running install
+[2.096s] running install_lib
+[2.140s] copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/policy_runner.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+[2.168s] copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/droplet_detector.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+[2.168s] copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/marker_detector.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+[2.169s] copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/path_tracker.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+[2.169s] copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/estimator.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+[2.189s] copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/__init__.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+[2.189s] copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/camera_model.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+[2.203s] copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/data_collector.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+[2.206s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/policy_runner.py to policy_runner.cpython-310.pyc
+[2.217s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/droplet_detector.py to droplet_detector.cpython-310.pyc
+[2.220s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/marker_detector.py to marker_detector.cpython-310.pyc
+[2.223s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/path_tracker.py to path_tracker.cpython-310.pyc
+[2.230s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/estimator.py to estimator.cpython-310.pyc
+[2.241s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/__init__.py to __init__.cpython-310.pyc
+[2.242s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/camera_model.py to camera_model.cpython-310.pyc
+[2.247s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/data_collector.py to data_collector.cpython-310.pyc
+[2.257s] running install_data
+[2.257s] copying resource/droplet_state -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/ament_index/resource_index/packages
+[2.258s] copying package.xml -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state
+[2.290s] copying config/path_waypoints.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+[2.319s] copying config/path_waypoints_mm.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+[2.320s] copying config/corner_markers.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+[2.326s] copying calib/calib_results.txt -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/calib
+[2.348s] running install_egg_info
+[2.361s] Copying ../../build/droplet_state/droplet_state.egg-info to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state-0.0.0-py3.10.egg-info
+[2.376s] running install_scripts
+[2.409s] Installing data_collector script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[2.409s] Installing estimator script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[2.410s] Installing policy_runner script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[2.410s] writing list of installed files to '/home/rajneesh/droplet_runner_ws/build/droplet_state/install.log'
+[2.462s] Invoked command in '/home/rajneesh/droplet_runner_ws/src/droplet_state' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/droplet_state build --build-base /home/rajneesh/droplet_runner_ws/build/droplet_state/build install --record /home/rajneesh/droplet_runner_ws/build/droplet_state/install.log --single-version-externally-managed install_data --force
