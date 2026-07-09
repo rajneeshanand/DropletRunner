@@ -1,0 +1,29 @@
+[1.096s] Invoking command in '/home/rajneesh/droplet_runner_ws/src/droplet_state': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/droplet_state build --build-base /home/rajneesh/droplet_runner_ws/build/droplet_state/build install --record /home/rajneesh/droplet_runner_ws/build/droplet_state/install.log --single-version-externally-managed install_data
+[1.485s] running egg_info
+[1.486s] writing ../../build/droplet_state/droplet_state.egg-info/PKG-INFO
+[1.486s] writing dependency_links to ../../build/droplet_state/droplet_state.egg-info/dependency_links.txt
+[1.486s] writing entry points to ../../build/droplet_state/droplet_state.egg-info/entry_points.txt
+[1.487s] writing requirements to ../../build/droplet_state/droplet_state.egg-info/requires.txt
+[1.487s] writing top-level names to ../../build/droplet_state/droplet_state.egg-info/top_level.txt
+[1.492s] reading manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'
+[1.499s] writing manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'
+[1.499s] running build
+[1.500s] running build_py
+[1.500s] copying droplet_state/path_tracker.py -> /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state
+[1.529s] running install
+[1.529s] running install_lib
+[1.530s] copying /home/rajneesh/droplet_runner_ws/build/droplet_state/build/lib/droplet_state/path_tracker.py -> /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state
+[1.531s] byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state/path_tracker.py to path_tracker.cpython-310.pyc
+[1.533s] running install_data
+[1.534s] copying config/path_waypoints_mm.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+[1.564s] copying config/path_waypoints_mm_Sshape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+[1.564s] running install_egg_info
+[1.568s] removing '/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state-0.0.0-py3.10.egg-info' (and everything under it)
+[1.568s] Copying ../../build/droplet_state/droplet_state.egg-info to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state-0.0.0-py3.10.egg-info
+[1.570s] running install_scripts
+[1.601s] Installing data_collector script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[1.601s] Installing estimator script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[1.601s] Installing pid_controller script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[1.601s] Installing policy_runner script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[1.602s] writing list of installed files to '/home/rajneesh/droplet_runner_ws/build/droplet_state/install.log'
+[1.656s] Invoked command in '/home/rajneesh/droplet_runner_ws/src/droplet_state' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/droplet_state build --build-base /home/rajneesh/droplet_runner_ws/build/droplet_state/build install --record /home/rajneesh/droplet_runner_ws/build/droplet_state/install.log --single-version-externally-managed install_data
