@@ -1,0 +1,22 @@
+[7.043s] Invoking command in '/home/rajneesh/droplet_runner_ws/build/droplet_state': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_state/build --no-deps symlink_data
+[7.575s] running develop
+[7.899s] running egg_info
+[7.900s] writing droplet_state.egg-info/PKG-INFO
+[7.900s] writing dependency_links to droplet_state.egg-info/dependency_links.txt
+[7.900s] writing entry points to droplet_state.egg-info/entry_points.txt
+[7.900s] writing requirements to droplet_state.egg-info/requires.txt
+[7.900s] writing top-level names to droplet_state.egg-info/top_level.txt
+[7.905s] reading manifest file 'droplet_state.egg-info/SOURCES.txt'
+[8.199s] writing manifest file 'droplet_state.egg-info/SOURCES.txt'
+[8.200s] running build_ext
+[8.201s] Creating /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet-state.egg-link (link to .)
+[8.205s] Installing data_collector script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[8.205s] Installing estimator script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[8.205s] Installing policy_runner script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[8.206s] 
+[8.206s] Installed /home/rajneesh/droplet_runner_ws/build/droplet_state
+[8.207s] running symlink_data
+[8.207s] symbolically linking /home/rajneesh/droplet_runner_ws/build/droplet_state/config/path_waypoints_mm_Lshape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+[8.208s] symbolically linking /home/rajneesh/droplet_runner_ws/build/droplet_state/config/path_waypoints_Ishape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+[8.208s] symbolically linking /home/rajneesh/droplet_runner_ws/build/droplet_state/config/path_waypoints_mm_Ishape.json -> /home/rajneesh/droplet_runner_ws/install/droplet_state/share/droplet_state/config
+[8.289s] Invoked command in '/home/rajneesh/droplet_runner_ws/build/droplet_state' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_state/build --no-deps symlink_data

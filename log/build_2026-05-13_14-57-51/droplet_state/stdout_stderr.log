@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing droplet_state.egg-info/PKG-INFO
+writing dependency_links to droplet_state.egg-info/dependency_links.txt
+writing entry points to droplet_state.egg-info/entry_points.txt
+writing requirements to droplet_state.egg-info/requires.txt
+writing top-level names to droplet_state.egg-info/top_level.txt
+reading manifest file 'droplet_state.egg-info/SOURCES.txt'
+writing manifest file 'droplet_state.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet-state.egg-link (link to .)
+Installing data_collector script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+Installing estimator script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+Installing policy_runner script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+
+Installed /home/rajneesh/droplet_runner_ws/build/droplet_state
+running symlink_data
