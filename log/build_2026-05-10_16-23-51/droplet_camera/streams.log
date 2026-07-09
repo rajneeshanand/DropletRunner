@@ -1,0 +1,17 @@
+[2.085s] Invoking command in '/home/rajneesh/droplet_runner_ws/build/droplet_camera': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_camera/build --no-deps symlink_data
+[2.643s] running develop
+[2.935s] running egg_info
+[2.935s] writing droplet_camera.egg-info/PKG-INFO
+[2.935s] writing dependency_links to droplet_camera.egg-info/dependency_links.txt
+[2.936s] writing entry points to droplet_camera.egg-info/entry_points.txt
+[2.936s] writing requirements to droplet_camera.egg-info/requires.txt
+[2.936s] writing top-level names to droplet_camera.egg-info/top_level.txt
+[2.939s] reading manifest file 'droplet_camera.egg-info/SOURCES.txt'
+[2.949s] writing manifest file 'droplet_camera.egg-info/SOURCES.txt'
+[2.951s] running build_ext
+[2.951s] Creating /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages/droplet-camera.egg-link (link to .)
+[2.952s] Installing cam_publisher script to /home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/droplet_camera
+[2.952s] 
+[2.952s] Installed /home/rajneesh/droplet_runner_ws/build/droplet_camera
+[2.953s] running symlink_data
+[3.019s] Invoked command in '/home/rajneesh/droplet_runner_ws/build/droplet_camera' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_camera/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rajneesh/droplet_runner_ws/build/droplet_camera/build --no-deps symlink_data
