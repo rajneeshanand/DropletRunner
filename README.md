@@ -1,4 +1,4 @@
-# DropletRunner: Autonomous Droplet Navigation via Model-Based Reinforcement Learning
+# DropletRunner: Autonomous Droplet Navigation via MBRL
 
 A complete guide to setting up, running, and training the DropletRunner system; from hardware assembly through data collection, offline DreamerV3 training on HPC, and real-time policy deployment.
 
