@@ -1,0 +1,32 @@
+running develop
+Removing /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages/droplet-motor.egg-link (link to .)
+running egg_info
+writing ../../build/droplet_motor/droplet_motor.egg-info/PKG-INFO
+writing dependency_links to ../../build/droplet_motor/droplet_motor.egg-info/dependency_links.txt
+writing entry points to ../../build/droplet_motor/droplet_motor.egg-info/entry_points.txt
+writing requirements to ../../build/droplet_motor/droplet_motor.egg-info/requires.txt
+writing top-level names to ../../build/droplet_motor/droplet_motor.egg-info/top_level.txt
+reading manifest file '../../build/droplet_motor/droplet_motor.egg-info/SOURCES.txt'
+writing manifest file '../../build/droplet_motor/droplet_motor.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/rajneesh/droplet_runner_ws/build/droplet_motor/build
+creating /home/rajneesh/droplet_runner_ws/build/droplet_motor/build/lib
+creating /home/rajneesh/droplet_runner_ws/build/droplet_motor/build/lib/droplet_motor
+copying droplet_motor/motor_driver.py -> /home/rajneesh/droplet_runner_ws/build/droplet_motor/build/lib/droplet_motor
+copying droplet_motor/__init__.py -> /home/rajneesh/droplet_runner_ws/build/droplet_motor/build/lib/droplet_motor
+running install
+running install_lib
+creating /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages/droplet_motor
+copying /home/rajneesh/droplet_runner_ws/build/droplet_motor/build/lib/droplet_motor/motor_driver.py -> /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages/droplet_motor
+copying /home/rajneesh/droplet_runner_ws/build/droplet_motor/build/lib/droplet_motor/__init__.py -> /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages/droplet_motor
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages/droplet_motor/motor_driver.py to motor_driver.cpython-310.pyc
+byte-compiling /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages/droplet_motor/__init__.py to __init__.cpython-310.pyc
+running install_data
+copying resource/droplet_motor -> /home/rajneesh/droplet_runner_ws/install/droplet_motor/share/ament_index/resource_index/packages
+copying package.xml -> /home/rajneesh/droplet_runner_ws/install/droplet_motor/share/droplet_motor
+running install_egg_info
+Copying ../../build/droplet_motor/droplet_motor.egg-info to /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/python3.10/site-packages/droplet_motor-0.0.0-py3.10.egg-info
+running install_scripts
+Installing motor_driver script to /home/rajneesh/droplet_runner_ws/install/droplet_motor/lib/droplet_motor
+writing list of installed files to '/home/rajneesh/droplet_runner_ws/build/droplet_motor/install.log'
