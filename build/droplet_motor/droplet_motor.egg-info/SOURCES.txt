@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/droplet_motor/droplet_motor.egg-info/PKG-INFO
+../../build/droplet_motor/droplet_motor.egg-info/SOURCES.txt
+../../build/droplet_motor/droplet_motor.egg-info/dependency_links.txt
+../../build/droplet_motor/droplet_motor.egg-info/entry_points.txt
+../../build/droplet_motor/droplet_motor.egg-info/requires.txt
+../../build/droplet_motor/droplet_motor.egg-info/top_level.txt
+../../build/droplet_motor/droplet_motor.egg-info/zip-safe
+droplet_motor/__init__.py
+droplet_motor/motor_driver.py
+resource/droplet_motor
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
