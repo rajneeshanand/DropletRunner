@@ -1,0 +1,25 @@
+[1.644s] Invoking command in '/home/rajneesh/droplet_runner_ws/src/droplet_state': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/droplet_state build --build-base /home/rajneesh/droplet_runner_ws/build/droplet_state/build install --record /home/rajneesh/droplet_runner_ws/build/droplet_state/install.log --single-version-externally-managed install_data
+[2.211s] running egg_info
+[2.212s] writing ../../build/droplet_state/droplet_state.egg-info/PKG-INFO
+[2.215s] writing dependency_links to ../../build/droplet_state/droplet_state.egg-info/dependency_links.txt
+[2.215s] writing entry points to ../../build/droplet_state/droplet_state.egg-info/entry_points.txt
+[2.215s] writing requirements to ../../build/droplet_state/droplet_state.egg-info/requires.txt
+[2.215s] writing top-level names to ../../build/droplet_state/droplet_state.egg-info/top_level.txt
+[2.229s] reading manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'
+[2.234s] writing manifest file '../../build/droplet_state/droplet_state.egg-info/SOURCES.txt'
+[2.238s] running build
+[2.238s] running build_py
+[2.238s] running install
+[2.238s] running install_lib
+[2.239s] running install_data
+[2.239s] running install_egg_info
+[2.244s] removing '/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state-0.0.0-py3.10.egg-info' (and everything under it)
+[2.245s] Copying ../../build/droplet_state/droplet_state.egg-info to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages/droplet_state-0.0.0-py3.10.egg-info
+[2.246s] running install_scripts
+[2.296s] Installing data_collector script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[2.297s] Installing estimator script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[2.297s] Installing open_loop_replay script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[2.297s] Installing pid_controller script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[2.297s] Installing policy_runner script to /home/rajneesh/droplet_runner_ws/install/droplet_state/lib/droplet_state
+[2.299s] writing list of installed files to '/home/rajneesh/droplet_runner_ws/build/droplet_state/install.log'
+[2.354s] Invoked command in '/home/rajneesh/droplet_runner_ws/src/droplet_state' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/rajneesh/droplet_runner_ws/build/droplet_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rajneesh/droplet_runner_ws/install/droplet_state/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/droplet_state build --build-base /home/rajneesh/droplet_runner_ws/build/droplet_state/build install --record /home/rajneesh/droplet_runner_ws/build/droplet_state/install.log --single-version-externally-managed install_data
