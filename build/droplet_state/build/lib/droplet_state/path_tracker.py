@@ -1,0 +1,145 @@
+#Tracks progress along the predefined path and computes reward for DreamerV3.
+
+
+import numpy as np
+import json
+
+
+class PathTracker:
+    def __init__(self, waypoints_file):
+      
+        with open(waypoints_file, 'r') as f:
+            self.waypoints = np.array(json.load(f), dtype=np.float64)
+
+        #Precompute cumulative distances along the path
+        diffs = np.diff(self.waypoints, axis=0)
+        segment_lengths = np.linalg.norm(diffs, axis=1)
+        self.cumulative_dist = np.concatenate([[0], np.cumsum(segment_lengths)])
+        self.total_length = self.cumulative_dist[-1]
+
+        #State
+        self.prev_progress = 0.0
+
+        #Reward parameters
+        self.lambda_distance = 0.1   # penalty weight for deviation from path
+        self.max_deviation = 60.0    # mm — terminate if droplet strays this far
+        self.goal_radius = 10.0      # mm — success if within this of end
+
+        print(f"PathTracker: loaded {len(self.waypoints)} waypoints, "
+              f"total path length = {self.total_length:.1f} mm")
+
+    def update(self, droplet_pos):                      # 
+        pos = np.array(droplet_pos, dtype=np.float64)
+
+        #nearest waypoint
+        distances_to_waypoints = np.linalg.norm(
+            self.waypoints - pos, axis=1
+        )
+        nearest_idx = np.argmin(distances_to_waypoints)
+
+        #precise progress by projecting onto nearby segments
+        progress, nearest_dist = self._precise_progress(pos, nearest_idx)
+
+        # Reward = forward progress - distance penalty
+        delta_progress = progress - self.prev_progress
+        reward = delta_progress - self.lambda_distance * nearest_dist
+
+        #termination checks
+        done = False
+        success = False
+
+        if nearest_dist > self.max_deviation:
+            done = True
+            reward = -1.0
+
+        if progress > self.total_length - self.goal_radius:
+            done = True
+            success = True
+            reward += 10.0
+
+        #next 5 lookahead points along the path
+        lookahead = self._get_lookahead_points(progress, n_points=5)
+
+        self.prev_progress = progress
+
+        return {
+            'progress': progress,
+            'distance': nearest_dist,
+            'reward': reward,
+            'done': done,
+            'success': success,
+            'lookahead_points': lookahead,
+        }
+
+    def _precise_progress(self, pos, nearest_idx):
+        best_progress = self.cumulative_dist[nearest_idx]
+        best_dist = np.linalg.norm(pos - self.waypoints[nearest_idx])
+
+        for i in [max(0, nearest_idx - 1), nearest_idx]:
+            if i >= len(self.waypoints) - 1:
+                continue
+            a = self.waypoints[i]
+            b = self.waypoints[i + 1]
+            ab = b - a
+            ap = pos - a
+            t = np.clip(np.dot(ap, ab) / (np.dot(ab, ab) + 1e-8), 0, 1)
+            proj_point = a + t * ab
+            dist = np.linalg.norm(pos - proj_point)
+            proj_progress = self.cumulative_dist[i] + t * np.linalg.norm(ab)
+
+            if dist < best_dist:
+                best_dist = dist
+                best_progress = proj_progress
+
+        return best_progress, best_dist
+
+    def _get_lookahead_points(self, current_progress, n_points=5, spacing_mm=10.0):
+
+        points = []
+        for i in range(1, n_points + 1):
+            target_dist = min(current_progress + i * spacing_mm,
+                              self.total_length)
+
+            idx = np.searchsorted(self.cumulative_dist, target_dist) - 1
+            idx = np.clip(idx, 0, len(self.waypoints) - 2)
+
+            segment_start = self.cumulative_dist[idx]
+            segment_length = self.cumulative_dist[idx + 1] - segment_start
+            if segment_length < 1e-8:
+                t = 0
+            else:
+                t = (target_dist - segment_start) / segment_length
+            t = np.clip(t, 0, 1)
+
+            point = self.waypoints[idx] + t * (
+                self.waypoints[idx + 1] - self.waypoints[idx]
+            )
+            points.append(point)
+
+        return np.array(points)
+
+    def reset(self):
+        """Call at the start of each episode."""
+        self.prev_progress = 0.0
+
+
+if __name__ == '__main__':
+    import sys
+    f = sys.argv[1] if len(sys.argv) > 1 else \
+        'src/droplet_state/config/path_waypoints_mm.json'
+    tracker = PathTracker(f)
+
+    #simulate droplet at first waypoint
+    pos = tracker.waypoints[0]
+    result = tracker.update(pos)
+    print(f"\nTest at first waypoint {pos}:")
+    print(f"  Progress: {result['progress']:.1f} mm")
+    print(f"  Distance from path: {result['distance']:.2f} mm")
+    print(f"  Reward: {result['reward']:.4f}")
+    print(f"  Lookahead points:\n{result['lookahead_points']}")
+    
+    mid = tracker.waypoints[len(tracker.waypoints)//2]
+    result = tracker.update(mid)
+    print(f"\nTest at midpoint {mid}:")
+    print(f"  Progress: {result['progress']:.1f} mm")
+    print(f"  Reward: {result['reward']:.4f}")
