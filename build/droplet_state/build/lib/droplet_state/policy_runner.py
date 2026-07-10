@@ -1,0 +1,296 @@
+#!/usr/bin/env python3
+
+#Policy runner for DropletRunner and DreamerV3 to evaluate the learned policy on real hardware.
+
+
+import os
+os.environ['JAX_PLATFORMS'] = 'cpu'
+os.environ['CUDA_VISIBLE_DEVICES'] = ''
+
+import sys
+import warnings
+warnings.filterwarnings('ignore')
+
+dreamer_path = os.path.expanduser('~/cyberrunner/dreamerv3')
+sys.path.insert(0, dreamer_path)
+sys.path.insert(0, os.path.join(dreamer_path, 'dreamerv3'))
+
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image
+from std_msgs.msg import Float32MultiArray
+from cv_bridge import CvBridge
+import cv2
+import numpy as np
+import json
+import time
+
+import jax
+import jax.numpy as jnp
+import embodied
+from dreamerv3 import agent as agt
+
+
+class PolicyRunner(Node):
+    def __init__(self):
+        super().__init__('policy_runner')
+
+        self.bridge = CvBridge()
+
+        from droplet_state.path_tracker import PathTracker
+        possible_paths = [
+            os.path.join(os.path.dirname(__file__), '..', 'config', 'path_waypoints_mm.json'),
+            os.path.expanduser('~/droplet_runner_ws/src/droplet_state/config/path_waypoints_mm.json'),
+        ]
+        waypoints_file = None
+        for p in possible_paths:
+            if os.path.exists(p):
+                waypoints_file = p
+                break
+        self.path_tracker = PathTracker(waypoints_file)
+
+        policy_dir = os.path.expanduser('~/droplet_runner_ws/policy')
+        self.get_logger().info('Loading DreamerV3 agent...')
+
+        obs_space = {
+            'image': embodied.Space(np.uint8, (64, 64, 3)),
+            'vector': embodied.Space(np.float32, (14,)),
+            'reward': embodied.Space(np.float32),
+            'is_first': embodied.Space(bool),
+            'is_last': embodied.Space(bool),
+            'is_terminal': embodied.Space(bool),
+        }
+        act_space = {
+            'action': embodied.Space(np.float32, (2,), -1.0, 1.0),
+            'reset': embodied.Space(bool),
+        }
+
+        # Load config
+        config = embodied.Config(agt.Agent.configs['defaults'])
+        config = config.update(agt.Agent.configs['small'])
+        config = config.update({
+            'logdir': policy_dir,
+            'task': 'droplet_runner',
+            'batch_size': 1,
+            'batch_length': 1,
+            'encoder.cnn_keys': 'image',
+            'encoder.mlp_keys': 'vector',
+            'decoder.cnn_keys': 'image',
+            'decoder.mlp_keys': 'vector',
+            'jax.platform': 'cpu',
+        })
+
+        # Create agent
+        self.step = embodied.Counter()
+        self.agent = agt.Agent(obs_space, act_space, self.step, config)
+
+        # Create dummy replay to satisfy checkpoint loader
+        replay_dir = os.path.join(policy_dir, 'replay')
+        os.makedirs(replay_dir, exist_ok=True)
+        replay = embodied.replay.Uniform(
+            length=config.batch_length,
+            capacity=int(1e4),
+            directory=replay_dir,
+        )
+
+        # Load checkpoint
+        checkpoint_path = os.path.join(policy_dir, 'checkpoint.ckpt')
+        checkpoint = embodied.Checkpoint(checkpoint_path)
+        checkpoint.step = self.step
+        checkpoint.agent = self.agent
+        checkpoint.replay = replay
+        checkpoint.load_or_save()
+
+        self.get_logger().info(f'Checkpoint loaded from {checkpoint_path}')
+
+        self.agent_state = None
+
+        self.current_frame = None
+        self.current_state = None
+        self.state_stamp = None
+
+        self.in_episode = False
+        self.episode_steps = 0
+        self.max_episode_steps = 600
+        self.control_hz = 20.0
+
+        self.action_scale = 150.0
+
+        self.action_log_file = None
+
+        self.roi_x1, self.roi_y1 = 338, 126
+        self.roi_x2, self.roi_y2 = 908, 648
+        self.board_w_mm = 266.0
+        self.board_h_mm = 241.0
+
+        self.image_sub = self.create_subscription(
+            Image, '/image_raw', self.image_callback, 10)
+        self.state_sub = self.create_subscription(
+            Float32MultiArray, '/droplet_state',
+            self.state_callback, 10)
+
+        self.motor_pub = self.create_publisher(
+            Float32MultiArray, '/motor_commands', 10)
+
+        self.control_timer = self.create_timer(
+            1.0 / self.control_hz, self.control_step)
+
+        self.get_logger().info('Policy runner ready. Press ENTER to start episode.')
+
+
+        import threading
+        self.input_thread = threading.Thread(
+            target=self._wait_for_input, daemon=True)
+        self.input_thread.start()
+
+    def image_callback(self, msg):
+        self.current_frame = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
+
+    def state_callback(self, msg):
+        self.current_state = np.array(msg.data)
+        self.state_stamp = time.time()
+
+    def control_step(self):
+        if not self.in_episode:
+            self._send_action(np.array([0.0, 0.0]))
+            return
+
+        if self.current_state is None or self.current_frame is None:
+            return
+        if self.state_stamp is None or time.time() - self.state_stamp > 0.5:
+            return
+
+        x_mm, y_mm, alpha, beta, detected = self.current_state
+
+        patch = self._extract_patch_from_mm(x_mm, y_mm, detected)
+
+        if detected > 0.5:
+            track_result = self.path_tracker.update([x_mm, y_mm])
+        else:
+            track_result = self.path_tracker.update([0.0, 0.0])
+
+        lookahead = track_result['lookahead_points'].flatten()
+        obs_vector = np.array([
+            x_mm, y_mm, alpha, beta, *lookahead
+        ], dtype=np.float32)
+
+        obs = {
+            'image': patch[None],
+            'vector': obs_vector[None],
+            'reward': np.array([track_result['reward']], dtype=np.float32),
+            'is_first': np.array([self.episode_steps == 0]),
+            'is_last': np.array([False]),
+            'is_terminal': np.array([False]),
+        }
+
+        act, self.agent_state = self.agent.policy(
+            obs, self.agent_state, mode='eval')
+
+        action_normalized = np.array(act['action'][0])
+        action_current = np.clip(
+            action_normalized * self.action_scale,
+            -self.action_scale, self.action_scale)
+
+        self._send_action(action_current)
+
+        # Log every step for frequency analysis
+        if self.action_log_file is not None:
+            self.action_log_file.write(
+                f"{self.episode_steps},{x_mm:.2f},{y_mm:.2f},"
+                f"{action_normalized[0]:.4f},{action_normalized[1]:.4f},"
+                f"{action_current[0]:.1f},{action_current[1]:.1f},"
+                f"{track_result['progress']:.1f}\n")
+
+        self.episode_steps += 1
+
+        if self.episode_steps % 20 == 0:
+            self.get_logger().info(
+                f'Step {self.episode_steps}: pos=({x_mm:.1f},{y_mm:.1f})mm '
+                f'action=({action_normalized[0]:.2f},{action_normalized[1]:.2f}) '
+                f'progress={track_result["progress"]:.1f}mm')
+
+        done = track_result['done']
+        if done or self.episode_steps >= self.max_episode_steps:
+            self.get_logger().info(
+                f'Episode done: {self.episode_steps} steps, '
+                f'progress={track_result["progress"]:.1f}mm, '
+                f'success={track_result["success"]}')
+            self._end_episode()
+
+    def _extract_patch_from_mm(self, x_mm, y_mm, detected):
+        if self.current_frame is None or detected < 0.5:
+            return np.zeros((64, 64, 3), dtype=np.uint8)
+
+        px = int(self.roi_x1 + (x_mm + self.board_w_mm/2) /
+                 self.board_w_mm * (self.roi_x2 - self.roi_x1))
+        py = int(self.roi_y1 + (y_mm + self.board_h_mm/2) /
+                 self.board_h_mm * (self.roi_y2 - self.roi_y1))
+
+        h, w = self.current_frame.shape[:2]
+        half = 32
+        px = max(half, min(w - half, px))
+        py = max(half, min(h - half, py))
+
+        patch = self.current_frame[py-half:py+half, px-half:px+half]
+
+        if patch.shape != (64, 64, 3):
+            patch = np.zeros((64, 64, 3), dtype=np.uint8)
+
+        return patch.astype(np.uint8)
+
+    def _send_action(self, action):
+        msg = Float32MultiArray()
+        msg.data = [float(action[0]), float(action[1])]
+        self.motor_pub.publish(msg)
+
+    def _end_episode(self):
+        self.in_episode = False
+        self._send_action(np.array([0.0, 0.0]))
+        self.agent_state = None
+        self.episode_steps = 0
+        self.path_tracker.reset()
+
+        if self.action_log_file is not None:
+            self.action_log_file.close()
+            self.action_log_file = None
+
+        print('\nEpisode ended. Press ENTER for next episode.')
+
+    def _wait_for_input(self):
+        while True:
+            input("\n>>> Press ENTER to start a new episode...")
+            if not self.in_episode:
+                self.in_episode = True
+                self.agent_state = None
+                self.episode_steps = 0
+                self.path_tracker.reset()
+
+                # Open log file for this episode
+                import datetime
+                ts = datetime.datetime.now().strftime('%H%M%S')
+                #logpath = os.path.expanduser(f'~/droplet_runner_ws/mbrl_actions_ep{ts}.csv')
+                log_dir = os.path.expanduser('~/droplet_runner_ws/action_logs')
+                os.makedirs(log_dir, exist_ok=True)
+                logpath = os.path.join(log_dir, f'mbrl_actions_ep{ts}.csv')
+                self.action_log_file = open(logpath, 'w')
+                self.action_log_file.write("step,x_mm,y_mm,action_norm1,action_norm2,current1,current2,progress\n")
+
+                self.get_logger().info('Episode started with LEARNED POLICY!')
+            else:
+                self.get_logger().info('Episode already running.')
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = PolicyRunner()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
