@@ -833,4 +833,4 @@ If a trained policy behaves erratically, the replay buffer may contain episodes 
 
 ---
 
-*DropletRunner -- Rajneesh Anand from Kothare Research Group, Lehigh University*
+*DropletRunner -- Rajneesh Anand from Kothare Research Group, Lehigh University* 
