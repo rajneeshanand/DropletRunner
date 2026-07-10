@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/droplet_camera/droplet_camera.egg-info/PKG-INFO
+../../build/droplet_camera/droplet_camera.egg-info/SOURCES.txt
+../../build/droplet_camera/droplet_camera.egg-info/dependency_links.txt
+../../build/droplet_camera/droplet_camera.egg-info/entry_points.txt
+../../build/droplet_camera/droplet_camera.egg-info/requires.txt
+../../build/droplet_camera/droplet_camera.egg-info/top_level.txt
+../../build/droplet_camera/droplet_camera.egg-info/zip-safe
+droplet_camera/__init__.py
+droplet_camera/cam_publisher.py
+resource/droplet_camera
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
