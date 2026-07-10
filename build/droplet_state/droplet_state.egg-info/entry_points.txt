@@ -1,0 +1,7 @@
+[console_scripts]
+data_collector = droplet_state.data_collector:main
+estimator = droplet_state.estimator:main
+open_loop_replay = droplet_state.open_loop_replay:main
+pid_controller = droplet_state.pid_controller:main
+policy_runner = droplet_state.policy_runner:main
+
