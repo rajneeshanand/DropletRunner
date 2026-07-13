@@ -1,0 +1,51 @@
+============================================
+DropletRunner DreamerV3 Training
+Job ID: 13927702
+Node: sol-ja02
+Date: Fri Jun 26 10:17:36 PM EDT 2026
+============================================
+
+Fri Jun 26 22:17:37 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:B5:00.0 Off |                    0 |
+| N/A   47C    P8             38W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+JAX devices: [CpuDevice(id=0)]
+
+Starting training at Fri Jun 26 10:18:37 PM EDT 2026...
+Converting 51 episodes...
+Done: 51 episodes converted
+
+============================================================
+Configuring DreamerV3
+============================================================
+Obs space: image(64,64,3) + vector(14,)
+Act space: action(2,) in [-1,1]
+
+Loading replay buffer...
+Replay: 4241 steps loaded
+
+Creating agent...
+Could not disable TensorFlow devices: No module named 'tensorflow'
+Encoder CNN shapes: {'image': (64, 64, 3)}
+Encoder MLP shapes: {'vector': (14,)}
+Decoder CNN shapes: {'image': (64, 64, 3)}
+Decoder MLP shapes: {'vector': (14,)}
+
+Training complete at Fri Jun 26 10:18:54 PM EDT 2026
+============================================

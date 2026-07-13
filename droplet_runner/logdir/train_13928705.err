@@ -1,0 +1,125 @@
+ERROR:2026-06-27 13:20:15,820:jax._src.xla_bridge:444: Jax plugin configuration error: Exception when calling jax_plugins.xla_cuda12.initialize()
+Traceback (most recent call last):
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax_plugins/xla_cuda12/__init__.py", line 197, in _version_check
+    version = get_version()
+RuntimeError: jaxlib/cuda/versions_helpers.cc:34: operation cudaRuntimeGetVersion(&version) failed: Error loading CUDA libraries. GPU will not be used.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax/_src/xla_bridge.py", line 442, in discover_pjrt_plugins
+    plugin_module.initialize()
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax_plugins/xla_cuda12/__init__.py", line 324, in initialize
+    _check_cuda_versions(raise_on_first_error=True)
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax_plugins/xla_cuda12/__init__.py", line 229, in _check_cuda_versions
+    _version_check("CUDA", cuda_versions.cuda_runtime_get_version,
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax_plugins/xla_cuda12/__init__.py", line 201, in _version_check
+    raise RuntimeError(err_msg) from e
+RuntimeError: Unable to load CUDA. Is it installed?
+WARNING:2026-06-27 13:20:16,219:jax._src.xla_bridge:794: An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+ERROR:2026-06-27 13:21:00,231:jax._src.xla_bridge:444: Jax plugin configuration error: Exception when calling jax_plugins.xla_cuda12.initialize()
+Traceback (most recent call last):
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax_plugins/xla_cuda12/__init__.py", line 197, in _version_check
+    version = get_version()
+RuntimeError: jaxlib/cuda/versions_helpers.cc:34: operation cudaRuntimeGetVersion(&version) failed: Error loading CUDA libraries. GPU will not be used.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax/_src/xla_bridge.py", line 442, in discover_pjrt_plugins
+    plugin_module.initialize()
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax_plugins/xla_cuda12/__init__.py", line 324, in initialize
+    _check_cuda_versions(raise_on_first_error=True)
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax_plugins/xla_cuda12/__init__.py", line 229, in _check_cuda_versions
+    _version_check("CUDA", cuda_versions.cuda_runtime_get_version,
+  File "/home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax_plugins/xla_cuda12/__init__.py", line 201, in _version_check
+    raise RuntimeError(err_msg) from e
+RuntimeError: Unable to load CUDA. Is it installed?
+WARNING:2026-06-27 13:21:00,235:jax._src.xla_bridge:794: An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /share/ceph/hawk/mvk2_proj/raa524/droplet_runner/train_offline.py:221 in     │
+│ <module>                                                                     │
+│                                                                              │
+│   218 start_time = time.time()                                               │
+│   219                                                                        │
+│   220 if __name__ == '__main__':                                             │
+│ ❱ 221 │   main()                                                             │
+│   222                                                                        │
+│                                                                              │
+│ /share/ceph/hawk/mvk2_proj/raa524/droplet_runner/train_offline.py:149 in     │
+│ main                                                                         │
+│                                                                              │
+│   146 │   # Create agent                                                     │
+│   147 │   print("\nCreating agent...")                                       │
+│   148 │   step = embodied.Counter()                                          │
+│ ❱ 149 │   agent = agt.Agent(obs_space, act_space, step, config)              │
+│   150 │                                                                      │
+│   151 │   # Set up logger                                                    │
+│   152 │   logger = embodied.Logger(step, [                                   │
+│                                                                              │
+│ /home/raa524/cyberrunner/dreamerv3/dreamerv3/jaxagent.py:21 in __init__      │
+│                                                                              │
+│    18 │   │   inner = agent_cls                                              │
+│    19 │   │                                                                  │
+│    20 │   │   def __init__(self, *args, **kwargs):                           │
+│ ❱  21 │   │   │   super().__init__(agent_cls, *args, **kwargs)               │
+│    22 │                                                                      │
+│    23 │   return Agent                                                       │
+│    24                                                                        │
+│                                                                              │
+│ /home/raa524/cyberrunner/dreamerv3/dreamerv3/jaxagent.py:36 in __init__      │
+│                                                                              │
+│    33 │   │   self.agent = agent_cls(obs_space, act_space, step, config, nam │
+│    34 │   │   self.rng = np.random.default_rng(config.seed)                  │
+│    35 │   │                                                                  │
+│ ❱  36 │   │   available = jax.devices(self.config.platform)                  │
+│    37 │   │   self.policy_devices = [available[i] for i in self.config.polic │
+│    38 │   │   self.train_devices = [available[i] for i in self.config.train_ │
+│    39 │   │   self.single_device = (self.policy_devices == self.train_device │
+│                                                                              │
+│ /home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax/_src/xla_b │
+│ ridge.py:942 in devices                                                      │
+│                                                                              │
+│    939   Returns:                                                            │
+│    940 │   List of Device subclasses.                                        │
+│    941   """                                                                 │
+│ ❱  942   return get_backend(backend).devices()                               │
+│    943                                                                       │
+│    944                                                                       │
+│    945 def default_backend() -> str:                                         │
+│                                                                              │
+│ /home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax/_src/xla_b │
+│ ridge.py:876 in get_backend                                                  │
+│                                                                              │
+│    873 def get_backend(                                                      │
+│    874 │   platform: None | str | xla_client.Client = None                   │
+│    875 ) -> xla_client.Client:                                               │
+│ ❱  876   return _get_backend_uncached(platform)                              │
+│    877                                                                       │
+│    878                                                                       │
+│    879 def get_device_backend(                                               │
+│                                                                              │
+│ /home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax/_src/xla_b │
+│ ridge.py:857 in _get_backend_uncached                                        │
+│                                                                              │
+│    854                                                                       │
+│    855   bs = backends()                                                     │
+│    856   if platform is not None:                                            │
+│ ❱  857 │   platform = canonicalize_platform(platform)                        │
+│    858 │   backend = bs.get(platform, None)                                  │
+│    859 │   if backend is None:                                               │
+│    860 │     if platform in _backend_errors:                                 │
+│                                                                              │
+│ /home/raa524/.conda/envs/dreamer/lib/python3.10/site-packages/jax/_src/xla_b │
+│ ridge.py:658 in canonicalize_platform                                        │
+│                                                                              │
+│    655   for p in platforms:                                                 │
+│    656 │   if p in b.keys():                                                 │
+│    657 │     return p                                                        │
+│ ❱  658   raise RuntimeError(f"Unknown backend: '{platform}' requested, but n │
+│    659 │   │   │   │   │    f"platforms that are instances of {platform} are │
+│    660 │   │   │   │   │    "Platforms present are: " + ",".join(b.keys()))  │
+│    661                                                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RuntimeError: Unknown backend: 'gpu' requested, but no platforms that are 
+instances of gpu are present. Platforms present are: cpu

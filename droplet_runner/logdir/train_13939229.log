@@ -1,0 +1,2466 @@
+============================================
+DropletRunner DreamerV3 Training
+Job ID: 13939229
+Node: sol-ja04
+Date: Thu Jul  2 07:25:17 PM EDT 2026
+============================================
+
+Thu Jul  2 19:25:19 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:B6:00.0 Off |                    0 |
+| N/A   44C    P8             36W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+JAX devices: [CudaDevice(id=0)]
+
+Starting training at Thu Jul  2 07:25:20 PM EDT 2026...
+Converting 70 episodes...
+Done: 70 episodes converted
+
+============================================================
+Configuring DreamerV3
+============================================================
+Obs space: image(64,64,3) + vector(14,)
+Act space: action(2,) in [-1,1]
+
+Loading replay buffer...
+Replay: 1744 steps loaded
+
+Creating agent...
+Could not disable TensorFlow devices: No module named 'tensorflow'
+Encoder CNN shapes: {'image': (64, 64, 3)}
+Encoder MLP shapes: {'vector': (14,)}
+Decoder CNN shapes: {'image': (64, 64, 3)}
+Decoder MLP shapes: {'vector': (14,)}
+JAX devices (1): [CudaDevice(id=0)]
+Policy devices: cuda:0
+Train devices:  cuda:0
+Tracing train function.
+Optimizer model_opt has 17,277,073 variables.
+Optimizer actor_opt has 1,052,676 variables.
+Optimizer critic_opt has 1,181,439 variables.
+Found existing checkpoint.
+Loading checkpoint: logdir/checkpoint.ckpt
+Loaded checkpoint from 10169 seconds ago.
+
+============================================================
+Starting offline training for 50000 updates
+Batch size: 16, Batch length: 64
+============================================================
+
+Tracing train function.
+Tracing report function.
+Tracing report function.
+────────────────────────────────── Step 50001 ──────────────────────────────────
+train/action_mag 3.6 / train/action_max 3.6 / train/action_mean -0.04 / 
+train/action_min -3.28 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.34 / train/actor_opt_grad_steps 5e4 / 
+train/actor_opt_loss -38.1 / train/adv_mag 2.7 / train/adv_max 1.87 / 
+train/adv_mean 4.1e-3 / train/adv_min -2.7 / train/adv_std 0.13 / train/cont_avg
+1 / train/cont_loss_mean 0.02 / train/cont_loss_std 0.32 / train/cont_neg_acc 1 
+/ train/cont_neg_loss 0.5 / train/cont_pos_acc 1 / train/cont_pos_loss 0.02 / 
+train/cont_pred 0.99 / train/cont_rate 1 / train/dyn_loss_mean 46.71 / 
+train/dyn_loss_std 32.61 / train/extr_critic_critic_opt_critic_opt_grad_overflow
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.59 / 
+train/extr_critic_critic_opt_grad_steps 5e4 / train/extr_critic_critic_opt_loss 
+1e4 / train/extr_critic_mag 620.23 / train/extr_critic_max 620.23 / 
+train/extr_critic_mean 468.66 / train/extr_critic_min 4.48 / 
+train/extr_critic_std 46.9 / train/extr_return_normed_mag 1.89 / 
+train/extr_return_normed_max 1.38 / train/extr_return_normed_mean 0.37 / 
+train/extr_return_normed_min -1.89 / train/extr_return_normed_std 0.22 / 
+train/extr_return_rate 1 / train/extr_return_raw_mag 681.89 / 
+train/extr_return_raw_max 681.89 / train/extr_return_raw_mean 469.53 / 
+train/extr_return_raw_min -0.42 / train/extr_return_raw_std 46.16 / 
+train/extr_reward_mag 103.81 / train/extr_reward_max 103.81 / 
+train/extr_reward_mean 1.1 / train/extr_reward_min -25.54 / 
+train/extr_reward_std 4.6 / train/image_loss_mean 31.59 / train/image_loss_std 
+62.75 / train/model_loss_mean 79.02 / train/model_loss_std 109.58 / 
+train/model_opt_grad_norm nan / train/model_opt_grad_steps 5e4 / 
+train/model_opt_loss 9.9e4 / train/model_opt_model_opt_grad_overflow 1 / 
+train/model_opt_model_opt_grad_scale 625 / train/policy_entropy_mag 2.79 / 
+train/policy_entropy_max 2.79 / train/policy_entropy_mean -1.46 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.67 / 
+train/policy_logprob_mag 9.76 / train/policy_logprob_max 2.76 / 
+train/policy_logprob_mean 1.46 / train/policy_logprob_min -9.76 / 
+train/policy_logprob_std 1.22 / train/policy_randomness_mag 0.99 / 
+train/policy_randomness_max 0.99 / train/policy_randomness_mean 0.07 / 
+train/policy_randomness_min 3.3e-5 / train/policy_randomness_std 0.15 / 
+train/post_ent_mag 38.04 / train/post_ent_max 38.04 / train/post_ent_mean 23.56 
+/ train/post_ent_min 10.09 / train/post_ent_std 5.95 / train/prior_ent_mag 78.29
+/ train/prior_ent_max 78.29 / train/prior_ent_mean 32.34 / train/prior_ent_min 
+16.38 / train/prior_ent_std 7.63 / train/rep_loss_mean 46.71 / 
+train/rep_loss_std 32.61 / train/reward_avg 0.91 / train/reward_loss_mean 4.67 /
+train/reward_loss_std 4.14 / train/reward_max_data 121.35 / 
+train/reward_max_pred 96.75 / train/reward_neg_acc 0.8 / train/reward_neg_loss 
+3.88 / train/reward_pos_acc 0.66 / train/reward_pos_loss 6.75 / 
+train/reward_pred 0.72 / train/reward_rate 0.27 / train/vector_loss_mean 14.71 /
+train/vector_loss_std 48.1 / train/params_agent/wm/model_opt 1.7e7 / 
+train/params_agent/task_behavior/critic/critic_opt 1.2e6 / 
+train/params_agent/task_behavior/ac/actor_opt 1.1e6 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 112 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 8.9e-7 / 
+replay/sample_wait_frac 1
+
+Step 1/50000 (0.0%) [0.0 min]
+────────────────────────────────── Step 51105 ──────────────────────────────────
+train/action_mag 3.38 / train/action_max 3.26 / train/action_mean 0.24 / 
+train/action_min -2.91 / train/action_std 0.9 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.33 / train/actor_opt_grad_steps 5.1e4 / 
+train/actor_opt_loss 59.42 / train/adv_mag 1.52 / train/adv_max 1.21 / 
+train/adv_mean -5.6e-3 / train/adv_min -1.35 / train/adv_std 0.12 / 
+train/cont_avg 1 / train/cont_loss_mean 4e-4 / train/cont_loss_std 0.01 / 
+train/cont_neg_acc 0.68 / train/cont_neg_loss 2.09 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 4.4e-5 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 5.93 / train/dyn_loss_std 10.12 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.52 / 
+train/extr_critic_critic_opt_grad_steps 5.1e4 / 
+train/extr_critic_critic_opt_loss 1.3e4 / train/extr_critic_mag 534.91 / 
+train/extr_critic_max 534.91 / train/extr_critic_mean 410.59 / 
+train/extr_critic_min 93.31 / train/extr_critic_std 62.82 / 
+train/extr_return_normed_mag 1.76 / train/extr_return_normed_max 1.6 / 
+train/extr_return_normed_mean 0.54 / train/extr_return_normed_min -1.31 / 
+train/extr_return_normed_std 0.33 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 592.31 / train/extr_return_raw_max 592.31 / 
+train/extr_return_raw_mean 409.49 / train/extr_return_raw_min 73.18 / 
+train/extr_return_raw_std 60.16 / train/extr_reward_mag 108.19 / 
+train/extr_reward_max 108.03 / train/extr_reward_mean 0.64 / 
+train/extr_reward_min -49.64 / train/extr_reward_std 5.49 / 
+train/image_loss_mean 4.04 / train/image_loss_std 7.62 / train/model_loss_mean 
+8.7 / train/model_loss_std 12.04 / train/model_opt_grad_norm 31.34 / 
+train/model_opt_grad_steps 5.1e4 / train/model_opt_loss 2858.79 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+340.91 / train/policy_entropy_mag 2.52 / train/policy_entropy_max 2.51 / 
+train/policy_entropy_mean -1.44 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.54 / train/policy_logprob_mag 7.8 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.44 / 
+train/policy_logprob_min -7.8 / train/policy_logprob_std 1.14 / 
+train/policy_randomness_mag 0.93 / train/policy_randomness_max 0.93 / 
+train/policy_randomness_mean 0.07 / train/policy_randomness_min 7.8e-5 / 
+train/policy_randomness_std 0.12 / train/post_ent_mag 40.33 / train/post_ent_max
+40.33 / train/post_ent_mean 23.71 / train/post_ent_min 6.7 / train/post_ent_std 
+8.52 / train/prior_ent_mag 77.92 / train/prior_ent_max 77.92 / 
+train/prior_ent_mean 29.45 / train/prior_ent_min 7.56 / train/prior_ent_std 
+10.28 / train/rep_loss_mean 5.93 / train/rep_loss_std 10.12 / train/reward_avg 
+0.96 / train/reward_loss_mean 0.78 / train/reward_loss_std 0.61 / 
+train/reward_max_data 132.74 / train/reward_max_pred 124.48 / 
+train/reward_neg_acc 0.97 / train/reward_neg_loss 0.7 / train/reward_pos_acc 
+0.96 / train/reward_pos_loss 0.98 / train/reward_pred 0.91 / train/reward_rate 
+0.29 / train/vector_loss_mean 0.32 / train/vector_loss_std 0.7 / replay/size 
+3488 / replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7.2e-7 / 
+replay/sample_wait_frac 1 / fps 18.37
+
+Step 1105/50000 (2.2%) [0.0 min]
+────────────────────────────────── Step 52209 ──────────────────────────────────
+train/action_mag 3.48 / train/action_max 3.44 / train/action_mean 0.02 / 
+train/action_min -2.7 / train/action_std 0.91 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.64 / train/actor_opt_grad_steps 5.2e4 / 
+train/actor_opt_loss 2.42 / train/adv_mag 2.18 / train/adv_max 1.45 / 
+train/adv_mean 1.8e-4 / train/adv_min -2.12 / train/adv_std 0.14 / 
+train/cont_avg 1 / train/cont_loss_mean 5.7e-5 / train/cont_loss_std 1.6e-3 / 
+train/cont_neg_acc 0.91 / train/cont_neg_loss 0.17 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 1.4e-5 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.93 / train/dyn_loss_std 8.1 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.37 / 
+train/extr_critic_critic_opt_grad_steps 5.2e4 / 
+train/extr_critic_critic_opt_loss 1.1e4 / train/extr_critic_mag 529.69 / 
+train/extr_critic_max 529.69 / train/extr_critic_mean 385.92 / 
+train/extr_critic_min 115.72 / train/extr_critic_std 49.4 / 
+train/extr_return_normed_mag 2.22 / train/extr_return_normed_max 1.85 / 
+train/extr_return_normed_mean 0.43 / train/extr_return_normed_min -2.08 / 
+train/extr_return_normed_std 0.36 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 590.61 / train/extr_return_raw_max 590.61 / 
+train/extr_return_raw_mean 385.99 / train/extr_return_raw_min 24.51 / 
+train/extr_return_raw_std 51.6 / train/extr_reward_mag 121.1 / 
+train/extr_reward_max 117.55 / train/extr_reward_mean 1.09 / 
+train/extr_reward_min -66.39 / train/extr_reward_std 7.6 / train/image_loss_mean
+1.83 / train/image_loss_std 2.75 / train/model_loss_mean 4.24 / 
+train/model_loss_std 6.74 / train/model_opt_grad_norm 18.98 / 
+train/model_opt_grad_steps 5.2e4 / train/model_opt_loss 3089.44 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+738.64 / train/policy_entropy_mag 2.5 / train/policy_entropy_max 2.49 / 
+train/policy_entropy_mean -1.38 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.59 / train/policy_logprob_mag 8.23 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.38 / 
+train/policy_logprob_min -8.23 / train/policy_logprob_std 1.17 / 
+train/policy_randomness_mag 0.92 / train/policy_randomness_max 0.92 / 
+train/policy_randomness_mean 0.08 / train/policy_randomness_min 6.8e-5 / 
+train/policy_randomness_std 0.13 / train/post_ent_mag 38.11 / train/post_ent_max
+38.11 / train/post_ent_mean 20.95 / train/post_ent_min 5.34 / train/post_ent_std
+8.31 / train/prior_ent_mag 77.95 / train/prior_ent_max 77.95 / 
+train/prior_ent_mean 23.83 / train/prior_ent_min 5.81 / train/prior_ent_std 
+10.76 / train/rep_loss_mean 2.93 / train/rep_loss_std 8.1 / train/reward_avg 
+0.98 / train/reward_loss_mean 0.55 / train/reward_loss_std 0.35 / 
+train/reward_max_data 135.25 / train/reward_max_pred 132.27 / 
+train/reward_neg_acc 0.99 / train/reward_neg_loss 0.52 / train/reward_pos_acc 
+0.99 / train/reward_pos_loss 0.61 / train/reward_pred 0.96 / train/reward_rate 
+0.29 / train/vector_loss_mean 0.11 / train/vector_loss_std 0.26 / replay/size 
+3488 / replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.38
+
+Step 2209/50000 (4.4%) [0.0 min]
+────────────────────────────────── Step 53309 ──────────────────────────────────
+train/action_mag 3.29 / train/action_max 3.11 / train/action_mean -0.02 / 
+train/action_min -2.91 / train/action_std 0.9 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.73 / train/actor_opt_grad_steps 5.3e4 / 
+train/actor_opt_loss -66.33 / train/adv_mag 1.65 / train/adv_max 1.49 / 
+train/adv_mean 7.4e-3 / train/adv_min -1.46 / train/adv_std 0.11 / 
+train/cont_avg 1 / train/cont_loss_mean 4.8e-5 / train/cont_loss_std 1.5e-3 / 
+train/cont_neg_acc 0.92 / train/cont_neg_loss 0.11 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 7.8e-7 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.57 / train/dyn_loss_std 8.06 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.4 / 
+train/extr_critic_critic_opt_grad_steps 5.3e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 547.14 / 
+train/extr_critic_max 547.14 / train/extr_critic_mean 376.7 / 
+train/extr_critic_min 61.6 / train/extr_critic_std 63.35 / 
+train/extr_return_normed_mag 1.7 / train/extr_return_normed_max 1.62 / 
+train/extr_return_normed_mean 0.44 / train/extr_return_normed_min -1.51 / 
+train/extr_return_normed_std 0.36 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 589.74 / train/extr_return_raw_max 589.74 / 
+train/extr_return_raw_mean 378.02 / train/extr_return_raw_min 26.8 / 
+train/extr_return_raw_std 64.15 / train/extr_reward_mag 126.6 / 
+train/extr_reward_max 120.5 / train/extr_reward_mean 1.19 / 
+train/extr_reward_min -73.01 / train/extr_reward_std 7.93 / 
+train/image_loss_mean 1.47 / train/image_loss_std 2.05 / train/model_loss_mean 
+3.62 / train/model_loss_std 6.19 / train/model_opt_grad_norm 21.23 / 
+train/model_opt_grad_steps 5.3e4 / train/model_opt_loss 5657.5 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+1590.91 / train/policy_entropy_mag 2.52 / train/policy_entropy_max 2.51 / 
+train/policy_entropy_mean -1.45 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.52 / train/policy_logprob_mag 7.94 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.45 / 
+train/policy_logprob_min -7.94 / train/policy_logprob_std 1.13 / 
+train/policy_randomness_mag 0.93 / train/policy_randomness_max 0.93 / 
+train/policy_randomness_mean 0.07 / train/policy_randomness_min 6.4e-5 / 
+train/policy_randomness_std 0.11 / train/post_ent_mag 37.63 / train/post_ent_max
+37.63 / train/post_ent_mean 19.99 / train/post_ent_min 4.66 / train/post_ent_std
+8.35 / train/prior_ent_mag 77.93 / train/prior_ent_max 77.93 / 
+train/prior_ent_mean 22.44 / train/prior_ent_min 5.24 / train/prior_ent_std 
+10.91 / train/rep_loss_mean 2.57 / train/rep_loss_std 8.06 / train/reward_avg 
+0.96 / train/reward_loss_mean 0.52 / train/reward_loss_std 0.32 / 
+train/reward_max_data 138.84 / train/reward_max_pred 135.21 / 
+train/reward_neg_acc 0.99 / train/reward_neg_loss 0.5 / train/reward_pos_acc 
+0.99 / train/reward_pos_loss 0.58 / train/reward_pred 0.95 / train/reward_rate 
+0.29 / train/vector_loss_mean 0.08 / train/vector_loss_std 0.22 / replay/size 
+3488 / replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7.1e-7 / 
+replay/sample_wait_frac 1 / fps 18.31
+
+Step 3309/50000 (6.6%) [0.0 min]
+────────────────────────────────── Step 54411 ──────────────────────────────────
+train/action_mag 3.24 / train/action_max 2.96 / train/action_mean -0.04 / 
+train/action_min -2.95 / train/action_std 0.89 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.59 / train/actor_opt_grad_steps 5.4e4 / 
+train/actor_opt_loss -72.86 / train/adv_mag 1.57 / train/adv_max 1.41 / 
+train/adv_mean 8.1e-3 / train/adv_min -1.42 / train/adv_std 0.11 / 
+train/cont_avg 1 / train/cont_loss_mean 5.6e-7 / train/cont_loss_std 1.1e-5 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 6.2e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 4.4e-7 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.4 / train/dyn_loss_std 8.02 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.39 / 
+train/extr_critic_critic_opt_grad_steps 5.4e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 569.39 / 
+train/extr_critic_max 569.39 / train/extr_critic_mean 382.87 / 
+train/extr_critic_min 53.64 / train/extr_critic_std 70.78 / 
+train/extr_return_normed_mag 1.59 / train/extr_return_normed_max 1.54 / 
+train/extr_return_normed_mean 0.43 / train/extr_return_normed_min -1.43 / 
+train/extr_return_normed_std 0.36 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 602.87 / train/extr_return_raw_max 602.87 / 
+train/extr_return_raw_mean 384.48 / train/extr_return_raw_min 15.77 / 
+train/extr_return_raw_std 71.26 / train/extr_reward_mag 126.68 / 
+train/extr_reward_max 119.81 / train/extr_reward_mean 1.3 / 
+train/extr_reward_min -77.53 / train/extr_reward_std 8.16 / 
+train/image_loss_mean 1.25 / train/image_loss_std 1.58 / train/model_loss_mean 
+3.27 / train/model_loss_std 5.8 / train/model_opt_grad_norm 18.43 / 
+train/model_opt_grad_steps 5.4e4 / train/model_opt_loss 6442.87 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+1959.46 / train/policy_entropy_mag 2.52 / train/policy_entropy_max 2.49 / 
+train/policy_entropy_mean -1.5 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.47 / train/policy_logprob_mag 8 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.5 / 
+train/policy_logprob_min -8 / train/policy_logprob_std 1.11 / 
+train/policy_randomness_mag 0.92 / train/policy_randomness_max 0.92 / 
+train/policy_randomness_mean 0.06 / train/policy_randomness_min 6.8e-5 / 
+train/policy_randomness_std 0.1 / train/post_ent_mag 36.91 / train/post_ent_max 
+36.91 / train/post_ent_mean 19.13 / train/post_ent_min 4.47 / train/post_ent_std
+8.4 / train/prior_ent_mag 77.89 / train/prior_ent_max 77.89 / 
+train/prior_ent_mean 21.37 / train/prior_ent_min 4.95 / train/prior_ent_std 
+11.03 / train/rep_loss_mean 2.4 / train/rep_loss_std 8.02 / train/reward_avg 
+0.96 / train/reward_loss_mean 0.51 / train/reward_loss_std 0.29 / 
+train/reward_max_data 139.05 / train/reward_max_pred 136.44 / 
+train/reward_neg_acc 0.99 / train/reward_neg_loss 0.5 / train/reward_pos_acc 
+0.99 / train/reward_pos_loss 0.56 / train/reward_pred 0.94 / train/reward_rate 
+0.29 / train/vector_loss_mean 0.06 / train/vector_loss_std 0.17 / replay/size 
+3488 / replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.35
+
+Step 4411/50000 (8.8%) [0.0 min]
+Saving checkpoint at step 5000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+────────────────────────────────── Step 55508 ──────────────────────────────────
+train/action_mag 3.04 / train/action_max 2.92 / train/action_mean -0.04 / 
+train/action_min -2.66 / train/action_std 0.88 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.5 / train/actor_opt_grad_steps 5.5e4 / 
+train/actor_opt_loss -81.43 / train/adv_mag 1.67 / train/adv_max 1.59 / 
+train/adv_mean 9.5e-3 / train/adv_min -1.43 / train/adv_std 0.11 / 
+train/cont_avg 1 / train/cont_loss_mean 2.3e-7 / train/cont_loss_std 4.4e-6 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 4.6e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 1.5e-7 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.31 / train/dyn_loss_std 8 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.44 / 
+train/extr_critic_critic_opt_grad_steps 5.5e4 / 
+train/extr_critic_critic_opt_loss 1.1e4 / train/extr_critic_mag 575.31 / 
+train/extr_critic_max 575.31 / train/extr_critic_mean 386.52 / 
+train/extr_critic_min 30.75 / train/extr_critic_std 74.12 / 
+train/extr_return_normed_mag 1.61 / train/extr_return_normed_max 1.52 / 
+train/extr_return_normed_mean 0.43 / train/extr_return_normed_min -1.51 / 
+train/extr_return_normed_std 0.37 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 603.5 / train/extr_return_raw_max 603.5 / 
+train/extr_return_raw_mean 388.41 / train/extr_return_raw_min 2.44 / 
+train/extr_return_raw_std 73.94 / train/extr_reward_mag 125.67 / 
+train/extr_reward_max 120.74 / train/extr_reward_mean 1.31 / 
+train/extr_reward_min -73.93 / train/extr_reward_std 8.32 / 
+train/image_loss_mean 1.13 / train/image_loss_std 1.34 / train/model_loss_mean 
+3.08 / train/model_loss_std 5.66 / train/model_opt_grad_norm 16.25 / 
+train/model_opt_grad_steps 5.5e4 / train/model_opt_loss 5826.94 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+1903.67 / train/policy_entropy_mag 2.38 / train/policy_entropy_max 2.29 / 
+train/policy_entropy_mean -1.56 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.4 / train/policy_logprob_mag 7.94 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.56 / 
+train/policy_logprob_min -7.94 / train/policy_logprob_std 1.08 / 
+train/policy_randomness_mag 0.88 / train/policy_randomness_max 0.88 / 
+train/policy_randomness_mean 0.04 / train/policy_randomness_min 5.5e-5 / 
+train/policy_randomness_std 0.09 / train/post_ent_mag 36.42 / train/post_ent_max
+36.42 / train/post_ent_mean 18.45 / train/post_ent_min 4.23 / train/post_ent_std
+8.41 / train/prior_ent_mag 77.98 / train/prior_ent_max 77.98 / 
+train/prior_ent_mean 20.59 / train/prior_ent_min 4.75 / train/prior_ent_std 
+11.11 / train/rep_loss_mean 2.31 / train/rep_loss_std 8 / train/reward_avg 0.96 
+/ train/reward_loss_mean 0.51 / train/reward_loss_std 0.28 / 
+train/reward_max_data 133.28 / train/reward_max_pred 132.28 / 
+train/reward_neg_acc 0.99 / train/reward_neg_loss 0.49 / train/reward_pos_acc 
+0.99 / train/reward_pos_loss 0.55 / train/reward_pred 0.94 / train/reward_rate 
+0.29 / train/vector_loss_mean 0.05 / train/vector_loss_std 0.16 / replay/size 
+3488 / replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7.1e-7 / 
+replay/sample_wait_frac 1 / fps 18.27
+
+Step 5508/50000 (11.0%) [0.0 min]
+────────────────────────────────── Step 56610 ──────────────────────────────────
+train/action_mag 3.06 / train/action_max 2.9 / train/action_mean -0.02 / 
+train/action_min -2.66 / train/action_std 0.88 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.6 / train/actor_opt_grad_steps 5.6e4 / 
+train/actor_opt_loss -79.76 / train/adv_mag 1.66 / train/adv_max 1.58 / 
+train/adv_mean 9.5e-3 / train/adv_min -1.45 / train/adv_std 0.11 / 
+train/cont_avg 1 / train/cont_loss_mean 4.6e-7 / train/cont_loss_std 1.1e-5 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 9.1e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 2.4e-7 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.24 / train/dyn_loss_std 7.91 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.43 / 
+train/extr_critic_critic_opt_grad_steps 5.6e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 574.14 / 
+train/extr_critic_max 574.14 / train/extr_critic_mean 391.8 / 
+train/extr_critic_min 21.79 / train/extr_critic_std 78.05 / 
+train/extr_return_normed_mag 1.58 / train/extr_return_normed_max 1.49 / 
+train/extr_return_normed_mean 0.45 / train/extr_return_normed_min -1.48 / 
+train/extr_return_normed_std 0.38 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 606.28 / train/extr_return_raw_max 606.28 / 
+train/extr_return_raw_mean 393.74 / train/extr_return_raw_min -0.66 / 
+train/extr_return_raw_std 77.91 / train/extr_reward_mag 123.89 / 
+train/extr_reward_max 119.31 / train/extr_reward_mean 1.29 / 
+train/extr_reward_min -68.5 / train/extr_reward_std 8.08 / train/image_loss_mean
+1 / train/image_loss_std 1.11 / train/model_loss_mean 2.89 / 
+train/model_loss_std 5.46 / train/model_opt_grad_norm 17.56 / 
+train/model_opt_grad_steps 5.6e4 / train/model_opt_loss 4532.29 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+1565.32 / train/policy_entropy_mag 2.42 / train/policy_entropy_max 2.36 / 
+train/policy_entropy_mean -1.58 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.39 / train/policy_logprob_mag 8.04 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.58 / 
+train/policy_logprob_min -8.04 / train/policy_logprob_std 1.08 / 
+train/policy_randomness_mag 0.9 / train/policy_randomness_max 0.9 / 
+train/policy_randomness_mean 0.04 / train/policy_randomness_min 5.7e-5 / 
+train/policy_randomness_std 0.09 / train/post_ent_mag 36.16 / train/post_ent_max
+36.16 / train/post_ent_mean 17.87 / train/post_ent_min 4.1 / train/post_ent_std 
+8.44 / train/prior_ent_mag 77.96 / train/prior_ent_max 77.96 / 
+train/prior_ent_mean 19.94 / train/prior_ent_min 4.51 / train/prior_ent_std 
+11.17 / train/rep_loss_mean 2.24 / train/rep_loss_std 7.91 / train/reward_avg 
+0.93 / train/reward_loss_mean 0.5 / train/reward_loss_std 0.28 / 
+train/reward_max_data 129.41 / train/reward_max_pred 128.13 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.48 / train/reward_pos_acc 0.99 
+/ train/reward_pos_loss 0.55 / train/reward_pred 0.91 / train/reward_rate 0.29 /
+train/vector_loss_mean 0.04 / train/vector_loss_std 0.14 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.34
+
+Step 6610/50000 (13.2%) [0.0 min]
+────────────────────────────────── Step 57714 ──────────────────────────────────
+train/action_mag 3.07 / train/action_max 2.96 / train/action_mean -0.02 / 
+train/action_min -2.57 / train/action_std 0.88 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.72 / train/actor_opt_grad_steps 5.7e4 / 
+train/actor_opt_loss -72.91 / train/adv_mag 1.61 / train/adv_max 1.5 / 
+train/adv_mean 9e-3 / train/adv_min -1.39 / train/adv_std 0.11 / train/cont_avg 
+1 / train/cont_loss_mean 1.4e-7 / train/cont_loss_std 3.1e-6 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 3e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 5.5e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.2 / train/dyn_loss_std 7.92 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.47 / 
+train/extr_critic_critic_opt_grad_steps 5.7e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 576.76 / 
+train/extr_critic_max 576.76 / train/extr_critic_mean 395.41 / 
+train/extr_critic_min 19.31 / train/extr_critic_std 83.33 / 
+train/extr_return_normed_mag 1.52 / train/extr_return_normed_max 1.47 / 
+train/extr_return_normed_mean 0.46 / train/extr_return_normed_min -1.4 / 
+train/extr_return_normed_std 0.39 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 612.57 / train/extr_return_raw_max 612.57 / 
+train/extr_return_raw_mean 397.32 / train/extr_return_raw_min 2.79 / 
+train/extr_return_raw_std 82.49 / train/extr_reward_mag 125.24 / 
+train/extr_reward_max 120.99 / train/extr_reward_mean 1.43 / 
+train/extr_reward_min -68.19 / train/extr_reward_std 8.5 / train/image_loss_mean
+0.93 / train/image_loss_std 1.04 / train/model_loss_mean 2.79 / 
+train/model_loss_std 5.4 / train/model_opt_grad_norm 15.38 / 
+train/model_opt_grad_steps 5.7e4 / train/model_opt_loss 6415.83 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2306.82 / train/policy_entropy_mag 2.38 / train/policy_entropy_max 2.26 / 
+train/policy_entropy_mean -1.6 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.38 / train/policy_logprob_mag 7.9 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.6 / 
+train/policy_logprob_min -7.9 / train/policy_logprob_std 1.08 / 
+train/policy_randomness_mag 0.87 / train/policy_randomness_max 0.87 / 
+train/policy_randomness_mean 0.04 / train/policy_randomness_min 4.8e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 35.41 / train/post_ent_max
+35.41 / train/post_ent_mean 17.53 / train/post_ent_min 4.15 / train/post_ent_std
+8.32 / train/prior_ent_mag 78.01 / train/prior_ent_max 78.01 / 
+train/prior_ent_mean 19.58 / train/prior_ent_min 4.43 / train/prior_ent_std 
+11.09 / train/rep_loss_mean 2.2 / train/rep_loss_std 7.92 / train/reward_avg 1 /
+train/reward_loss_mean 0.5 / train/reward_loss_std 0.26 / train/reward_max_data 
+128.93 / train/reward_max_pred 128.05 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.54
+/ train/reward_pred 0.99 / train/reward_rate 0.29 / train/vector_loss_mean 0.04 
+/ train/vector_loss_std 0.13 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.37
+
+Step 7714/50000 (15.4%) [0.0 min]
+────────────────────────────────── Step 58817 ──────────────────────────────────
+train/action_mag 3.05 / train/action_max 2.93 / train/action_mean -0.02 / 
+train/action_min -2.52 / train/action_std 0.88 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.6 / train/actor_opt_grad_steps 5.8e4 / 
+train/actor_opt_loss -62.87 / train/adv_mag 1.54 / train/adv_max 1.45 / 
+train/adv_mean 8e-3 / train/adv_min -1.34 / train/adv_std 0.11 / train/cont_avg 
+1 / train/cont_loss_mean 3.5e-7 / train/cont_loss_std 1e-5 / train/cont_neg_acc 
+1 / train/cont_neg_loss 1.5e-3 / train/cont_pos_acc 1 / train/cont_pos_loss 
+4.4e-8 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 2.16 / 
+train/dyn_loss_std 7.87 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.43 / 
+train/extr_critic_critic_opt_grad_steps 5.8e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 575.76 / 
+train/extr_critic_max 575.76 / train/extr_critic_mean 396.03 / 
+train/extr_critic_min 14.49 / train/extr_critic_std 83.96 / 
+train/extr_return_normed_mag 1.48 / train/extr_return_normed_max 1.42 / 
+train/extr_return_normed_mean 0.45 / train/extr_return_normed_min -1.41 / 
+train/extr_return_normed_std 0.38 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 607.09 / train/extr_return_raw_max 607.09 / 
+train/extr_return_raw_mean 397.75 / train/extr_return_raw_min -2.62 / 
+train/extr_return_raw_std 83.12 / train/extr_reward_mag 126.12 / 
+train/extr_reward_max 119.32 / train/extr_reward_mean 1.44 / 
+train/extr_reward_min -74.06 / train/extr_reward_std 8.6 / train/image_loss_mean
+0.87 / train/image_loss_std 0.95 / train/model_loss_mean 2.7 / 
+train/model_loss_std 5.32 / train/model_opt_grad_norm 13.46 / 
+train/model_opt_grad_steps 5.8e4 / train/model_opt_loss 7308.15 / 
+train/model_opt_model_opt_grad_overflow 9.1e-3 / 
+train/model_opt_model_opt_grad_scale 2681.82 / train/policy_entropy_mag 2.38 / 
+train/policy_entropy_max 2.27 / train/policy_entropy_mean -1.6 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.39 / 
+train/policy_logprob_mag 7.71 / train/policy_logprob_max 2.76 / 
+train/policy_logprob_mean 1.6 / train/policy_logprob_min -7.71 / 
+train/policy_logprob_std 1.08 / train/policy_randomness_mag 0.88 / 
+train/policy_randomness_max 0.88 / train/policy_randomness_mean 0.04 / 
+train/policy_randomness_min 4.6e-5 / train/policy_randomness_std 0.08 / 
+train/post_ent_mag 35.3 / train/post_ent_max 35.3 / train/post_ent_mean 17.02 / 
+train/post_ent_min 3.99 / train/post_ent_std 8.31 / train/prior_ent_mag 77.94 / 
+train/prior_ent_max 77.94 / train/prior_ent_mean 19.06 / train/prior_ent_min 
+4.34 / train/prior_ent_std 11.12 / train/rep_loss_mean 2.16 / train/rep_loss_std
+7.87 / train/reward_avg 0.96 / train/reward_loss_mean 0.5 / 
+train/reward_loss_std 0.26 / train/reward_max_data 135.91 / 
+train/reward_max_pred 134.53 / train/reward_neg_acc 1 / train/reward_neg_loss 
+0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.53 / train/reward_pred 
+0.94 / train/reward_rate 0.29 / train/vector_loss_mean 0.04 / 
+train/vector_loss_std 0.13 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.35
+
+Step 8817/50000 (17.6%) [0.0 min]
+────────────────────────────────── Step 59921 ──────────────────────────────────
+train/action_mag 3.24 / train/action_max 3.2 / train/action_mean -1.7e-3 / 
+train/action_min -2.55 / train/action_std 0.88 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.63 / train/actor_opt_grad_steps 5.9e4 / 
+train/actor_opt_loss -71.52 / train/adv_mag 1.58 / train/adv_max 1.5 / 
+train/adv_mean 8.9e-3 / train/adv_min -1.39 / train/adv_std 0.11 / 
+train/cont_avg 1 / train/cont_loss_mean 1.9e-6 / train/cont_loss_std 4.9e-5 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 2.7e-5 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 1.9e-6 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.17 / train/dyn_loss_std 7.92 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.45 / 
+train/extr_critic_critic_opt_grad_steps 5.9e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 580.15 / 
+train/extr_critic_max 580.15 / train/extr_critic_mean 392.48 / 
+train/extr_critic_min 12.37 / train/extr_critic_std 87.78 / 
+train/extr_return_normed_mag 1.43 / train/extr_return_normed_max 1.4 / 
+train/extr_return_normed_mean 0.44 / train/extr_return_normed_min -1.32 / 
+train/extr_return_normed_std 0.39 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 610.82 / train/extr_return_raw_max 610.82 / 
+train/extr_return_raw_mean 394.49 / train/extr_return_raw_min -2.69 / 
+train/extr_return_raw_std 87.2 / train/extr_reward_mag 130.23 / 
+train/extr_reward_max 121.22 / train/extr_reward_mean 1.38 / 
+train/extr_reward_min -81.76 / train/extr_reward_std 8.53 / 
+train/image_loss_mean 0.82 / train/image_loss_std 0.87 / train/model_loss_mean 
+2.65 / train/model_loss_std 5.31 / train/model_opt_grad_norm 14.31 / 
+train/model_opt_grad_steps 5.9e4 / train/model_opt_loss 6918.4 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2612.61 / train/policy_entropy_mag 2.52 / train/policy_entropy_max 2.46 / 
+train/policy_entropy_mean -1.6 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.44 / train/policy_logprob_mag 7.82 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.6 / 
+train/policy_logprob_min -7.82 / train/policy_logprob_std 1.1 / 
+train/policy_randomness_mag 0.92 / train/policy_randomness_max 0.92 / 
+train/policy_randomness_mean 0.04 / train/policy_randomness_min 4.5e-5 / 
+train/policy_randomness_std 0.1 / train/post_ent_mag 35.04 / train/post_ent_max 
+35.04 / train/post_ent_mean 16.61 / train/post_ent_min 3.92 / train/post_ent_std
+8.22 / train/prior_ent_mag 78.02 / train/prior_ent_max 78.02 / 
+train/prior_ent_mean 18.62 / train/prior_ent_min 4.25 / train/prior_ent_std 11.1
+/ train/rep_loss_mean 2.17 / train/rep_loss_std 7.92 / train/reward_avg 0.98 / 
+train/reward_loss_mean 0.5 / train/reward_loss_std 0.25 / train/reward_max_data 
+136.31 / train/reward_max_pred 135.55 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.48 / train/reward_pos_acc 0.99 / train/reward_pos_loss 
+0.53 / train/reward_pred 0.96 / train/reward_rate 0.29 / train/vector_loss_mean 
+0.03 / train/vector_loss_std 0.12 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.38
+
+Step 9921/50000 (19.8%) [0.0 min]
+Saving checkpoint at step 10000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+────────────────────────────────── Step 61023 ──────────────────────────────────
+train/action_mag 3.14 / train/action_max 3.09 / train/action_mean -4.8e-3 / 
+train/action_min -2.49 / train/action_std 0.87 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.62 / train/actor_opt_grad_steps 6e4 / 
+train/actor_opt_loss -77.93 / train/adv_mag 1.52 / train/adv_max 1.41 / 
+train/adv_mean 9.3e-3 / train/adv_min -1.34 / train/adv_std 0.1 / train/cont_avg
+1 / train/cont_loss_mean 3.8e-7 / train/cont_loss_std 1e-5 / train/cont_neg_acc 
+1 / train/cont_neg_loss 1.2e-3 / train/cont_pos_acc 1 / train/cont_pos_loss 
+7.8e-8 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 2.12 / 
+train/dyn_loss_std 7.85 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.45 / 
+train/extr_critic_critic_opt_grad_steps 6e4 / train/extr_critic_critic_opt_loss 
+1.2e4 / train/extr_critic_mag 590.58 / train/extr_critic_max 590.58 / 
+train/extr_critic_mean 398.03 / train/extr_critic_min 18.14 / 
+train/extr_critic_std 89.04 / train/extr_return_normed_mag 1.41 / 
+train/extr_return_normed_max 1.4 / train/extr_return_normed_mean 0.46 / 
+train/extr_return_normed_min -1.27 / train/extr_return_normed_std 0.38 / 
+train/extr_return_rate 1 / train/extr_return_raw_mag 619.81 / 
+train/extr_return_raw_max 619.81 / train/extr_return_raw_mean 400.19 / 
+train/extr_return_raw_min -1.77 / train/extr_return_raw_std 88.03 / 
+train/extr_reward_mag 126.04 / train/extr_reward_max 119.14 / 
+train/extr_reward_mean 1.5 / train/extr_reward_min -74.64 / 
+train/extr_reward_std 8.88 / train/image_loss_mean 0.78 / train/image_loss_std 
+0.82 / train/model_loss_mean 2.57 / train/model_loss_std 5.24 / 
+train/model_opt_grad_norm 14.97 / train/model_opt_grad_steps 6e4 / 
+train/model_opt_loss 8194.88 / train/model_opt_model_opt_grad_overflow 0 / 
+train/model_opt_model_opt_grad_scale 3181.82 / train/policy_entropy_mag 2.51 / 
+train/policy_entropy_max 2.42 / train/policy_entropy_mean -1.61 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.38 / 
+train/policy_logprob_mag 7.75 / train/policy_logprob_max 2.76 / 
+train/policy_logprob_mean 1.62 / train/policy_logprob_min -7.75 / 
+train/policy_logprob_std 1.08 / train/policy_randomness_mag 0.91 / 
+train/policy_randomness_max 0.91 / train/policy_randomness_mean 0.03 / 
+train/policy_randomness_min 4e-5 / train/policy_randomness_std 0.08 / 
+train/post_ent_mag 34.34 / train/post_ent_max 34.34 / train/post_ent_mean 16.21 
+/ train/post_ent_min 3.85 / train/post_ent_std 8.16 / train/prior_ent_mag 77.96 
+/ train/prior_ent_max 77.96 / train/prior_ent_mean 18.22 / train/prior_ent_min 
+4.12 / train/prior_ent_std 11.08 / train/rep_loss_mean 2.12 / train/rep_loss_std
+7.85 / train/reward_avg 1 / train/reward_loss_mean 0.49 / train/reward_loss_std 
+0.24 / train/reward_max_data 134.9 / train/reward_max_pred 134.06 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.53 / train/reward_pred 0.99 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.03 / train/vector_loss_std 0.11 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.34
+
+Step 11023/50000 (22.0%) [0.0 min]
+────────────────────────────────── Step 62129 ──────────────────────────────────
+train/action_mag 2.98 / train/action_max 2.94 / train/action_mean 2.3e-3 / 
+train/action_min -2.36 / train/action_std 0.87 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.65 / train/actor_opt_grad_steps 6.2e4 / 
+train/actor_opt_loss -71.35 / train/adv_mag 1.51 / train/adv_max 1.42 / 
+train/adv_mean 8.6e-3 / train/adv_min -1.3 / train/adv_std 0.1 / train/cont_avg 
+1 / train/cont_loss_mean 7.8e-8 / train/cont_loss_std 1.5e-6 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.6e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 3.8e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.1 / train/dyn_loss_std 7.76 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.42 / 
+train/extr_critic_critic_opt_grad_steps 6.2e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 596.47 / 
+train/extr_critic_max 596.47 / train/extr_critic_mean 402.74 / 
+train/extr_critic_min 16.53 / train/extr_critic_std 89.56 / 
+train/extr_return_normed_mag 1.42 / train/extr_return_normed_max 1.4 / 
+train/extr_return_normed_mean 0.46 / train/extr_return_normed_min -1.28 / 
+train/extr_return_normed_std 0.38 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 625.66 / train/extr_return_raw_max 625.66 / 
+train/extr_return_raw_mean 404.74 / train/extr_return_raw_min -1.01 / 
+train/extr_return_raw_std 88.59 / train/extr_reward_mag 125.17 / 
+train/extr_reward_max 120.03 / train/extr_reward_mean 1.45 / 
+train/extr_reward_min -72.05 / train/extr_reward_std 8.62 / 
+train/image_loss_mean 0.73 / train/image_loss_std 0.75 / train/model_loss_mean 
+2.5 / train/model_loss_std 5.17 / train/model_opt_grad_norm 11.18 / 
+train/model_opt_grad_steps 6.2e4 / train/model_opt_loss 6892.19 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2750 / train/policy_entropy_mag 2.49 / train/policy_entropy_max 2.34 / 
+train/policy_entropy_mean -1.63 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.34 / train/policy_logprob_mag 7.6 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.63 / 
+train/policy_logprob_min -7.6 / train/policy_logprob_std 1.06 / 
+train/policy_randomness_mag 0.89 / train/policy_randomness_max 0.89 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 4.3e-5 / 
+train/policy_randomness_std 0.07 / train/post_ent_mag 34.23 / train/post_ent_max
+34.23 / train/post_ent_mean 16.07 / train/post_ent_min 3.81 / train/post_ent_std
+8.01 / train/prior_ent_mag 77.88 / train/prior_ent_max 77.88 / 
+train/prior_ent_mean 18.07 / train/prior_ent_min 4.13 / train/prior_ent_std 
+10.96 / train/rep_loss_mean 2.1 / train/rep_loss_std 7.76 / train/reward_avg 
+0.96 / train/reward_loss_mean 0.49 / train/reward_loss_std 0.24 / 
+train/reward_max_data 132.44 / train/reward_max_pred 131.57 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.52 / train/reward_pred 0.95 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.03 / train/vector_loss_std 0.11 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.41
+
+Step 12129/50000 (24.3%) [0.0 min]
+────────────────────────────────── Step 63235 ──────────────────────────────────
+train/action_mag 3.17 / train/action_max 3.09 / train/action_mean 0.01 / 
+train/action_min -2.61 / train/action_std 0.87 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.66 / train/actor_opt_grad_steps 6.3e4 / 
+train/actor_opt_loss -79.01 / train/adv_mag 1.64 / train/adv_max 1.53 / 
+train/adv_mean 9.5e-3 / train/adv_min -1.44 / train/adv_std 0.11 / 
+train/cont_avg 1 / train/cont_loss_mean 9.9e-8 / train/cont_loss_std 2.3e-6 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 2.5e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 3.2e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.08 / train/dyn_loss_std 7.67 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.43 / 
+train/extr_critic_critic_opt_grad_steps 6.3e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 596.11 / 
+train/extr_critic_max 596.11 / train/extr_critic_mean 402.86 / 
+train/extr_critic_min 10.26 / train/extr_critic_std 89.03 / 
+train/extr_return_normed_mag 1.49 / train/extr_return_normed_max 1.46 / 
+train/extr_return_normed_mean 0.44 / train/extr_return_normed_min -1.39 / 
+train/extr_return_normed_std 0.39 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 631.85 / train/extr_return_raw_max 631.85 / 
+train/extr_return_raw_mean 404.99 / train/extr_return_raw_min -5.05 / 
+train/extr_return_raw_std 88.38 / train/extr_reward_mag 124.28 / 
+train/extr_reward_max 119.15 / train/extr_reward_mean 1.55 / 
+train/extr_reward_min -70.31 / train/extr_reward_std 8.83 / 
+train/image_loss_mean 0.7 / train/image_loss_std 0.72 / train/model_loss_mean 
+2.46 / train/model_loss_std 5.08 / train/model_opt_grad_norm 13.23 / 
+train/model_opt_grad_steps 6.3e4 / train/model_opt_loss 7706.02 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3130.63 / train/policy_entropy_mag 2.53 / train/policy_entropy_max 2.45 / 
+train/policy_entropy_mean -1.63 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.37 / train/policy_logprob_mag 7.92 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.63 / 
+train/policy_logprob_min -7.92 / train/policy_logprob_std 1.07 / 
+train/policy_randomness_mag 0.92 / train/policy_randomness_max 0.92 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 3.9e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 33.95 / train/post_ent_max
+33.95 / train/post_ent_mean 15.8 / train/post_ent_min 3.74 / train/post_ent_std 
+7.88 / train/prior_ent_mag 77.88 / train/prior_ent_max 77.88 / 
+train/prior_ent_mean 17.81 / train/prior_ent_min 4.02 / train/prior_ent_std 10.9
+/ train/rep_loss_mean 2.08 / train/rep_loss_std 7.67 / train/reward_avg 0.99 / 
+train/reward_loss_mean 0.49 / train/reward_loss_std 0.23 / train/reward_max_data
+132.21 / train/reward_max_pred 131.11 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.52
+/ train/reward_pred 0.97 / train/reward_rate 0.3 / train/vector_loss_mean 0.03 /
+train/vector_loss_std 0.12 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.41
+
+Step 13235/50000 (26.5%) [0.0 min]
+────────────────────────────────── Step 64341 ──────────────────────────────────
+train/action_mag 3.32 / train/action_max 2.93 / train/action_mean -0.01 / 
+train/action_min -3.14 / train/action_std 0.87 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.7 / train/actor_opt_grad_steps 6.4e4 / 
+train/actor_opt_loss -91.4 / train/adv_mag 1.64 / train/adv_max 1.54 / 
+train/adv_mean 0.01 / train/adv_min -1.41 / train/adv_std 0.11 / train/cont_avg 
+1 / train/cont_loss_mean 4.4e-8 / train/cont_loss_std 7e-7 / train/cont_neg_acc 
+1 / train/cont_neg_loss 4.4e-5 / train/cont_pos_acc 1 / train/cont_pos_loss 
+3.4e-8 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 2.08 / 
+train/dyn_loss_std 7.72 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.47 / 
+train/extr_critic_critic_opt_grad_steps 6.4e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 601.02 / 
+train/extr_critic_max 601.02 / train/extr_critic_mean 406.54 / 
+train/extr_critic_min 7.87 / train/extr_critic_std 89.99 / 
+train/extr_return_normed_mag 1.47 / train/extr_return_normed_max 1.44 / 
+train/extr_return_normed_mean 0.44 / train/extr_return_normed_min -1.37 / 
+train/extr_return_normed_std 0.39 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 638.05 / train/extr_return_raw_max 638.05 / 
+train/extr_return_raw_mean 408.98 / train/extr_return_raw_min -7.96 / 
+train/extr_return_raw_std 89.18 / train/extr_reward_mag 127.68 / 
+train/extr_reward_max 120.25 / train/extr_reward_mean 1.44 / 
+train/extr_reward_min -76.43 / train/extr_reward_std 8.73 / 
+train/image_loss_mean 0.69 / train/image_loss_std 0.71 / train/model_loss_mean 
+2.45 / train/model_loss_std 5.11 / train/model_opt_grad_norm 10.73 / 
+train/model_opt_grad_steps 6.4e4 / train/model_opt_loss 1e4 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+4144.14 / train/policy_entropy_mag 2.61 / train/policy_entropy_max 2.51 / 
+train/policy_entropy_mean -1.59 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.45 / train/policy_logprob_mag 7.96 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.6 / 
+train/policy_logprob_min -7.96 / train/policy_logprob_std 1.11 / 
+train/policy_randomness_mag 0.93 / train/policy_randomness_max 0.93 / 
+train/policy_randomness_mean 0.04 / train/policy_randomness_min 3.6e-5 / 
+train/policy_randomness_std 0.1 / train/post_ent_mag 33.7 / train/post_ent_max 
+33.7 / train/post_ent_mean 15.25 / train/post_ent_min 3.7 / train/post_ent_std 
+7.93 / train/prior_ent_mag 77.85 / train/prior_ent_max 77.85 / 
+train/prior_ent_mean 17.25 / train/prior_ent_min 3.93 / train/prior_ent_std 
+10.97 / train/rep_loss_mean 2.08 / train/rep_loss_std 7.72 / train/reward_avg 
+0.94 / train/reward_loss_mean 0.49 / train/reward_loss_std 0.24 / 
+train/reward_max_data 133.42 / train/reward_max_pred 133.03 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.52 / train/reward_pred 0.93 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.02 / train/vector_loss_std 0.11 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.41
+
+Step 14341/50000 (28.7%) [0.0 min]
+Saving checkpoint at step 15000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+────────────────────────────────── Step 65445 ──────────────────────────────────
+train/action_mag 3.29 / train/action_max 2.95 / train/action_mean -0.02 / 
+train/action_min -3.11 / train/action_std 0.86 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.68 / train/actor_opt_grad_steps 6.5e4 / 
+train/actor_opt_loss -81.17 / train/adv_mag 1.57 / train/adv_max 1.52 / 
+train/adv_mean 9.4e-3 / train/adv_min -1.37 / train/adv_std 0.11 / 
+train/cont_avg 1 / train/cont_loss_mean 2.9e-8 / train/cont_loss_std 4.6e-7 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 4.4e-5 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 1.5e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.06 / train/dyn_loss_std 7.64 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.45 / 
+train/extr_critic_critic_opt_grad_steps 6.5e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 608.41 / 
+train/extr_critic_max 608.41 / train/extr_critic_mean 408.29 / 
+train/extr_critic_min 6.56 / train/extr_critic_std 94.37 / 
+train/extr_return_normed_mag 1.43 / train/extr_return_normed_max 1.41 / 
+train/extr_return_normed_mean 0.44 / train/extr_return_normed_min -1.29 / 
+train/extr_return_normed_std 0.39 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 644.17 / train/extr_return_raw_max 644.17 / 
+train/extr_return_raw_mean 410.56 / train/extr_return_raw_min -5.17 / 
+train/extr_return_raw_std 94.17 / train/extr_reward_mag 128.62 / 
+train/extr_reward_max 119.57 / train/extr_reward_mean 1.48 / 
+train/extr_reward_min -77.78 / train/extr_reward_std 8.85 / 
+train/image_loss_mean 0.67 / train/image_loss_std 0.66 / train/model_loss_mean 
+2.41 / train/model_loss_std 5.04 / train/model_opt_grad_norm 11.44 / 
+train/model_opt_grad_steps 6.5e4 / train/model_opt_loss 8276.11 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3431.82 / train/policy_entropy_mag 2.61 / train/policy_entropy_max 2.52 / 
+train/policy_entropy_mean -1.62 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.41 / train/policy_logprob_mag 7.8 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.62 / 
+train/policy_logprob_min -7.8 / train/policy_logprob_std 1.09 / 
+train/policy_randomness_mag 0.93 / train/policy_randomness_max 0.93 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 3.4e-5 / 
+train/policy_randomness_std 0.09 / train/post_ent_mag 33.26 / train/post_ent_max
+33.26 / train/post_ent_mean 14.89 / train/post_ent_min 3.74 / train/post_ent_std
+7.82 / train/prior_ent_mag 77.87 / train/prior_ent_max 77.87 / 
+train/prior_ent_mean 16.89 / train/prior_ent_min 3.89 / train/prior_ent_std 
+10.94 / train/rep_loss_mean 2.06 / train/rep_loss_std 7.64 / train/reward_avg 
+0.95 / train/reward_loss_mean 0.49 / train/reward_loss_std 0.24 / 
+train/reward_max_data 136.17 / train/reward_max_pred 135.93 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.52 / train/reward_pred 0.94 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.02 / train/vector_loss_std 0.1 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.37
+
+Step 15445/50000 (30.9%) [0.0 min]
+────────────────────────────────── Step 66551 ──────────────────────────────────
+train/action_mag 3.26 / train/action_max 3.11 / train/action_mean -0.02 / 
+train/action_min -2.92 / train/action_std 0.86 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.81 / train/actor_opt_grad_steps 6.6e4 / 
+train/actor_opt_loss -80.48 / train/adv_mag 1.61 / train/adv_max 1.52 / 
+train/adv_mean 9.3e-3 / train/adv_min -1.37 / train/adv_std 0.1 / train/cont_avg
+1 / train/cont_loss_mean 1.5e-8 / train/cont_loss_std 1.4e-7 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.3e-5 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 1.2e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2.05 / train/dyn_loss_std 7.61 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.43 / 
+train/extr_critic_critic_opt_grad_steps 6.6e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 624.05 / 
+train/extr_critic_max 624.05 / train/extr_critic_mean 415.23 / 
+train/extr_critic_min 5.21 / train/extr_critic_std 96.24 / 
+train/extr_return_normed_mag 1.45 / train/extr_return_normed_max 1.42 / 
+train/extr_return_normed_mean 0.44 / train/extr_return_normed_min -1.28 / 
+train/extr_return_normed_std 0.39 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 656.8 / train/extr_return_raw_max 656.8 / 
+train/extr_return_raw_mean 417.5 / train/extr_return_raw_min -5.95 / 
+train/extr_return_raw_std 95.84 / train/extr_reward_mag 127 / 
+train/extr_reward_max 119.02 / train/extr_reward_mean 1.55 / 
+train/extr_reward_min -72.57 / train/extr_reward_std 9.07 / 
+train/image_loss_mean 0.64 / train/image_loss_std 0.65 / train/model_loss_mean 
+2.38 / train/model_loss_std 5.03 / train/model_opt_grad_norm 12.14 / 
+train/model_opt_grad_steps 6.6e4 / train/model_opt_loss 9965.25 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+4189.19 / train/policy_entropy_mag 2.64 / train/policy_entropy_max 2.56 / 
+train/policy_entropy_mean -1.63 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.39 / train/policy_logprob_mag 7.9 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.63 / 
+train/policy_logprob_min -7.9 / train/policy_logprob_std 1.08 / 
+train/policy_randomness_mag 0.94 / train/policy_randomness_max 0.94 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 3.3e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 33.13 / train/post_ent_max
+33.13 / train/post_ent_mean 14.88 / train/post_ent_min 3.74 / train/post_ent_std
+7.73 / train/prior_ent_mag 77.81 / train/prior_ent_max 77.81 / 
+train/prior_ent_mean 16.88 / train/prior_ent_min 3.85 / train/prior_ent_std 
+10.85 / train/rep_loss_mean 2.05 / train/rep_loss_std 7.61 / train/reward_avg 1 
+/ train/reward_loss_mean 0.49 / train/reward_loss_std 0.24 / 
+train/reward_max_data 133.09 / train/reward_max_pred 132.72 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.52 / train/reward_pred 0.98 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.02 / train/vector_loss_std 0.1 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.42
+
+Step 16551/50000 (33.1%) [0.0 min]
+────────────────────────────────── Step 67658 ──────────────────────────────────
+train/action_mag 3.34 / train/action_max 3.02 / train/action_mean -0.03 / 
+train/action_min -3.04 / train/action_std 0.86 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.78 / train/actor_opt_grad_steps 6.7e4 / 
+train/actor_opt_loss -87.42 / train/adv_mag 1.55 / train/adv_max 1.5 / 
+train/adv_mean 0.01 / train/adv_min -1.32 / train/adv_std 0.1 / train/cont_avg 1
+/ train/cont_loss_mean 1.6e-8 / train/cont_loss_std 2.2e-7 / train/cont_neg_acc 
+1 / train/cont_neg_loss 2.4e-5 / train/cont_pos_acc 1 / train/cont_pos_loss 
+9.9e-9 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 2.03 / 
+train/dyn_loss_std 7.48 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.43 / 
+train/extr_critic_critic_opt_grad_steps 6.7e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 634.55 / 
+train/extr_critic_max 634.55 / train/extr_critic_mean 419.92 / 
+train/extr_critic_min 5.87 / train/extr_critic_std 100.85 / 
+train/extr_return_normed_mag 1.4 / train/extr_return_normed_max 1.39 / 
+train/extr_return_normed_mean 0.44 / train/extr_return_normed_min -1.22 / 
+train/extr_return_normed_std 0.39 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 664.07 / train/extr_return_raw_max 664.07 / 
+train/extr_return_raw_mean 422.54 / train/extr_return_raw_min -3.09 / 
+train/extr_return_raw_std 100.03 / train/extr_reward_mag 129.06 / 
+train/extr_reward_max 119.28 / train/extr_reward_mean 1.5 / 
+train/extr_reward_min -79.78 / train/extr_reward_std 8.84 / 
+train/image_loss_mean 0.63 / train/image_loss_std 0.63 / train/model_loss_mean 
+2.35 / train/model_loss_std 4.93 / train/model_opt_grad_norm 10.5 / 
+train/model_opt_grad_steps 6.7e4 / train/model_opt_loss 6395.82 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2727.27 / train/policy_entropy_mag 2.64 / train/policy_entropy_max 2.54 / 
+train/policy_entropy_mean -1.64 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.37 / train/policy_logprob_mag 7.78 / 
+train/policy_logprob_max 2.76 / train/policy_logprob_mean 1.64 / 
+train/policy_logprob_min -7.78 / train/policy_logprob_std 1.07 / 
+train/policy_randomness_mag 0.94 / train/policy_randomness_max 0.94 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 3.7e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 33.44 / train/post_ent_max
+33.44 / train/post_ent_mean 14.51 / train/post_ent_min 3.69 / train/post_ent_std
+7.62 / train/prior_ent_mag 77.87 / train/prior_ent_max 77.87 / 
+train/prior_ent_mean 16.49 / train/prior_ent_min 3.78 / train/prior_ent_std 
+10.81 / train/rep_loss_mean 2.03 / train/rep_loss_std 7.48 / train/reward_avg 
+0.95 / train/reward_loss_mean 0.48 / train/reward_loss_std 0.23 / 
+train/reward_max_data 135.54 / train/reward_max_pred 135.05 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.51 / train/reward_pred 0.94 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.02 / train/vector_loss_std 0.09 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7.1e-7 / 
+replay/sample_wait_frac 1 / fps 18.42
+
+Step 17658/50000 (35.3%) [0.0 min]
+────────────────────────────────── Step 68764 ──────────────────────────────────
+train/action_mag 3.22 / train/action_max 2.96 / train/action_mean -0.02 / 
+train/action_min -2.83 / train/action_std 0.86 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.7 / train/actor_opt_grad_steps 6.8e4 / 
+train/actor_opt_loss -92.36 / train/adv_mag 1.55 / train/adv_max 1.49 / 
+train/adv_mean 0.01 / train/adv_min -1.25 / train/adv_std 0.1 / train/cont_avg 1
+/ train/cont_loss_mean 1.4e-7 / train/cont_loss_std 4.3e-6 / train/cont_neg_acc 
+1 / train/cont_neg_loss 5e-4 / train/cont_pos_acc 1 / train/cont_pos_loss 4.7e-8
+/ train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 2.02 / 
+train/dyn_loss_std 7.43 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.42 / 
+train/extr_critic_critic_opt_grad_steps 6.8e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 641.97 / 
+train/extr_critic_max 641.97 / train/extr_critic_mean 431.46 / 
+train/extr_critic_min 5.4 / train/extr_critic_std 98.88 / 
+train/extr_return_normed_mag 1.38 / train/extr_return_normed_max 1.36 / 
+train/extr_return_normed_mean 0.45 / train/extr_return_normed_min -1.24 / 
+train/extr_return_normed_std 0.38 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 671.19 / train/extr_return_raw_max 671.19 / 
+train/extr_return_raw_mean 434.2 / train/extr_return_raw_min -2.84 / 
+train/extr_return_raw_std 97.91 / train/extr_reward_mag 124.21 / 
+train/extr_reward_max 119.18 / train/extr_reward_mean 1.49 / 
+train/extr_reward_min -68.1 / train/extr_reward_std 9 / train/image_loss_mean 
+0.6 / train/image_loss_std 0.62 / train/model_loss_mean 2.32 / 
+train/model_loss_std 4.91 / train/model_opt_grad_norm 10.09 / 
+train/model_opt_grad_steps 6.8e4 / train/model_opt_loss 6733.46 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2905.41 / train/policy_entropy_mag 2.5 / train/policy_entropy_max 2.37 / 
+train/policy_entropy_mean -1.64 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.36 / train/policy_logprob_mag 7.88 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.64 / 
+train/policy_logprob_min -7.88 / train/policy_logprob_std 1.08 / 
+train/policy_randomness_mag 0.9 / train/policy_randomness_max 0.9 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 3.6e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 33.38 / train/post_ent_max
+33.38 / train/post_ent_mean 14.16 / train/post_ent_min 3.67 / train/post_ent_std
+7.45 / train/prior_ent_mag 77.82 / train/prior_ent_max 77.82 / 
+train/prior_ent_mean 16.15 / train/prior_ent_min 3.77 / train/prior_ent_std 
+10.71 / train/rep_loss_mean 2.02 / train/rep_loss_std 7.43 / train/reward_avg 
+0.92 / train/reward_loss_mean 0.49 / train/reward_loss_std 0.23 / 
+train/reward_max_data 129.75 / train/reward_max_pred 129.21 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.52 / train/reward_pred 0.91 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.02 / train/vector_loss_std 0.09 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.41
+
+Step 18764/50000 (37.5%) [0.0 min]
+────────────────────────────────── Step 69870 ──────────────────────────────────
+train/action_mag 3.07 / train/action_max 2.82 / train/action_mean -0.02 / 
+train/action_min -2.55 / train/action_std 0.85 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.73 / train/actor_opt_grad_steps 6.9e4 / 
+train/actor_opt_loss -77.2 / train/adv_mag 1.54 / train/adv_max 1.44 / 
+train/adv_mean 8.8e-3 / train/adv_min -1.35 / train/adv_std 0.1 / train/cont_avg
+1 / train/cont_loss_mean 4.8e-8 / train/cont_loss_std 1.1e-6 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.5e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 8.3e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 2 / train/dyn_loss_std 7.38 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.4 / 
+train/extr_critic_critic_opt_grad_steps 6.9e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 655.75 / 
+train/extr_critic_max 655.75 / train/extr_critic_mean 447.4 / 
+train/extr_critic_min 28.4 / train/extr_critic_std 94.19 / 
+train/extr_return_normed_mag 1.47 / train/extr_return_normed_max 1.4 / 
+train/extr_return_normed_mean 0.45 / train/extr_return_normed_min -1.33 / 
+train/extr_return_normed_std 0.38 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 685.3 / train/extr_return_raw_max 685.3 / 
+train/extr_return_raw_mean 449.59 / train/extr_return_raw_min 8.41 / 
+train/extr_return_raw_std 93.78 / train/extr_reward_mag 122.52 / 
+train/extr_reward_max 117.95 / train/extr_reward_mean 1.55 / 
+train/extr_reward_min -65.6 / train/extr_reward_std 8.89 / train/image_loss_mean
+0.59 / train/image_loss_std 0.61 / train/model_loss_mean 2.3 / 
+train/model_loss_std 4.88 / train/model_opt_grad_norm 11.06 / 
+train/model_opt_grad_steps 6.9e4 / train/model_opt_loss 6333.75 / 
+train/model_opt_model_opt_grad_overflow 9e-3 / 
+train/model_opt_model_opt_grad_scale 2725.23 / train/policy_entropy_mag 2.41 / 
+train/policy_entropy_max 2.24 / train/policy_entropy_mean -1.66 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.33 / 
+train/policy_logprob_mag 7.94 / train/policy_logprob_max 2.77 / 
+train/policy_logprob_mean 1.66 / train/policy_logprob_min -7.94 / 
+train/policy_logprob_std 1.06 / train/policy_randomness_mag 0.87 / 
+train/policy_randomness_max 0.87 / train/policy_randomness_mean 0.02 / 
+train/policy_randomness_min 3e-5 / train/policy_randomness_std 0.07 / 
+train/post_ent_mag 33.9 / train/post_ent_max 33.9 / train/post_ent_mean 14.09 / 
+train/post_ent_min 3.64 / train/post_ent_std 7.35 / train/prior_ent_mag 77.76 / 
+train/prior_ent_max 77.76 / train/prior_ent_mean 16.03 / train/prior_ent_min 
+3.69 / train/prior_ent_std 10.64 / train/rep_loss_mean 2 / train/rep_loss_std 
+7.38 / train/reward_avg 1.01 / train/reward_loss_mean 0.49 / 
+train/reward_loss_std 0.23 / train/reward_max_data 131.14 / 
+train/reward_max_pred 131.04 / train/reward_neg_acc 1 / train/reward_neg_loss 
+0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51 / train/reward_pred 1
+/ train/reward_rate 0.29 / train/vector_loss_mean 0.02 / train/vector_loss_std 
+0.09 / replay/size 3488 / replay/inserts 0 / replay/samples 1.8e4 / 
+replay/insert_wait_avg nan / replay/insert_wait_frac nan / 
+replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.41
+
+Step 19870/50000 (39.7%) [0.0 min]
+Saving checkpoint at step 20000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+────────────────────────────────── Step 70973 ──────────────────────────────────
+train/action_mag 3.14 / train/action_max 3.06 / train/action_mean -0.03 / 
+train/action_min -2.34 / train/action_std 0.85 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.76 / train/actor_opt_grad_steps 7e4 / 
+train/actor_opt_loss -86.45 / train/adv_mag 1.59 / train/adv_max 1.51 / 
+train/adv_mean 0.01 / train/adv_min -1.36 / train/adv_std 0.11 / train/cont_avg 
+1 / train/cont_loss_mean 3.2e-8 / train/cont_loss_std 7.8e-7 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.4e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 9.7e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.99 / train/dyn_loss_std 7.27 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.41 / 
+train/extr_critic_critic_opt_grad_steps 7e4 / train/extr_critic_critic_opt_loss 
+1.1e4 / train/extr_critic_mag 660.95 / train/extr_critic_max 660.95 / 
+train/extr_critic_mean 453.7 / train/extr_critic_min 16.06 / 
+train/extr_critic_std 95.2 / train/extr_return_normed_mag 1.47 / 
+train/extr_return_normed_max 1.41 / train/extr_return_normed_mean 0.46 / 
+train/extr_return_normed_min -1.39 / train/extr_return_normed_std 0.38 / 
+train/extr_return_rate 1 / train/extr_return_raw_mag 691.1 / 
+train/extr_return_raw_max 691.1 / train/extr_return_raw_mean 456.22 / 
+train/extr_return_raw_min -2.76 / train/extr_return_raw_std 93.86 / 
+train/extr_reward_mag 125.16 / train/extr_reward_max 119.05 / 
+train/extr_reward_mean 1.51 / train/extr_reward_min -71.25 / 
+train/extr_reward_std 8.71 / train/image_loss_mean 0.58 / train/image_loss_std 
+0.59 / train/model_loss_mean 2.28 / train/model_loss_std 4.8 / 
+train/model_opt_grad_norm 10.7 / train/model_opt_grad_steps 7e4 / 
+train/model_opt_loss 8174.41 / train/model_opt_model_opt_grad_overflow 0 / 
+train/model_opt_model_opt_grad_scale 3590.91 / train/policy_entropy_mag 2.6 / 
+train/policy_entropy_max 2.51 / train/policy_entropy_mean -1.67 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.32 / 
+train/policy_logprob_mag 7.84 / train/policy_logprob_max 2.77 / 
+train/policy_logprob_mean 1.67 / train/policy_logprob_min -7.84 / 
+train/policy_logprob_std 1.05 / train/policy_randomness_mag 0.93 / 
+train/policy_randomness_max 0.93 / train/policy_randomness_mean 0.02 / 
+train/policy_randomness_min 2.8e-5 / train/policy_randomness_std 0.07 / 
+train/post_ent_mag 34.66 / train/post_ent_max 34.66 / train/post_ent_mean 13.9 /
+train/post_ent_min 3.66 / train/post_ent_std 7.25 / train/prior_ent_mag 77.77 / 
+train/prior_ent_max 77.77 / train/prior_ent_mean 15.89 / train/prior_ent_min 
+3.63 / train/prior_ent_std 10.59 / train/rep_loss_mean 1.99 / train/rep_loss_std
+7.27 / train/reward_avg 0.93 / train/reward_loss_mean 0.49 / 
+train/reward_loss_std 0.22 / train/reward_max_data 132.3 / train/reward_max_pred
+132 / train/reward_neg_acc 1 / train/reward_neg_loss 0.48 / train/reward_pos_acc
+1 / train/reward_pos_loss 0.51 / train/reward_pred 0.93 / train/reward_rate 0.29
+/ train/vector_loss_mean 0.02 / train/vector_loss_std 0.09 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7.1e-7 / 
+replay/sample_wait_frac 1 / fps 18.36
+
+Step 20973/50000 (41.9%) [0.0 min]
+────────────────────────────────── Step 72078 ──────────────────────────────────
+train/action_mag 3.18 / train/action_max 3.13 / train/action_mean -0.04 / 
+train/action_min -2.33 / train/action_std 0.85 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.84 / train/actor_opt_grad_steps 7.2e4 / 
+train/actor_opt_loss -61.6 / train/adv_mag 1.46 / train/adv_max 1.41 / 
+train/adv_mean 7.9e-3 / train/adv_min -1.27 / train/adv_std 0.1 / train/cont_avg
+1 / train/cont_loss_mean 2.4e-8 / train/cont_loss_std 2.8e-7 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 9.5e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 2.1e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.98 / train/dyn_loss_std 7.26 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.4 / 
+train/extr_critic_critic_opt_grad_steps 7.2e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 666.05 / 
+train/extr_critic_max 666.05 / train/extr_critic_mean 460.19 / 
+train/extr_critic_min 12.07 / train/extr_critic_std 99.97 / 
+train/extr_return_normed_mag 1.41 / train/extr_return_normed_max 1.39 / 
+train/extr_return_normed_mean 0.52 / train/extr_return_normed_min -1.2 / 
+train/extr_return_normed_std 0.36 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 700.99 / train/extr_return_raw_max 700.99 / 
+train/extr_return_raw_mean 462.33 / train/extr_return_raw_min -4.18 / 
+train/extr_return_raw_std 99.28 / train/extr_reward_mag 124.16 / 
+train/extr_reward_max 120.39 / train/extr_reward_mean 1.58 / 
+train/extr_reward_min -67.84 / train/extr_reward_std 8.77 / 
+train/image_loss_mean 0.56 / train/image_loss_std 0.6 / train/model_loss_mean 
+2.25 / train/model_loss_std 4.8 / train/model_opt_grad_norm 9.4 / 
+train/model_opt_grad_steps 7.1e4 / train/model_opt_loss 6401.95 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2840.91 / train/policy_entropy_mag 2.61 / train/policy_entropy_max 2.5 / 
+train/policy_entropy_mean -1.66 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.34 / train/policy_logprob_mag 7.85 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.66 / 
+train/policy_logprob_min -7.85 / train/policy_logprob_std 1.07 / 
+train/policy_randomness_mag 0.93 / train/policy_randomness_max 0.93 / 
+train/policy_randomness_mean 0.02 / train/policy_randomness_min 2.6e-5 / 
+train/policy_randomness_std 0.07 / train/post_ent_mag 35.19 / train/post_ent_max
+35.19 / train/post_ent_mean 13.76 / train/post_ent_min 3.69 / train/post_ent_std
+7.19 / train/prior_ent_mag 77.74 / train/prior_ent_max 77.74 / 
+train/prior_ent_mean 15.75 / train/prior_ent_min 3.65 / train/prior_ent_std 
+10.54 / train/rep_loss_mean 1.98 / train/rep_loss_std 7.26 / train/reward_avg 
+0.97 / train/reward_loss_mean 0.49 / train/reward_loss_std 0.23 / 
+train/reward_max_data 131.76 / train/reward_max_pred 131.16 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.51 / train/reward_pred 0.96 / train/reward_rate 0.3 / 
+train/vector_loss_mean 0.02 / train/vector_loss_std 0.09 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.4
+
+Step 22078/50000 (44.2%) [0.0 min]
+────────────────────────────────── Step 73185 ──────────────────────────────────
+train/action_mag 3.25 / train/action_max 3.2 / train/action_mean -0.03 / 
+train/action_min -2.34 / train/action_std 0.84 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.63 / train/actor_opt_grad_steps 7.3e4 / 
+train/actor_opt_loss -48.41 / train/adv_mag 1.31 / train/adv_max 1.24 / 
+train/adv_mean 6.5e-3 / train/adv_min -1.18 / train/adv_std 0.1 / train/cont_avg
+1 / train/cont_loss_mean 7e-7 / train/cont_loss_std 2.2e-5 / train/cont_neg_acc 
+1 / train/cont_neg_loss 2.4e-3 / train/cont_pos_acc 1 / train/cont_pos_loss 
+2.4e-8 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.97 / 
+train/dyn_loss_std 7.2 / train/extr_critic_critic_opt_critic_opt_grad_overflow 0
+/ train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.42 / 
+train/extr_critic_critic_opt_grad_steps 7.3e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 662.27 / 
+train/extr_critic_max 662.27 / train/extr_critic_mean 447.09 / 
+train/extr_critic_min 6.42 / train/extr_critic_std 103.62 / 
+train/extr_return_normed_mag 1.38 / train/extr_return_normed_max 1.38 / 
+train/extr_return_normed_mean 0.55 / train/extr_return_normed_min -0.94 / 
+train/extr_return_normed_std 0.33 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 703.75 / train/extr_return_raw_max 703.75 / 
+train/extr_return_raw_mean 449.08 / train/extr_return_raw_min -8.92 / 
+train/extr_return_raw_std 102.37 / train/extr_reward_mag 125.23 / 
+train/extr_reward_max 118.96 / train/extr_reward_mean 1.52 / 
+train/extr_reward_min -70.27 / train/extr_reward_std 8.62 / 
+train/image_loss_mean 0.56 / train/image_loss_std 0.59 / train/model_loss_mean 
+2.24 / train/model_loss_std 4.77 / train/model_opt_grad_norm 10.69 / 
+train/model_opt_grad_steps 7.3e4 / train/model_opt_loss 7611.8 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3400.9 / train/policy_entropy_mag 2.66 / train/policy_entropy_max 2.56 / 
+train/policy_entropy_mean -1.65 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.36 / train/policy_logprob_mag 7.74 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.65 / 
+train/policy_logprob_min -7.74 / train/policy_logprob_std 1.07 / 
+train/policy_randomness_mag 0.94 / train/policy_randomness_max 0.94 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 2.5e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 36.3 / train/post_ent_max 
+36.3 / train/post_ent_mean 13.54 / train/post_ent_min 3.67 / train/post_ent_std 
+7.06 / train/prior_ent_mag 77.85 / train/prior_ent_max 77.85 / 
+train/prior_ent_mean 15.54 / train/prior_ent_min 3.58 / train/prior_ent_std 
+10.48 / train/rep_loss_mean 1.97 / train/rep_loss_std 7.2 / train/reward_avg 
+0.92 / train/reward_loss_mean 0.48 / train/reward_loss_std 0.23 / 
+train/reward_max_data 132.49 / train/reward_max_pred 132.04 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.51 / train/reward_pred 0.92 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.02 / train/vector_loss_std 0.1 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.42
+
+Step 23185/50000 (46.4%) [0.0 min]
+────────────────────────────────── Step 74289 ──────────────────────────────────
+train/action_mag 3.32 / train/action_max 3.27 / train/action_mean -0.02 / 
+train/action_min -2.49 / train/action_std 0.84 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.54 / train/actor_opt_grad_steps 7.4e4 / 
+train/actor_opt_loss -70.87 / train/adv_mag 1.34 / train/adv_max 1.29 / 
+train/adv_mean 8.6e-3 / train/adv_min -1.22 / train/adv_std 0.1 / train/cont_avg
+1 / train/cont_loss_mean 1.5e-8 / train/cont_loss_std 1.1e-7 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 6.1e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 1.3e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.96 / train/dyn_loss_std 7.11 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.45 / 
+train/extr_critic_critic_opt_grad_steps 7.4e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 653.08 / 
+train/extr_critic_max 653.08 / train/extr_critic_mean 444.32 / 
+train/extr_critic_min 7.54 / train/extr_critic_std 102.81 / 
+train/extr_return_normed_mag 1.4 / train/extr_return_normed_max 1.4 / 
+train/extr_return_normed_mean 0.6 / train/extr_return_normed_min -0.9 / 
+train/extr_return_normed_std 0.33 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 692.41 / train/extr_return_raw_max 692.41 / 
+train/extr_return_raw_mean 446.94 / train/extr_return_raw_min -8.21 / 
+train/extr_return_raw_std 101.43 / train/extr_reward_mag 126.61 / 
+train/extr_reward_max 118.19 / train/extr_reward_mean 1.57 / 
+train/extr_reward_min -72.74 / train/extr_reward_std 8.94 / 
+train/image_loss_mean 0.55 / train/image_loss_std 0.59 / train/model_loss_mean 
+2.22 / train/model_loss_std 4.72 / train/model_opt_grad_norm 9.84 / 
+train/model_opt_grad_steps 7.4e4 / train/model_opt_loss 6669.18 / 
+train/model_opt_model_opt_grad_overflow 9.1e-3 / 
+train/model_opt_model_opt_grad_scale 2977.27 / train/policy_entropy_mag 2.72 / 
+train/policy_entropy_max 2.68 / train/policy_entropy_mean -1.63 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.39 / 
+train/policy_logprob_mag 7.75 / train/policy_logprob_max 2.77 / 
+train/policy_logprob_mean 1.63 / train/policy_logprob_min -7.75 / 
+train/policy_logprob_std 1.08 / train/policy_randomness_mag 0.97 / 
+train/policy_randomness_max 0.97 / train/policy_randomness_mean 0.03 / 
+train/policy_randomness_min 3.1e-5 / train/policy_randomness_std 0.08 / 
+train/post_ent_mag 36.96 / train/post_ent_max 36.96 / train/post_ent_mean 13.12 
+/ train/post_ent_min 3.68 / train/post_ent_std 6.99 / train/prior_ent_mag 77.76 
+/ train/prior_ent_max 77.76 / train/prior_ent_mean 15.12 / train/prior_ent_min 
+3.59 / train/prior_ent_std 10.46 / train/rep_loss_mean 1.96 / train/rep_loss_std
+7.11 / train/reward_avg 0.96 / train/reward_loss_mean 0.49 / 
+train/reward_loss_std 0.22 / train/reward_max_data 134.77 / 
+train/reward_max_pred 134.4 / train/reward_neg_acc 1 / train/reward_neg_loss 
+0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51 / train/reward_pred 
+0.95 / train/reward_rate 0.29 / train/vector_loss_mean 0.02 / 
+train/vector_loss_std 0.09 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7.1e-7 / replay/sample_wait_frac 1 / fps 18.38
+
+Step 24289/50000 (48.6%) [0.0 min]
+Saving checkpoint at step 25000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+────────────────────────────────── Step 75391 ──────────────────────────────────
+train/action_mag 3.35 / train/action_max 3.26 / train/action_mean -0.05 / 
+train/action_min -2.59 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.55 / train/actor_opt_grad_steps 7.5e4 / 
+train/actor_opt_loss -103.17 / train/adv_mag 1.66 / train/adv_max 1.62 / 
+train/adv_mean 0.01 / train/adv_min -1.42 / train/adv_std 0.12 / train/cont_avg 
+1 / train/cont_loss_mean 9.2e-8 / train/cont_loss_std 1.5e-6 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.3e-5 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 8.8e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.95 / train/dyn_loss_std 7.07 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.46 / 
+train/extr_critic_critic_opt_grad_steps 7.5e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 650.66 / 
+train/extr_critic_max 650.66 / train/extr_critic_mean 449.32 / 
+train/extr_critic_min 2.92 / train/extr_critic_std 93.22 / 
+train/extr_return_normed_mag 1.51 / train/extr_return_normed_max 1.48 / 
+train/extr_return_normed_mean 0.53 / train/extr_return_normed_min -1.33 / 
+train/extr_return_normed_std 0.37 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 687.75 / train/extr_return_raw_max 687.75 / 
+train/extr_return_raw_mean 452.37 / train/extr_return_raw_min -7.99 / 
+train/extr_return_raw_std 91.04 / train/extr_reward_mag 127.66 / 
+train/extr_reward_max 119.28 / train/extr_reward_mean 1.55 / 
+train/extr_reward_min -75.9 / train/extr_reward_std 8.75 / train/image_loss_mean
+0.55 / train/image_loss_std 0.59 / train/model_loss_mean 2.22 / 
+train/model_loss_std 4.7 / train/model_opt_grad_norm 11.37 / 
+train/model_opt_grad_steps 7.5e4 / train/model_opt_loss 6890.09 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3108.11 / train/policy_entropy_mag 2.72 / train/policy_entropy_max 2.66 / 
+train/policy_entropy_mean -1.65 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.38 / train/policy_logprob_mag 7.9 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.65 / 
+train/policy_logprob_min -7.9 / train/policy_logprob_std 1.08 / 
+train/policy_randomness_mag 0.96 / train/policy_randomness_max 0.96 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 2.7e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 37.01 / train/post_ent_max
+37.01 / train/post_ent_mean 13.02 / train/post_ent_min 3.64 / train/post_ent_std
+6.88 / train/prior_ent_mag 77.79 / train/prior_ent_max 77.79 / 
+train/prior_ent_mean 15.01 / train/prior_ent_min 3.62 / train/prior_ent_std 
+10.41 / train/rep_loss_mean 1.95 / train/rep_loss_std 7.07 / train/reward_avg 
+0.99 / train/reward_loss_mean 0.49 / train/reward_loss_std 0.22 / 
+train/reward_max_data 138.51 / train/reward_max_pred 138.19 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.51 / train/reward_pred 0.98 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.02 / train/vector_loss_std 0.09 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7.1e-7 / 
+replay/sample_wait_frac 1 / fps 18.35
+
+Step 25391/50000 (50.8%) [0.0 min]
+────────────────────────────────── Step 76495 ──────────────────────────────────
+train/action_mag 3.36 / train/action_max 3.27 / train/action_mean -0.05 / 
+train/action_min -2.66 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.89 / train/actor_opt_grad_steps 7.6e4 / 
+train/actor_opt_loss -109.1 / train/adv_mag 1.91 / train/adv_max 1.86 / 
+train/adv_mean 0.01 / train/adv_min -1.56 / train/adv_std 0.14 / train/cont_avg 
+1 / train/cont_loss_mean 2.2e-7 / train/cont_loss_std 6.2e-6 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 3.2e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 5.9e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.94 / train/dyn_loss_std 7.01 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.4 / 
+train/extr_critic_critic_opt_grad_steps 7.6e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 663.91 / 
+train/extr_critic_max 663.91 / train/extr_critic_mean 456.26 / 
+train/extr_critic_min 4.66 / train/extr_critic_std 89.91 / 
+train/extr_return_normed_mag 1.67 / train/extr_return_normed_max 1.56 / 
+train/extr_return_normed_mean 0.46 / train/extr_return_normed_min -1.63 / 
+train/extr_return_normed_std 0.4 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 700.97 / train/extr_return_raw_max 700.97 / 
+train/extr_return_raw_mean 459.28 / train/extr_return_raw_min -1.86 / 
+train/extr_return_raw_std 87.69 / train/extr_reward_mag 126.23 / 
+train/extr_reward_max 118.47 / train/extr_reward_mean 1.57 / 
+train/extr_reward_min -73.52 / train/extr_reward_std 8.96 / 
+train/image_loss_mean 0.53 / train/image_loss_std 0.58 / train/model_loss_mean 
+2.2 / train/model_loss_std 4.68 / train/model_opt_grad_norm 10.15 / 
+train/model_opt_grad_steps 7.6e4 / train/model_opt_loss 7844.46 / 
+train/model_opt_model_opt_grad_overflow 9.1e-3 / 
+train/model_opt_model_opt_grad_scale 3545.45 / train/policy_entropy_mag 2.79 / 
+train/policy_entropy_max 2.77 / train/policy_entropy_mean -1.66 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.39 / 
+train/policy_logprob_mag 7.98 / train/policy_logprob_max 2.77 / 
+train/policy_logprob_mean 1.66 / train/policy_logprob_min -7.98 / 
+train/policy_logprob_std 1.08 / train/policy_randomness_mag 0.99 / 
+train/policy_randomness_max 0.99 / train/policy_randomness_mean 0.02 / 
+train/policy_randomness_min 2.6e-5 / train/policy_randomness_std 0.08 / 
+train/post_ent_mag 37.68 / train/post_ent_max 37.68 / train/post_ent_mean 12.89 
+/ train/post_ent_min 3.58 / train/post_ent_std 6.82 / train/prior_ent_mag 77.77 
+/ train/prior_ent_max 77.77 / train/prior_ent_mean 14.86 / train/prior_ent_min 
+3.51 / train/prior_ent_std 10.38 / train/rep_loss_mean 1.94 / train/rep_loss_std
+7.01 / train/reward_avg 0.97 / train/reward_loss_mean 0.49 / 
+train/reward_loss_std 0.22 / train/reward_max_data 137.17 / 
+train/reward_max_pred 136.83 / train/reward_neg_acc 1 / train/reward_neg_loss 
+0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51 / train/reward_pred 
+0.96 / train/reward_rate 0.29 / train/vector_loss_mean 0.02 / 
+train/vector_loss_std 0.1 / replay/size 3488 / replay/inserts 0 / replay/samples
+1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan / 
+replay/sample_wait_avg 7.1e-7 / replay/sample_wait_frac 1 / fps 18.37
+
+Step 26495/50000 (53.0%) [0.0 min]
+────────────────────────────────── Step 77599 ──────────────────────────────────
+train/action_mag 3.48 / train/action_max 3.39 / train/action_mean -0.05 / 
+train/action_min -2.69 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.74 / train/actor_opt_grad_steps 7.7e4 / 
+train/actor_opt_loss -117.94 / train/adv_mag 2 / train/adv_max 1.99 / 
+train/adv_mean 0.02 / train/adv_min -1.56 / train/adv_std 0.14 / train/cont_avg 
+1 / train/cont_loss_mean 5.8e-8 / train/cont_loss_std 1.3e-6 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 2e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 2.2e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.92 / train/dyn_loss_std 6.95 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.39 / 
+train/extr_critic_critic_opt_grad_steps 7.7e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 674.97 / 
+train/extr_critic_max 674.97 / train/extr_critic_mean 462.98 / 
+train/extr_critic_min 2.67 / train/extr_critic_std 91.59 / 
+train/extr_return_normed_mag 1.74 / train/extr_return_normed_max 1.55 / 
+train/extr_return_normed_mean 0.45 / train/extr_return_normed_min -1.71 / 
+train/extr_return_normed_std 0.41 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 705.25 / train/extr_return_raw_max 705.25 / 
+train/extr_return_raw_mean 466.27 / train/extr_return_raw_min 0.2 / 
+train/extr_return_raw_std 88.57 / train/extr_reward_mag 125.45 / 
+train/extr_reward_max 119.37 / train/extr_reward_mean 1.51 / 
+train/extr_reward_min -70.9 / train/extr_reward_std 8.72 / train/image_loss_mean
+0.52 / train/image_loss_std 0.56 / train/model_loss_mean 2.17 / 
+train/model_loss_std 4.62 / train/model_opt_grad_norm 9.71 / 
+train/model_opt_grad_steps 7.7e4 / train/model_opt_loss 6522.55 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3000 / train/policy_entropy_mag 2.77 / train/policy_entropy_max 2.74 / 
+train/policy_entropy_mean -1.65 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.41 / train/policy_logprob_mag 7.86 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.66 / 
+train/policy_logprob_min -7.86 / train/policy_logprob_std 1.09 / 
+train/policy_randomness_mag 0.98 / train/policy_randomness_max 0.98 / 
+train/policy_randomness_mean 0.02 / train/policy_randomness_min 2.4e-5 / 
+train/policy_randomness_std 0.09 / train/post_ent_mag 38.44 / train/post_ent_max
+38.44 / train/post_ent_mean 12.6 / train/post_ent_min 3.61 / train/post_ent_std 
+6.65 / train/prior_ent_mag 77.78 / train/prior_ent_max 77.78 / 
+train/prior_ent_mean 14.57 / train/prior_ent_min 3.48 / train/prior_ent_std 
+10.28 / train/rep_loss_mean 1.92 / train/rep_loss_std 6.95 / train/reward_avg 
+0.96 / train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / 
+train/reward_max_data 136.44 / train/reward_max_pred 135.99 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.51 / train/reward_pred 0.95 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.01 / train/vector_loss_std 0.1 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7.1e-7 / 
+replay/sample_wait_frac 1 / fps 18.38
+
+Step 27599/50000 (55.2%) [0.0 min]
+────────────────────────────────── Step 78704 ──────────────────────────────────
+train/action_mag 3.35 / train/action_max 3.26 / train/action_mean -0.06 / 
+train/action_min -2.57 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.83 / train/actor_opt_grad_steps 7.8e4 / 
+train/actor_opt_loss -104.07 / train/adv_mag 1.99 / train/adv_max 1.97 / 
+train/adv_mean 0.01 / train/adv_min -1.61 / train/adv_std 0.15 / train/cont_avg 
+1 / train/cont_loss_mean 1.6e-8 / train/cont_loss_std 1.6e-7 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 4e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 1.5e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.93 / train/dyn_loss_std 6.93 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.44 / 
+train/extr_critic_critic_opt_grad_steps 7.8e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 683.45 / 
+train/extr_critic_max 683.45 / train/extr_critic_mean 470.65 / 
+train/extr_critic_min -0.49 / train/extr_critic_std 93.29 / 
+train/extr_return_normed_mag 1.79 / train/extr_return_normed_max 1.58 / 
+train/extr_return_normed_mean 0.46 / train/extr_return_normed_min -1.78 / 
+train/extr_return_normed_std 0.42 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 715.38 / train/extr_return_raw_max 715.38 / 
+train/extr_return_raw_mean 473.62 / train/extr_return_raw_min -10.48 / 
+train/extr_return_raw_std 90.85 / train/extr_reward_mag 122.71 / 
+train/extr_reward_max 118.33 / train/extr_reward_mean 1.62 / 
+train/extr_reward_min -68.3 / train/extr_reward_std 9.14 / train/image_loss_mean
+0.52 / train/image_loss_std 0.56 / train/model_loss_mean 2.17 / 
+train/model_loss_std 4.61 / train/model_opt_grad_norm 8.67 / 
+train/model_opt_grad_steps 7.8e4 / train/model_opt_loss 6223.73 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2860.36 / train/policy_entropy_mag 2.77 / train/policy_entropy_max 2.73 / 
+train/policy_entropy_mean -1.68 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.35 / train/policy_logprob_mag 7.74 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.68 / 
+train/policy_logprob_min -7.74 / train/policy_logprob_std 1.07 / 
+train/policy_randomness_mag 0.98 / train/policy_randomness_max 0.98 / 
+train/policy_randomness_mean 0.02 / train/policy_randomness_min 1.9e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 39.03 / train/post_ent_max
+39.03 / train/post_ent_mean 12.45 / train/post_ent_min 3.62 / train/post_ent_std
+6.6 / train/prior_ent_mag 77.76 / train/prior_ent_max 77.76 / 
+train/prior_ent_mean 14.46 / train/prior_ent_min 3.46 / train/prior_ent_std 
+10.28 / train/rep_loss_mean 1.93 / train/rep_loss_std 6.93 / train/reward_avg 
+0.97 / train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / 
+train/reward_max_data 135.12 / train/reward_max_pred 134.88 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.51 / train/reward_pred 0.96 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.01 / train/vector_loss_std 0.1 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.39
+
+Step 28704/50000 (57.4%) [0.0 min]
+────────────────────────────────── Step 79809 ──────────────────────────────────
+train/action_mag 3.32 / train/action_max 3.19 / train/action_mean -0.06 / 
+train/action_min -2.7 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.87 / train/actor_opt_grad_steps 7.9e4 / 
+train/actor_opt_loss -130.56 / train/adv_mag 2.04 / train/adv_max 1.99 / 
+train/adv_mean 0.02 / train/adv_min -1.7 / train/adv_std 0.15 / train/cont_avg 1
+/ train/cont_loss_mean 2.7e-8 / train/cont_loss_std 5e-7 / train/cont_neg_acc 1 
+/ train/cont_neg_loss 4.2e-5 / train/cont_pos_acc 1 / train/cont_pos_loss 1.3e-8
+/ train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.91 / 
+train/dyn_loss_std 6.84 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.4 / 
+train/extr_critic_critic_opt_grad_steps 7.9e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 688.48 / 
+train/extr_critic_max 688.48 / train/extr_critic_mean 481.02 / 
+train/extr_critic_min 3.46 / train/extr_critic_std 90.09 / 
+train/extr_return_normed_mag 1.88 / train/extr_return_normed_max 1.59 / 
+train/extr_return_normed_mean 0.47 / train/extr_return_normed_min -1.86 / 
+train/extr_return_normed_std 0.42 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 717.72 / train/extr_return_raw_max 717.72 / 
+train/extr_return_raw_mean 484.45 / train/extr_return_raw_min -4.16 / 
+train/extr_return_raw_std 87.22 / train/extr_reward_mag 125.99 / 
+train/extr_reward_max 117.44 / train/extr_reward_mean 1.67 / 
+train/extr_reward_min -76.47 / train/extr_reward_std 9.23 / 
+train/image_loss_mean 0.51 / train/image_loss_std 0.58 / train/model_loss_mean 
+2.16 / train/model_loss_std 4.58 / train/model_opt_grad_norm 11.04 / 
+train/model_opt_grad_steps 7.9e4 / train/model_opt_loss 5740.59 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2659.09 / train/policy_entropy_mag 2.75 / train/policy_entropy_max 2.69 / 
+train/policy_entropy_mean -1.68 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.35 / train/policy_logprob_mag 8.07 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.68 / 
+train/policy_logprob_min -8.07 / train/policy_logprob_std 1.07 / 
+train/policy_randomness_mag 0.97 / train/policy_randomness_max 0.97 / 
+train/policy_randomness_mean 0.02 / train/policy_randomness_min 1.9e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 40.03 / train/post_ent_max
+40.03 / train/post_ent_mean 12.48 / train/post_ent_min 3.58 / train/post_ent_std
+6.54 / train/prior_ent_mag 77.7 / train/prior_ent_max 77.7 / 
+train/prior_ent_mean 14.51 / train/prior_ent_min 3.45 / train/prior_ent_std 10.2
+/ train/rep_loss_mean 1.91 / train/rep_loss_std 6.84 / train/reward_avg 0.99 / 
+train/reward_loss_mean 0.49 / train/reward_loss_std 0.22 / train/reward_max_data
+131.88 / train/reward_max_pred 131.72 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.98 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.1 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.4
+
+Step 29809/50000 (59.6%) [0.0 min]
+Saving checkpoint at step 30000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+────────────────────────────────── Step 80911 ──────────────────────────────────
+train/action_mag 3.19 / train/action_max 3.04 / train/action_mean -0.06 / 
+train/action_min -2.57 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.76 / train/actor_opt_grad_steps 8e4 / 
+train/actor_opt_loss -118.1 / train/adv_mag 2.2 / train/adv_max 2.12 / 
+train/adv_mean 0.02 / train/adv_min -1.87 / train/adv_std 0.15 / train/cont_avg 
+1 / train/cont_loss_mean 1e-8 / train/cont_loss_std 7e-8 / train/cont_neg_acc 1 
+/ train/cont_neg_loss 3.3e-6 / train/cont_pos_acc 1 / train/cont_pos_loss 9.5e-9
+/ train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.91 / 
+train/dyn_loss_std 6.77 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.43 / 
+train/extr_critic_critic_opt_grad_steps 8e4 / train/extr_critic_critic_opt_loss 
+1.2e4 / train/extr_critic_mag 698.23 / train/extr_critic_max 698.23 / 
+train/extr_critic_mean 494.24 / train/extr_critic_min -0.7 / 
+train/extr_critic_std 89.11 / train/extr_return_normed_mag 1.95 / 
+train/extr_return_normed_max 1.59 / train/extr_return_normed_mean 0.47 / 
+train/extr_return_normed_min -1.94 / train/extr_return_normed_std 0.41 / 
+train/extr_return_rate 1 / train/extr_return_raw_mag 732.73 / 
+train/extr_return_raw_max 732.73 / train/extr_return_raw_mean 497.41 / 
+train/extr_return_raw_min -11.39 / train/extr_return_raw_std 86.47 / 
+train/extr_reward_mag 122.67 / train/extr_reward_max 118.61 / 
+train/extr_reward_mean 1.57 / train/extr_reward_min -69.89 / 
+train/extr_reward_std 8.96 / train/image_loss_mean 0.5 / train/image_loss_std 
+0.55 / train/model_loss_mean 2.14 / train/model_loss_std 4.52 / 
+train/model_opt_grad_norm 10.06 / train/model_opt_grad_steps 8e4 / 
+train/model_opt_loss 6166.4 / train/model_opt_model_opt_grad_overflow 0 / 
+train/model_opt_model_opt_grad_scale 2882.88 / train/policy_entropy_mag 2.69 / 
+train/policy_entropy_max 2.6 / train/policy_entropy_mean -1.69 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.3 / 
+train/policy_logprob_mag 7.85 / train/policy_logprob_max 2.77 / 
+train/policy_logprob_mean 1.69 / train/policy_logprob_min -7.85 / 
+train/policy_logprob_std 1.05 / train/policy_randomness_mag 0.95 / 
+train/policy_randomness_max 0.95 / train/policy_randomness_mean 0.02 / 
+train/policy_randomness_min 1.9e-5 / train/policy_randomness_std 0.07 / 
+train/post_ent_mag 39.74 / train/post_ent_max 39.74 / train/post_ent_mean 12.37 
+/ train/post_ent_min 3.57 / train/post_ent_std 6.43 / train/prior_ent_mag 77.64 
+/ train/prior_ent_max 77.64 / train/prior_ent_mean 14.4 / train/prior_ent_min 
+3.44 / train/prior_ent_std 10.12 / train/rep_loss_mean 1.91 / train/rep_loss_std
+6.77 / train/reward_avg 0.96 / train/reward_loss_mean 0.48 / 
+train/reward_loss_std 0.22 / train/reward_max_data 133.66 / 
+train/reward_max_pred 132.97 / train/reward_neg_acc 1 / train/reward_neg_loss 
+0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51 / train/reward_pred 
+0.95 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 / 
+train/vector_loss_std 0.1 / replay/size 3488 / replay/inserts 0 / replay/samples
+1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan / 
+replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.35
+
+Step 30911/50000 (61.8%) [0.0 min]
+────────────────────────────────── Step 82016 ──────────────────────────────────
+train/action_mag 3.2 / train/action_max 3.08 / train/action_mean -0.07 / 
+train/action_min -2.63 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.68 / train/actor_opt_grad_steps 8.1e4 / 
+train/actor_opt_loss -107.49 / train/adv_mag 2.26 / train/adv_max 2.22 / 
+train/adv_mean 0.01 / train/adv_min -1.84 / train/adv_std 0.15 / train/cont_avg 
+1 / train/cont_loss_mean 8e-9 / train/cont_loss_std 7.8e-8 / train/cont_neg_acc 
+1 / train/cont_neg_loss 7.8e-6 / train/cont_pos_acc 1 / train/cont_pos_loss 6e-9
+/ train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.89 / 
+train/dyn_loss_std 6.75 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.39 / 
+train/extr_critic_critic_opt_grad_steps 8.1e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 697.1 / 
+train/extr_critic_max 697.1 / train/extr_critic_mean 500.21 / 
+train/extr_critic_min 4.33 / train/extr_critic_std 88.64 / 
+train/extr_return_normed_mag 1.95 / train/extr_return_normed_max 1.56 / 
+train/extr_return_normed_mean 0.48 / train/extr_return_normed_min -1.93 / 
+train/extr_return_normed_std 0.41 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 731.46 / train/extr_return_raw_max 731.46 / 
+train/extr_return_raw_mean 503.19 / train/extr_return_raw_min -4.92 / 
+train/extr_return_raw_std 85.81 / train/extr_reward_mag 125.94 / 
+train/extr_reward_max 119.08 / train/extr_reward_mean 1.57 / 
+train/extr_reward_min -74.25 / train/extr_reward_std 8.99 / 
+train/image_loss_mean 0.5 / train/image_loss_std 0.58 / train/model_loss_mean 
+2.13 / train/model_loss_std 4.52 / train/model_opt_grad_norm 8.66 / 
+train/model_opt_grad_steps 8.1e4 / train/model_opt_loss 6587.29 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3113.64 / train/policy_entropy_mag 2.73 / train/policy_entropy_max 2.61 / 
+train/policy_entropy_mean -1.69 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.32 / train/policy_logprob_mag 7.96 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.69 / 
+train/policy_logprob_min -7.96 / train/policy_logprob_std 1.06 / 
+train/policy_randomness_mag 0.95 / train/policy_randomness_max 0.95 / 
+train/policy_randomness_mean 0.02 / train/policy_randomness_min 1.9e-5 / 
+train/policy_randomness_std 0.07 / train/post_ent_mag 39.69 / train/post_ent_max
+39.69 / train/post_ent_mean 12.01 / train/post_ent_min 3.57 / train/post_ent_std
+6.32 / train/prior_ent_mag 77.6 / train/prior_ent_max 77.6 / 
+train/prior_ent_mean 14.01 / train/prior_ent_min 3.41 / train/prior_ent_std 
+10.08 / train/rep_loss_mean 1.89 / train/rep_loss_std 6.75 / train/reward_avg 
+0.98 / train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / 
+train/reward_max_data 136.31 / train/reward_max_pred 136.18 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.51 / train/reward_pred 0.97 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.01 / train/vector_loss_std 0.09 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7e-7 / 
+replay/sample_wait_frac 1 / fps 18.39
+
+Step 32016/50000 (64.0%) [0.0 min]
+────────────────────────────────── Step 83121 ──────────────────────────────────
+train/action_mag 3.09 / train/action_max 2.93 / train/action_mean -0.07 / 
+train/action_min -2.53 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.8 / train/actor_opt_grad_steps 8.3e4 / 
+train/actor_opt_loss -104.14 / train/adv_mag 2.38 / train/adv_max 2.32 / 
+train/adv_mean 0.01 / train/adv_min -1.93 / train/adv_std 0.16 / train/cont_avg 
+1 / train/cont_loss_mean 6.3e-9 / train/cont_loss_std 4.9e-8 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 3.2e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 5.7e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.89 / train/dyn_loss_std 6.71 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.44 / 
+train/extr_critic_critic_opt_grad_steps 8.3e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 705.83 / 
+train/extr_critic_max 705.83 / train/extr_critic_mean 503.24 / 
+train/extr_critic_min -3.82 / train/extr_critic_std 90.09 / 
+train/extr_return_normed_mag 2.05 / train/extr_return_normed_max 1.62 / 
+train/extr_return_normed_mean 0.48 / train/extr_return_normed_min -2.05 / 
+train/extr_return_normed_std 0.43 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 738.6 / train/extr_return_raw_max 738.6 / 
+train/extr_return_raw_mean 506.11 / train/extr_return_raw_min -13.82 / 
+train/extr_return_raw_std 87.55 / train/extr_reward_mag 123.76 / 
+train/extr_reward_max 118.22 / train/extr_reward_mean 1.51 / 
+train/extr_reward_min -67.3 / train/extr_reward_std 8.8 / train/image_loss_mean 
+0.49 / train/image_loss_std 0.56 / train/model_loss_mean 2.12 / 
+train/model_loss_std 4.49 / train/model_opt_grad_norm 9.14 / 
+train/model_opt_grad_steps 8.2e4 / train/model_opt_loss 7050.12 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3333.33 / train/policy_entropy_mag 2.7 / train/policy_entropy_max 2.6 / 
+train/policy_entropy_mean -1.69 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.3 / train/policy_logprob_mag 7.71 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.69 / 
+train/policy_logprob_min -7.71 / train/policy_logprob_std 1.05 / 
+train/policy_randomness_mag 0.95 / train/policy_randomness_max 0.95 / 
+train/policy_randomness_mean 0.02 / train/policy_randomness_min 2e-5 / 
+train/policy_randomness_std 0.06 / train/post_ent_mag 40.67 / train/post_ent_max
+40.67 / train/post_ent_mean 11.86 / train/post_ent_min 3.52 / train/post_ent_std
+6.29 / train/prior_ent_mag 77.67 / train/prior_ent_max 77.67 / 
+train/prior_ent_mean 13.87 / train/prior_ent_min 3.4 / train/prior_ent_std 10.07
+/ train/rep_loss_mean 1.89 / train/rep_loss_std 6.71 / train/reward_avg 0.96 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / train/reward_max_data
+134.09 / train/reward_max_pred 133.69 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.95 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.08 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.4
+
+Step 33121/50000 (66.2%) [0.0 min]
+────────────────────────────────── Step 84226 ──────────────────────────────────
+train/action_mag 3.15 / train/action_max 2.98 / train/action_mean -0.07 / 
+train/action_min -2.64 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.69 / train/actor_opt_grad_steps 8.4e4 / 
+train/actor_opt_loss -110.83 / train/adv_mag 2.28 / train/adv_max 2.22 / 
+train/adv_mean 0.01 / train/adv_min -1.84 / train/adv_std 0.16 / train/cont_avg 
+1 / train/cont_loss_mean 5e-9 / train/cont_loss_std 3.6e-8 / train/cont_neg_acc 
+1 / train/cont_neg_loss 4.6e-6 / train/cont_pos_acc 1 / train/cont_pos_loss 
+4.2e-9 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.87 / 
+train/dyn_loss_std 6.64 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.44 / 
+train/extr_critic_critic_opt_grad_steps 8.4e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 707.89 / 
+train/extr_critic_max 707.89 / train/extr_critic_mean 503.28 / 
+train/extr_critic_min -0.09 / train/extr_critic_std 88.01 / 
+train/extr_return_normed_mag 1.95 / train/extr_return_normed_max 1.58 / 
+train/extr_return_normed_mean 0.48 / train/extr_return_normed_min -1.92 / 
+train/extr_return_normed_std 0.4 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 741.59 / train/extr_return_raw_max 741.59 / 
+train/extr_return_raw_mean 506.29 / train/extr_return_raw_min -4.31 / 
+train/extr_return_raw_std 85.88 / train/extr_reward_mag 125.88 / 
+train/extr_reward_max 118.18 / train/extr_reward_mean 1.53 / 
+train/extr_reward_min -72.4 / train/extr_reward_std 8.72 / train/image_loss_mean
+0.48 / train/image_loss_std 0.55 / train/model_loss_mean 2.1 / 
+train/model_loss_std 4.45 / train/model_opt_grad_norm 8.85 / 
+train/model_opt_grad_steps 8.4e4 / train/model_opt_loss 8644.48 / 
+train/model_opt_model_opt_grad_overflow 9.1e-3 / 
+train/model_opt_model_opt_grad_scale 4068.18 / train/policy_entropy_mag 2.68 / 
+train/policy_entropy_max 2.56 / train/policy_entropy_mean -1.69 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.3 / 
+train/policy_logprob_mag 7.92 / train/policy_logprob_max 2.77 / 
+train/policy_logprob_mean 1.69 / train/policy_logprob_min -7.92 / 
+train/policy_logprob_std 1.05 / train/policy_randomness_mag 0.94 / 
+train/policy_randomness_max 0.94 / train/policy_randomness_mean 0.02 / 
+train/policy_randomness_min 2.1e-5 / train/policy_randomness_std 0.07 / 
+train/post_ent_mag 40.68 / train/post_ent_max 40.68 / train/post_ent_mean 11.84 
+/ train/post_ent_min 3.55 / train/post_ent_std 6.2 / train/prior_ent_mag 77.56 /
+train/prior_ent_max 77.56 / train/prior_ent_mean 13.87 / train/prior_ent_min 
+3.38 / train/prior_ent_std 10 / train/rep_loss_mean 1.87 / train/rep_loss_std 
+6.64 / train/reward_avg 1.01 / train/reward_loss_mean 0.49 / 
+train/reward_loss_std 0.22 / train/reward_max_data 134.85 / 
+train/reward_max_pred 134.79 / train/reward_neg_acc 1 / train/reward_neg_loss 
+0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51 / train/reward_pred 1
+/ train/reward_rate 0.3 / train/vector_loss_mean 0.01 / train/vector_loss_std 
+0.09 / replay/size 3488 / replay/inserts 0 / replay/samples 1.8e4 / 
+replay/insert_wait_avg nan / replay/insert_wait_frac nan / 
+replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.4
+
+Step 34226/50000 (68.5%) [0.0 min]
+Saving checkpoint at step 35000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+────────────────────────────────── Step 85331 ──────────────────────────────────
+train/action_mag 3.31 / train/action_max 3.03 / train/action_mean -0.07 / 
+train/action_min -2.94 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.86 / train/actor_opt_grad_steps 8.5e4 / 
+train/actor_opt_loss -116.44 / train/adv_mag 2.12 / train/adv_max 2.08 / 
+train/adv_mean 0.01 / train/adv_min -1.73 / train/adv_std 0.15 / train/cont_avg 
+1 / train/cont_loss_mean 3.9e-9 / train/cont_loss_std 2e-8 / train/cont_neg_acc 
+1 / train/cont_neg_loss 1.3e-6 / train/cont_pos_acc 1 / train/cont_pos_loss 
+3.5e-9 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.89 / 
+train/dyn_loss_std 6.68 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.42 / 
+train/extr_critic_critic_opt_grad_steps 8.5e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 719.1 / 
+train/extr_critic_max 719.1 / train/extr_critic_mean 503.44 / 
+train/extr_critic_min -6.64 / train/extr_critic_std 93.06 / 
+train/extr_return_normed_mag 1.79 / train/extr_return_normed_max 1.58 / 
+train/extr_return_normed_mean 0.5 / train/extr_return_normed_min -1.78 / 
+train/extr_return_normed_std 0.4 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 754.36 / train/extr_return_raw_max 754.36 / 
+train/extr_return_raw_mean 506.71 / train/extr_return_raw_min -15.37 / 
+train/extr_return_raw_std 90.98 / train/extr_reward_mag 122.68 / 
+train/extr_reward_max 120.01 / train/extr_reward_mean 1.67 / 
+train/extr_reward_min -62.08 / train/extr_reward_std 9.33 / 
+train/image_loss_mean 0.49 / train/image_loss_std 0.6 / train/model_loss_mean 
+2.13 / train/model_loss_std 4.49 / train/model_opt_grad_norm 6.92 / 
+train/model_opt_grad_steps 8.5e4 / train/model_opt_loss 3045.19 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+1430.18 / train/policy_entropy_mag 2.72 / train/policy_entropy_max 2.65 / 
+train/policy_entropy_mean -1.68 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.35 / train/policy_logprob_mag 8.1 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.68 / 
+train/policy_logprob_min -8.1 / train/policy_logprob_std 1.07 / 
+train/policy_randomness_mag 0.96 / train/policy_randomness_max 0.96 / 
+train/policy_randomness_mean 0.02 / train/policy_randomness_min 2.4e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 40.93 / train/post_ent_max
+40.93 / train/post_ent_mean 11.67 / train/post_ent_min 3.53 / train/post_ent_std
+6.14 / train/prior_ent_mag 77.62 / train/prior_ent_max 77.62 / 
+train/prior_ent_mean 13.68 / train/prior_ent_min 3.4 / train/prior_ent_std 10 / 
+train/rep_loss_mean 1.89 / train/rep_loss_std 6.68 / train/reward_avg 1.07 / 
+train/reward_loss_mean 0.49 / train/reward_loss_std 0.21 / train/reward_max_data
+129.64 / train/reward_max_pred 129.39 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 1.05 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.11 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.39
+
+Step 35331/50000 (70.7%) [0.0 min]
+────────────────────────────────── Step 86436 ──────────────────────────────────
+train/action_mag 3.25 / train/action_max 3.05 / train/action_mean -0.07 / 
+train/action_min -2.83 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.91 / train/actor_opt_grad_steps 8.6e4 / 
+train/actor_opt_loss -105.34 / train/adv_mag 2.4 / train/adv_max 2.34 / 
+train/adv_mean 0.01 / train/adv_min -2.01 / train/adv_std 0.15 / train/cont_avg 
+1 / train/cont_loss_mean 2.6e-8 / train/cont_loss_std 5.8e-7 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.9e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 2.6e-8 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.85 / train/dyn_loss_std 6.5 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.41 / 
+train/extr_critic_critic_opt_grad_steps 8.6e4 / 
+train/extr_critic_critic_opt_loss 1.1e4 / train/extr_critic_mag 724.65 / 
+train/extr_critic_max 724.65 / train/extr_critic_mean 513.69 / 
+train/extr_critic_min -6.79 / train/extr_critic_std 89.25 / 
+train/extr_return_normed_mag 2.05 / train/extr_return_normed_max 1.63 / 
+train/extr_return_normed_mean 0.47 / train/extr_return_normed_min -2.02 / 
+train/extr_return_normed_std 0.42 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 762.22 / train/extr_return_raw_max 762.22 / 
+train/extr_return_raw_mean 516.41 / train/extr_return_raw_min -8.51 / 
+train/extr_return_raw_std 87.8 / train/extr_reward_mag 126.89 / 
+train/extr_reward_max 120.2 / train/extr_reward_mean 1.61 / 
+train/extr_reward_min -74.16 / train/extr_reward_std 9.12 / 
+train/image_loss_mean 0.47 / train/image_loss_std 0.54 / train/model_loss_mean 
+2.08 / train/model_loss_std 4.36 / train/model_opt_grad_norm 9.28 / 
+train/model_opt_grad_steps 8.6e4 / train/model_opt_loss 5307.12 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2556.82 / train/policy_entropy_mag 2.72 / train/policy_entropy_max 2.68 / 
+train/policy_entropy_mean -1.68 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.35 / train/policy_logprob_mag 7.83 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.68 / 
+train/policy_logprob_min -7.83 / train/policy_logprob_std 1.07 / 
+train/policy_randomness_mag 0.97 / train/policy_randomness_max 0.97 / 
+train/policy_randomness_mean 0.02 / train/policy_randomness_min 2.4e-5 / 
+train/policy_randomness_std 0.08 / train/post_ent_mag 41.25 / train/post_ent_max
+41.25 / train/post_ent_mean 11.55 / train/post_ent_min 3.51 / train/post_ent_std
+6.12 / train/prior_ent_mag 77.68 / train/prior_ent_max 77.68 / 
+train/prior_ent_mean 13.6 / train/prior_ent_min 3.39 / train/prior_ent_std 9.99 
+/ train/rep_loss_mean 1.85 / train/rep_loss_std 6.5 / train/reward_avg 0.99 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / train/reward_max_data
+137.4 / train/reward_max_pred 136.91 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.98 / train/reward_rate 0.3 / train/vector_loss_mean 0.01 /
+train/vector_loss_std 0.09 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7.1e-7 / replay/sample_wait_frac 1 / fps 18.4
+
+Step 36436/50000 (72.9%) [0.0 min]
+────────────────────────────────── Step 87542 ──────────────────────────────────
+train/action_mag 3.4 / train/action_max 3.27 / train/action_mean -0.05 / 
+train/action_min -2.79 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 1.04 / train/actor_opt_grad_steps 8.7e4 / 
+train/actor_opt_loss -109.85 / train/adv_mag 2.24 / train/adv_max 2.21 / 
+train/adv_mean 0.01 / train/adv_min -1.8 / train/adv_std 0.16 / train/cont_avg 1
+/ train/cont_loss_mean 5.8e-9 / train/cont_loss_std 5.5e-8 / train/cont_neg_acc 
+1 / train/cont_neg_loss 2.6e-6 / train/cont_pos_acc 1 / train/cont_pos_loss 
+5.3e-9 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.87 / 
+train/dyn_loss_std 6.59 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.37 / 
+train/extr_critic_critic_opt_grad_steps 8.7e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 717.05 / 
+train/extr_critic_max 717.05 / train/extr_critic_mean 507.35 / 
+train/extr_critic_min -7.79 / train/extr_critic_std 96.71 / 
+train/extr_return_normed_mag 1.83 / train/extr_return_normed_max 1.56 / 
+train/extr_return_normed_mean 0.49 / train/extr_return_normed_min -1.83 / 
+train/extr_return_normed_std 0.41 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 756.2 / train/extr_return_raw_max 756.2 / 
+train/extr_return_raw_mean 510.58 / train/extr_return_raw_min -17.27 / 
+train/extr_return_raw_std 93.99 / train/extr_reward_mag 125.68 / 
+train/extr_reward_max 120.66 / train/extr_reward_mean 1.55 / 
+train/extr_reward_min -71.7 / train/extr_reward_std 9.09 / train/image_loss_mean
+0.47 / train/image_loss_std 0.57 / train/model_loss_mean 2.09 / 
+train/model_loss_std 4.43 / train/model_opt_grad_norm 7.57 / 
+train/model_opt_grad_steps 8.7e4 / train/model_opt_loss 1.1e4 / 
+train/model_opt_model_opt_grad_overflow 9e-3 / 
+train/model_opt_model_opt_grad_scale 5135.14 / train/policy_entropy_mag 2.79 / 
+train/policy_entropy_max 2.76 / train/policy_entropy_mean -1.67 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.36 / 
+train/policy_logprob_mag 7.83 / train/policy_logprob_max 2.77 / 
+train/policy_logprob_mean 1.67 / train/policy_logprob_min -7.83 / 
+train/policy_logprob_std 1.07 / train/policy_randomness_mag 0.98 / 
+train/policy_randomness_max 0.98 / train/policy_randomness_mean 0.02 / 
+train/policy_randomness_min 2.4e-5 / train/policy_randomness_std 0.08 / 
+train/post_ent_mag 41.61 / train/post_ent_max 41.61 / train/post_ent_mean 11.38 
+/ train/post_ent_min 3.5 / train/post_ent_std 6.05 / train/prior_ent_mag 77.63 /
+train/prior_ent_max 77.63 / train/prior_ent_mean 13.44 / train/prior_ent_min 
+3.39 / train/prior_ent_std 9.94 / train/rep_loss_mean 1.87 / train/rep_loss_std 
+6.59 / train/reward_avg 0.95 / train/reward_loss_mean 0.48 / 
+train/reward_loss_std 0.22 / train/reward_max_data 139.32 / 
+train/reward_max_pred 138.95 / train/reward_neg_acc 1 / train/reward_neg_loss 
+0.47 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51 / train/reward_pred 
+0.94 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 / 
+train/vector_loss_std 0.09 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.42
+
+Step 37542/50000 (75.1%) [0.0 min]
+────────────────────────────────── Step 88647 ──────────────────────────────────
+train/action_mag 3.37 / train/action_max 3.2 / train/action_mean -0.07 / 
+train/action_min -3.08 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.76 / train/actor_opt_grad_steps 8.8e4 / 
+train/actor_opt_loss -150.49 / train/adv_mag 2.15 / train/adv_max 2.12 / 
+train/adv_mean 0.02 / train/adv_min -1.73 / train/adv_std 0.17 / train/cont_avg 
+1 / train/cont_loss_mean 6e-9 / train/cont_loss_std 8.5e-8 / train/cont_neg_acc 
+1 / train/cont_neg_loss 8.9e-6 / train/cont_pos_acc 1 / train/cont_pos_loss 
+3.7e-9 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.86 / 
+train/dyn_loss_std 6.48 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.37 / 
+train/extr_critic_critic_opt_grad_steps 8.8e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 723.29 / 
+train/extr_critic_max 723.29 / train/extr_critic_mean 504.94 / 
+train/extr_critic_min -8.9 / train/extr_critic_std 99.35 / 
+train/extr_return_normed_mag 1.81 / train/extr_return_normed_max 1.58 / 
+train/extr_return_normed_mean 0.48 / train/extr_return_normed_min -1.81 / 
+train/extr_return_normed_std 0.41 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 761.76 / train/extr_return_raw_max 761.76 / 
+train/extr_return_raw_mean 509.1 / train/extr_return_raw_min -18.75 / 
+train/extr_return_raw_std 95.56 / train/extr_reward_mag 125.01 / 
+train/extr_reward_max 122.45 / train/extr_reward_mean 1.52 / 
+train/extr_reward_min -69.51 / train/extr_reward_std 9.02 / 
+train/image_loss_mean 0.46 / train/image_loss_std 0.56 / train/model_loss_mean 
+2.07 / train/model_loss_std 4.37 / train/model_opt_grad_norm 8.66 / 
+train/model_opt_grad_steps 8.8e4 / train/model_opt_loss 5655.82 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+2727.27 / train/policy_entropy_mag 2.75 / train/policy_entropy_max 2.71 / 
+train/policy_entropy_mean -1.65 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.43 / train/policy_logprob_mag 8.01 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.65 / 
+train/policy_logprob_min -8.01 / train/policy_logprob_std 1.1 / 
+train/policy_randomness_mag 0.97 / train/policy_randomness_max 0.97 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 2.5e-5 / 
+train/policy_randomness_std 0.09 / train/post_ent_mag 41.83 / train/post_ent_max
+41.83 / train/post_ent_mean 11.29 / train/post_ent_min 3.47 / train/post_ent_std
+5.99 / train/prior_ent_mag 77.66 / train/prior_ent_max 77.66 / 
+train/prior_ent_mean 13.32 / train/prior_ent_min 3.37 / train/prior_ent_std 9.89
+/ train/rep_loss_mean 1.86 / train/rep_loss_std 6.48 / train/reward_avg 0.94 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / train/reward_max_data
+133.83 / train/reward_max_pred 133.74 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.93 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.11 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.39
+
+Step 38647/50000 (77.3%) [0.0 min]
+────────────────────────────────── Step 89753 ──────────────────────────────────
+train/action_mag 3.41 / train/action_max 3.22 / train/action_mean -0.09 / 
+train/action_min -3.05 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.75 / train/actor_opt_grad_steps 8.9e4 / 
+train/actor_opt_loss -123.61 / train/adv_mag 1.76 / train/adv_max 1.71 / 
+train/adv_mean 0.01 / train/adv_min -1.52 / train/adv_std 0.14 / train/cont_avg 
+1 / train/cont_loss_mean 2.3e-8 / train/cont_loss_std 6.4e-7 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.2e-4 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 3.5e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.86 / train/dyn_loss_std 6.53 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.36 / 
+train/extr_critic_critic_opt_grad_steps 8.9e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 724.58 / 
+train/extr_critic_max 724.58 / train/extr_critic_mean 504.19 / 
+train/extr_critic_min -3.25 / train/extr_critic_std 102.93 / 
+train/extr_return_normed_mag 1.48 / train/extr_return_normed_max 1.46 / 
+train/extr_return_normed_mean 0.55 / train/extr_return_normed_min -1.32 / 
+train/extr_return_normed_std 0.36 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 761.47 / train/extr_return_raw_max 761.47 / 
+train/extr_return_raw_mean 508.33 / train/extr_return_raw_min -14.39 / 
+train/extr_return_raw_std 99.81 / train/extr_reward_mag 123.52 / 
+train/extr_reward_max 119.93 / train/extr_reward_mean 1.62 / 
+train/extr_reward_min -66.23 / train/extr_reward_std 9.32 / 
+train/image_loss_mean 0.47 / train/image_loss_std 0.57 / train/model_loss_mean 
+2.08 / train/model_loss_std 4.4 / train/model_opt_grad_norm 9.18 / 
+train/model_opt_grad_steps 8.9e4 / train/model_opt_loss 6125.89 / 
+train/model_opt_model_opt_grad_overflow 9e-3 / 
+train/model_opt_model_opt_grad_scale 2927.93 / train/policy_entropy_mag 2.77 / 
+train/policy_entropy_max 2.73 / train/policy_entropy_mean -1.65 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.42 / 
+train/policy_logprob_mag 8.11 / train/policy_logprob_max 2.77 / 
+train/policy_logprob_mean 1.65 / train/policy_logprob_min -8.11 / 
+train/policy_logprob_std 1.1 / train/policy_randomness_mag 0.98 / 
+train/policy_randomness_max 0.98 / train/policy_randomness_mean 0.02 / 
+train/policy_randomness_min 2.4e-5 / train/policy_randomness_std 0.09 / 
+train/post_ent_mag 42.06 / train/post_ent_max 42.06 / train/post_ent_mean 11.21 
+/ train/post_ent_min 3.44 / train/post_ent_std 5.96 / train/prior_ent_mag 77.56 
+/ train/prior_ent_max 77.56 / train/prior_ent_mean 13.23 / train/prior_ent_min 
+3.34 / train/prior_ent_std 9.88 / train/rep_loss_mean 1.86 / train/rep_loss_std 
+6.53 / train/reward_avg 1.05 / train/reward_loss_mean 0.48 / 
+train/reward_loss_std 0.21 / train/reward_max_data 132.6 / train/reward_max_pred
+132.39 / train/reward_neg_acc 1 / train/reward_neg_loss 0.47 / 
+train/reward_pos_acc 1 / train/reward_pos_loss 0.51 / train/reward_pred 1.04 / 
+train/reward_rate 0.29 / train/vector_loss_mean 0.01 / train/vector_loss_std 0.1
+/ replay/size 3488 / replay/inserts 0 / replay/samples 1.8e4 / 
+replay/insert_wait_avg nan / replay/insert_wait_frac nan / 
+replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.41
+
+Step 39753/50000 (79.5%) [0.0 min]
+Saving checkpoint at step 40000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+────────────────────────────────── Step 90855 ──────────────────────────────────
+train/action_mag 3.52 / train/action_max 3.3 / train/action_mean -0.08 / 
+train/action_min -3.12 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.54 / train/actor_opt_grad_steps 9e4 / 
+train/actor_opt_loss -91.21 / train/adv_mag 1.61 / train/adv_max 1.57 / 
+train/adv_mean 0.01 / train/adv_min -1.43 / train/adv_std 0.12 / train/cont_avg 
+1 / train/cont_loss_mean 4.6e-9 / train/cont_loss_std 4e-8 / train/cont_neg_acc 
+1 / train/cont_neg_loss 1.1e-6 / train/cont_pos_acc 1 / train/cont_pos_loss 
+4.4e-9 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.84 / 
+train/dyn_loss_std 6.43 / train/extr_critic_critic_opt_critic_opt_grad_overflow 
+0 / train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.38 / 
+train/extr_critic_critic_opt_grad_steps 9e4 / train/extr_critic_critic_opt_loss 
+1.2e4 / train/extr_critic_mag 729.07 / train/extr_critic_max 729.07 / 
+train/extr_critic_mean 505.01 / train/extr_critic_min -14.79 / 
+train/extr_critic_std 108.72 / train/extr_return_normed_mag 1.45 / 
+train/extr_return_normed_max 1.45 / train/extr_return_normed_mean 0.6 / 
+train/extr_return_normed_min -1.07 / train/extr_return_normed_std 0.34 / 
+train/extr_return_rate 1 / train/extr_return_raw_mag 779.13 / 
+train/extr_return_raw_max 779.13 / train/extr_return_raw_mean 508.44 / 
+train/extr_return_raw_min -25.06 / train/extr_return_raw_std 108.06 / 
+train/extr_reward_mag 125.34 / train/extr_reward_max 121.24 / 
+train/extr_reward_mean 1.5 / train/extr_reward_min -68.85 / 
+train/extr_reward_std 8.99 / train/image_loss_mean 0.45 / train/image_loss_std 
+0.54 / train/model_loss_mean 2.05 / train/model_loss_std 4.32 / 
+train/model_opt_grad_norm 8.8 / train/model_opt_grad_steps 9e4 / 
+train/model_opt_loss 6431 / train/model_opt_model_opt_grad_overflow 0 / 
+train/model_opt_model_opt_grad_scale 3136.36 / train/policy_entropy_mag 2.77 / 
+train/policy_entropy_max 2.76 / train/policy_entropy_mean -1.65 / 
+train/policy_entropy_min -1.77 / train/policy_entropy_std 0.45 / 
+train/policy_logprob_mag 7.99 / train/policy_logprob_max 2.77 / 
+train/policy_logprob_mean 1.65 / train/policy_logprob_min -7.99 / 
+train/policy_logprob_std 1.11 / train/policy_randomness_mag 0.98 / 
+train/policy_randomness_max 0.98 / train/policy_randomness_mean 0.03 / 
+train/policy_randomness_min 2.3e-5 / train/policy_randomness_std 0.1 / 
+train/post_ent_mag 42.59 / train/post_ent_max 42.59 / train/post_ent_mean 11 / 
+train/post_ent_min 3.4 / train/post_ent_std 5.88 / train/prior_ent_mag 77.65 / 
+train/prior_ent_max 77.65 / train/prior_ent_mean 13.06 / train/prior_ent_min 3.3
+/ train/prior_ent_std 9.84 / train/rep_loss_mean 1.84 / train/rep_loss_std 6.43 
+/ train/reward_avg 0.94 / train/reward_loss_mean 0.48 / train/reward_loss_std 
+0.21 / train/reward_max_data 132.93 / train/reward_max_pred 132.32 / 
+train/reward_neg_acc 1 / train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / 
+train/reward_pos_loss 0.51 / train/reward_pred 0.93 / train/reward_rate 0.29 / 
+train/vector_loss_mean 0.01 / train/vector_loss_std 0.09 / replay/size 3488 / 
+replay/inserts 0 / replay/samples 1.8e4 / replay/insert_wait_avg nan / 
+replay/insert_wait_frac nan / replay/sample_wait_avg 7.1e-7 / 
+replay/sample_wait_frac 1 / fps 18.35
+
+Step 40855/50000 (81.7%) [0.0 min]
+────────────────────────────────── Step 91961 ──────────────────────────────────
+train/action_mag 3.52 / train/action_max 3.33 / train/action_mean -0.07 / 
+train/action_min -3.11 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 1.37 / train/actor_opt_grad_steps 9.1e4 / 
+train/actor_opt_loss -83.3 / train/adv_mag 1.47 / train/adv_max 1.43 / 
+train/adv_mean 9.8e-3 / train/adv_min -1.33 / train/adv_std 0.11 / 
+train/cont_avg 1 / train/cont_loss_mean 3.9e-9 / train/cont_loss_std 4.5e-8 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 5.6e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 3.1e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.84 / train/dyn_loss_std 6.38 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.41 / 
+train/extr_critic_critic_opt_grad_steps 9.1e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 740.79 / 
+train/extr_critic_max 740.79 / train/extr_critic_mean 505.54 / 
+train/extr_critic_min -13.03 / train/extr_critic_std 111.5 / 
+train/extr_return_normed_mag 1.48 / train/extr_return_normed_max 1.48 / 
+train/extr_return_normed_mean 0.62 / train/extr_return_normed_min -0.91 / 
+train/extr_return_normed_std 0.32 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 805.29 / train/extr_return_raw_max 805.29 / 
+train/extr_return_raw_mean 508.94 / train/extr_return_raw_min -21.88 / 
+train/extr_return_raw_std 111.27 / train/extr_reward_mag 124.34 / 
+train/extr_reward_max 121.67 / train/extr_reward_mean 1.57 / 
+train/extr_reward_min -67.59 / train/extr_reward_std 9.22 / 
+train/image_loss_mean 0.46 / train/image_loss_std 0.57 / train/model_loss_mean 
+2.06 / train/model_loss_std 4.31 / train/model_opt_grad_norm 8.53 / 
+train/model_opt_grad_steps 9.1e4 / train/model_opt_loss 9043.37 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+4391.89 / train/policy_entropy_mag 2.77 / train/policy_entropy_max 2.74 / 
+train/policy_entropy_mean -1.65 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.43 / train/policy_logprob_mag 7.96 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.65 / 
+train/policy_logprob_min -7.96 / train/policy_logprob_std 1.1 / 
+train/policy_randomness_mag 0.98 / train/policy_randomness_max 0.98 / 
+train/policy_randomness_mean 0.02 / train/policy_randomness_min 1.9e-5 / 
+train/policy_randomness_std 0.09 / train/post_ent_mag 42.87 / train/post_ent_max
+42.87 / train/post_ent_mean 11.08 / train/post_ent_min 3.45 / train/post_ent_std
+5.86 / train/prior_ent_mag 77.61 / train/prior_ent_max 77.61 / 
+train/prior_ent_mean 13.13 / train/prior_ent_min 3.28 / train/prior_ent_std 9.81
+/ train/rep_loss_mean 1.84 / train/rep_loss_std 6.38 / train/reward_avg 0.98 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / train/reward_max_data
+131.22 / train/reward_max_pred 131.04 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.97 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.1 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.41
+
+Step 41961/50000 (83.9%) [0.0 min]
+────────────────────────────────── Step 93067 ──────────────────────────────────
+train/action_mag 3.6 / train/action_max 3.47 / train/action_mean -0.08 / 
+train/action_min -3.14 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.56 / train/actor_opt_grad_steps 9.3e4 / 
+train/actor_opt_loss -115.33 / train/adv_mag 1.47 / train/adv_max 1.44 / 
+train/adv_mean 0.01 / train/adv_min -1.27 / train/adv_std 0.11 / train/cont_avg 
+1 / train/cont_loss_mean 2.9e-9 / train/cont_loss_std 2.4e-8 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 2.1e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 2.4e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.84 / train/dyn_loss_std 6.41 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.41 / 
+train/extr_critic_critic_opt_grad_steps 9.3e4 / 
+train/extr_critic_critic_opt_loss 1.3e4 / train/extr_critic_mag 747.69 / 
+train/extr_critic_max 747.69 / train/extr_critic_mean 509.29 / 
+train/extr_critic_min -10.13 / train/extr_critic_std 118.23 / 
+train/extr_return_normed_mag 1.42 / train/extr_return_normed_max 1.42 / 
+train/extr_return_normed_mean 0.63 / train/extr_return_normed_min -0.86 / 
+train/extr_return_normed_std 0.32 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 798.42 / train/extr_return_raw_max 798.42 / 
+train/extr_return_raw_mean 514.05 / train/extr_return_raw_min -24.74 / 
+train/extr_return_raw_std 116.71 / train/extr_reward_mag 128.68 / 
+train/extr_reward_max 121.88 / train/extr_reward_mean 1.52 / 
+train/extr_reward_min -76.53 / train/extr_reward_std 8.99 / 
+train/image_loss_mean 0.44 / train/image_loss_std 0.55 / train/model_loss_mean 
+2.04 / train/model_loss_std 4.32 / train/model_opt_grad_norm 8.29 / 
+train/model_opt_grad_steps 9.2e4 / train/model_opt_loss 6716.78 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3295.45 / train/policy_entropy_mag 2.79 / train/policy_entropy_max 2.78 / 
+train/policy_entropy_mean -1.62 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.5 / train/policy_logprob_mag 8.35 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.62 / 
+train/policy_logprob_min -8.35 / train/policy_logprob_std 1.13 / 
+train/policy_randomness_mag 0.99 / train/policy_randomness_max 0.99 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 2.4e-5 / 
+train/policy_randomness_std 0.11 / train/post_ent_mag 43 / train/post_ent_max 43
+/ train/post_ent_mean 10.85 / train/post_ent_min 3.48 / train/post_ent_std 5.8 /
+train/prior_ent_mag 77.62 / train/prior_ent_max 77.62 / train/prior_ent_mean 
+12.87 / train/prior_ent_min 3.29 / train/prior_ent_std 9.79 / 
+train/rep_loss_mean 1.84 / train/rep_loss_std 6.41 / train/reward_avg 0.96 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / train/reward_max_data
+135.71 / train/reward_max_pred 135.4 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.95 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.1 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.41
+
+Step 43067/50000 (86.1%) [0.0 min]
+────────────────────────────────── Step 94174 ──────────────────────────────────
+train/action_mag 3.55 / train/action_max 3.37 / train/action_mean -0.09 / 
+train/action_min -3.06 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.52 / train/actor_opt_grad_steps 9.4e4 / 
+train/actor_opt_loss -158.59 / train/adv_mag 1.46 / train/adv_max 1.45 / 
+train/adv_mean 0.02 / train/adv_min -1.25 / train/adv_std 0.13 / train/cont_avg 
+1 / train/cont_loss_mean 2.7e-9 / train/cont_loss_std 1.7e-8 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.3e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 2.3e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.83 / train/dyn_loss_std 6.34 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.52 / 
+train/extr_critic_critic_opt_grad_steps 9.4e4 / 
+train/extr_critic_critic_opt_loss 1.3e4 / train/extr_critic_mag 765.38 / 
+train/extr_critic_max 765.38 / train/extr_critic_mean 514.22 / 
+train/extr_critic_min -14.8 / train/extr_critic_std 122.54 / 
+train/extr_return_normed_mag 1.4 / train/extr_return_normed_max 1.4 / 
+train/extr_return_normed_mean 0.64 / train/extr_return_normed_min -0.81 / 
+train/extr_return_normed_std 0.31 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 810.98 / train/extr_return_raw_max 810.98 / 
+train/extr_return_raw_mean 520.9 / train/extr_return_raw_min -23.94 / 
+train/extr_return_raw_std 118.94 / train/extr_reward_mag 126.65 / 
+train/extr_reward_max 122.03 / train/extr_reward_mean 1.45 / 
+train/extr_reward_min -71.55 / train/extr_reward_std 8.67 / 
+train/image_loss_mean 0.43 / train/image_loss_std 0.52 / train/model_loss_mean 
+2.03 / train/model_loss_std 4.25 / train/model_opt_grad_norm 8.77 / 
+train/model_opt_grad_steps 9.4e4 / train/model_opt_loss 8340.12 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+4121.62 / train/policy_entropy_mag 2.77 / train/policy_entropy_max 2.74 / 
+train/policy_entropy_mean -1.64 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.46 / train/policy_logprob_mag 8.1 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.64 / 
+train/policy_logprob_min -8.1 / train/policy_logprob_std 1.11 / 
+train/policy_randomness_mag 0.98 / train/policy_randomness_max 0.98 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 1.9e-5 / 
+train/policy_randomness_std 0.1 / train/post_ent_mag 42.75 / train/post_ent_max 
+42.75 / train/post_ent_mean 10.82 / train/post_ent_min 3.45 / train/post_ent_std
+5.72 / train/prior_ent_mag 77.67 / train/prior_ent_max 77.67 / 
+train/prior_ent_mean 12.9 / train/prior_ent_min 3.31 / train/prior_ent_std 9.73 
+/ train/rep_loss_mean 1.83 / train/rep_loss_std 6.34 / train/reward_avg 0.96 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / train/reward_max_data
+132.37 / train/reward_max_pred 132.18 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.95 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.08 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.43
+
+Step 44174/50000 (88.3%) [0.0 min]
+Saving checkpoint at step 45000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+────────────────────────────────── Step 95278 ──────────────────────────────────
+train/action_mag 3.59 / train/action_max 3.34 / train/action_mean -0.07 / 
+train/action_min -3.34 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.67 / train/actor_opt_grad_steps 9.5e4 / 
+train/actor_opt_loss -150.57 / train/adv_mag 1.87 / train/adv_max 1.84 / 
+train/adv_mean 0.02 / train/adv_min -1.58 / train/adv_std 0.14 / train/cont_avg 
+1 / train/cont_loss_mean 2.4e-9 / train/cont_loss_std 1.6e-8 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.3e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 2.1e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.84 / train/dyn_loss_std 6.38 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.49 / 
+train/extr_critic_critic_opt_grad_steps 9.5e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 776.2 / 
+train/extr_critic_max 776.2 / train/extr_critic_mean 534.18 / 
+train/extr_critic_min -11.64 / train/extr_critic_std 108.18 / 
+train/extr_return_normed_mag 1.54 / train/extr_return_normed_max 1.53 / 
+train/extr_return_normed_mean 0.6 / train/extr_return_normed_min -1.27 / 
+train/extr_return_normed_std 0.35 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 817.06 / train/extr_return_raw_max 817.06 / 
+train/extr_return_raw_mean 539.37 / train/extr_return_raw_min -18.7 / 
+train/extr_return_raw_std 104.93 / train/extr_reward_mag 125.55 / 
+train/extr_reward_max 120.8 / train/extr_reward_mean 1.47 / 
+train/extr_reward_min -71.98 / train/extr_reward_std 8.56 / 
+train/image_loss_mean 0.43 / train/image_loss_std 0.55 / train/model_loss_mean 
+2.03 / train/model_loss_std 4.31 / train/model_opt_grad_norm 8.04 / 
+train/model_opt_grad_steps 9.5e4 / train/model_opt_loss 6351.07 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3136.36 / train/policy_entropy_mag 2.81 / train/policy_entropy_max 2.8 / 
+train/policy_entropy_mean -1.62 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.51 / train/policy_logprob_mag 8.39 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.62 / 
+train/policy_logprob_min -8.39 / train/policy_logprob_std 1.13 / 
+train/policy_randomness_mag 0.99 / train/policy_randomness_max 0.99 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 1.8e-5 / 
+train/policy_randomness_std 0.11 / train/post_ent_mag 42.76 / train/post_ent_max
+42.76 / train/post_ent_mean 10.59 / train/post_ent_min 3.43 / train/post_ent_std
+5.66 / train/prior_ent_mag 77.64 / train/prior_ent_max 77.64 / 
+train/prior_ent_mean 12.65 / train/prior_ent_min 3.26 / train/prior_ent_std 9.73
+/ train/rep_loss_mean 1.84 / train/rep_loss_std 6.38 / train/reward_avg 0.98 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / train/reward_max_data
+130.97 / train/reward_max_pred 130.92 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.97 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.1 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.38
+
+Step 45278/50000 (90.6%) [0.0 min]
+────────────────────────────────── Step 96382 ──────────────────────────────────
+train/action_mag 3.63 / train/action_max 3.36 / train/action_mean -0.08 / 
+train/action_min -3.4 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.88 / train/actor_opt_grad_steps 9.6e4 / 
+train/actor_opt_loss -144.37 / train/adv_mag 1.99 / train/adv_max 1.94 / 
+train/adv_mean 0.02 / train/adv_min -1.68 / train/adv_std 0.16 / train/cont_avg 
+1 / train/cont_loss_mean 9.8e-9 / train/cont_loss_std 1.9e-7 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 1.1e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 9.5e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.82 / train/dyn_loss_std 6.32 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.48 / 
+train/extr_critic_critic_opt_grad_steps 9.6e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 786.57 / 
+train/extr_critic_max 786.57 / train/extr_critic_mean 541.2 / 
+train/extr_critic_min -11.78 / train/extr_critic_std 108.69 / 
+train/extr_return_normed_mag 1.57 / train/extr_return_normed_max 1.54 / 
+train/extr_return_normed_mean 0.55 / train/extr_return_normed_min -1.44 / 
+train/extr_return_normed_std 0.37 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 828.9 / train/extr_return_raw_max 828.9 / 
+train/extr_return_raw_mean 546.17 / train/extr_return_raw_min -22.81 / 
+train/extr_return_raw_std 104.63 / train/extr_reward_mag 126.15 / 
+train/extr_reward_max 120.57 / train/extr_reward_mean 1.5 / 
+train/extr_reward_min -71.91 / train/extr_reward_std 8.73 / 
+train/image_loss_mean 0.43 / train/image_loss_std 0.54 / train/model_loss_mean 
+2.02 / train/model_loss_std 4.27 / train/model_opt_grad_norm 8.82 / 
+train/model_opt_grad_steps 9.6e4 / train/model_opt_loss 7190.47 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3558.56 / train/policy_entropy_mag 2.79 / train/policy_entropy_max 2.78 / 
+train/policy_entropy_mean -1.61 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.51 / train/policy_logprob_mag 8.23 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.61 / 
+train/policy_logprob_min -8.23 / train/policy_logprob_std 1.13 / 
+train/policy_randomness_mag 0.99 / train/policy_randomness_max 0.99 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 1.8e-5 / 
+train/policy_randomness_std 0.11 / train/post_ent_mag 43.68 / train/post_ent_max
+43.68 / train/post_ent_mean 10.44 / train/post_ent_min 3.43 / train/post_ent_std
+5.62 / train/prior_ent_mag 77.64 / train/prior_ent_max 77.64 / 
+train/prior_ent_mean 12.51 / train/prior_ent_min 3.27 / train/prior_ent_std 9.7 
+/ train/rep_loss_mean 1.82 / train/rep_loss_std 6.32 / train/reward_avg 0.96 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / train/reward_max_data
+131.13 / train/reward_max_pred 130.41 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.95 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.11 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7.1e-7 / replay/sample_wait_frac 1 / fps 18.37
+
+Step 46382/50000 (92.8%) [0.0 min]
+────────────────────────────────── Step 97487 ──────────────────────────────────
+train/action_mag 3.64 / train/action_max 3.38 / train/action_mean -0.08 / 
+train/action_min -3.36 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.99 / train/actor_opt_grad_steps 9.7e4 / 
+train/actor_opt_loss -140.26 / train/adv_mag 2.2 / train/adv_max 2.15 / 
+train/adv_mean 0.02 / train/adv_min -1.82 / train/adv_std 0.16 / train/cont_avg 
+1 / train/cont_loss_mean 5.1e-9 / train/cont_loss_std 4.7e-8 / 
+train/cont_neg_acc 1 / train/cont_neg_loss 2.7e-6 / train/cont_pos_acc 1 / 
+train/cont_pos_loss 4.5e-9 / train/cont_pred 1 / train/cont_rate 1 / 
+train/dyn_loss_mean 1.82 / train/dyn_loss_std 6.31 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.43 / 
+train/extr_critic_critic_opt_grad_steps 9.7e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 773.26 / 
+train/extr_critic_max 773.26 / train/extr_critic_mean 541.14 / 
+train/extr_critic_min -10.38 / train/extr_critic_std 100.31 / 
+train/extr_return_normed_mag 1.79 / train/extr_return_normed_max 1.59 / 
+train/extr_return_normed_mean 0.51 / train/extr_return_normed_min -1.75 / 
+train/extr_return_normed_std 0.38 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 817.35 / train/extr_return_raw_max 817.35 / 
+train/extr_return_raw_mean 545.32 / train/extr_return_raw_min -25.6 / 
+train/extr_return_raw_std 96.62 / train/extr_reward_mag 125.63 / 
+train/extr_reward_max 119.48 / train/extr_reward_mean 1.51 / 
+train/extr_reward_min -70.11 / train/extr_reward_std 8.59 / 
+train/image_loss_mean 0.43 / train/image_loss_std 0.56 / train/model_loss_mean 
+2.02 / train/model_loss_std 4.26 / train/model_opt_grad_norm 8.68 / 
+train/model_opt_grad_steps 9.7e4 / train/model_opt_loss 7583.21 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3750 / train/policy_entropy_mag 2.8 / train/policy_entropy_max 2.79 / 
+train/policy_entropy_mean -1.62 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.5 / train/policy_logprob_mag 8.04 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.62 / 
+train/policy_logprob_min -8.04 / train/policy_logprob_std 1.13 / 
+train/policy_randomness_mag 0.99 / train/policy_randomness_max 0.99 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 1.4e-5 / 
+train/policy_randomness_std 0.11 / train/post_ent_mag 43.51 / train/post_ent_max
+43.51 / train/post_ent_mean 10.53 / train/post_ent_min 3.42 / train/post_ent_std
+5.56 / train/prior_ent_mag 77.66 / train/prior_ent_max 77.66 / 
+train/prior_ent_mean 12.62 / train/prior_ent_min 3.27 / train/prior_ent_std 9.66
+/ train/rep_loss_mean 1.82 / train/rep_loss_std 6.31 / train/reward_avg 1 / 
+train/reward_loss_mean 0.49 / train/reward_loss_std 0.21 / train/reward_max_data
+131.99 / train/reward_max_pred 131.89 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.48 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.99 / train/reward_rate 0.3 / train/vector_loss_mean 0.01 /
+train/vector_loss_std 0.11 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.39
+
+Step 47487/50000 (95.0%) [0.0 min]
+────────────────────────────────── Step 98591 ──────────────────────────────────
+train/action_mag 3.62 / train/action_max 3.41 / train/action_mean -0.08 / 
+train/action_min -3.27 / train/action_std 0.83 / 
+train/actor_opt_actor_opt_grad_overflow 0 / train/actor_opt_actor_opt_grad_scale
+1e4 / train/actor_opt_grad_norm 0.86 / train/actor_opt_grad_steps 9.8e4 / 
+train/actor_opt_loss -143.22 / train/adv_mag 2.32 / train/adv_max 2.28 / 
+train/adv_mean 0.02 / train/adv_min -1.84 / train/adv_std 0.16 / train/cont_avg 
+1 / train/cont_loss_mean 4e-9 / train/cont_loss_std 2.6e-8 / train/cont_neg_acc 
+1 / train/cont_neg_loss 1.4e-6 / train/cont_pos_acc 1 / train/cont_pos_loss 
+3.7e-9 / train/cont_pred 1 / train/cont_rate 1 / train/dyn_loss_mean 1.82 / 
+train/dyn_loss_std 6.3 / train/extr_critic_critic_opt_critic_opt_grad_overflow 0
+/ train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.43 / 
+train/extr_critic_critic_opt_grad_steps 9.8e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 789.65 / 
+train/extr_critic_max 789.65 / train/extr_critic_mean 546.74 / 
+train/extr_critic_min -16.95 / train/extr_critic_std 101.63 / 
+train/extr_return_normed_mag 1.86 / train/extr_return_normed_max 1.6 / 
+train/extr_return_normed_mean 0.49 / train/extr_return_normed_min -1.85 / 
+train/extr_return_normed_std 0.39 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 829.6 / train/extr_return_raw_max 829.6 / 
+train/extr_return_raw_mean 550.97 / train/extr_return_raw_min -30.39 / 
+train/extr_return_raw_std 98.54 / train/extr_reward_mag 126.93 / 
+train/extr_reward_max 123.01 / train/extr_reward_mean 1.56 / 
+train/extr_reward_min -70.76 / train/extr_reward_std 8.82 / 
+train/image_loss_mean 0.42 / train/image_loss_std 0.55 / train/model_loss_mean 
+2.01 / train/model_loss_std 4.26 / train/model_opt_grad_norm 7.54 / 
+train/model_opt_grad_steps 9.8e4 / train/model_opt_loss 6335.35 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3175.68 / train/policy_entropy_mag 2.82 / train/policy_entropy_max 2.81 / 
+train/policy_entropy_mean -1.62 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.5 / train/policy_logprob_mag 7.96 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.62 / 
+train/policy_logprob_min -7.96 / train/policy_logprob_std 1.13 / 
+train/policy_randomness_mag 0.99 / train/policy_randomness_max 0.99 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 1.5e-5 / 
+train/policy_randomness_std 0.11 / train/post_ent_mag 44.17 / train/post_ent_max
+44.17 / train/post_ent_mean 10.34 / train/post_ent_min 3.43 / train/post_ent_std
+5.52 / train/prior_ent_mag 77.62 / train/prior_ent_max 77.62 / 
+train/prior_ent_mean 12.46 / train/prior_ent_min 3.25 / train/prior_ent_std 9.65
+/ train/rep_loss_mean 1.82 / train/rep_loss_std 6.3 / train/reward_avg 1 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.22 / train/reward_max_data
+133.61 / train/reward_max_pred 133.23 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.99 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.08 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.38
+
+Step 48591/50000 (97.2%) [0.0 min]
+────────────────────────────────── Step 99696 ──────────────────────────────────
+train/action_mag 3.64 / train/action_max 3.29 / train/action_mean -0.1 / 
+train/action_min -3.43 / train/action_std 0.82 / 
+train/actor_opt_actor_opt_grad_overflow 9.1e-3 / 
+train/actor_opt_actor_opt_grad_scale 5409.09 / train/actor_opt_grad_norm 0.98 / 
+train/actor_opt_grad_steps 9.9e4 / train/actor_opt_loss -71.11 / train/adv_mag 
+2.28 / train/adv_max 2.26 / train/adv_mean 0.02 / train/adv_min -1.83 / 
+train/adv_std 0.16 / train/cont_avg 1 / train/cont_loss_mean 3.5e-9 / 
+train/cont_loss_std 2.2e-8 / train/cont_neg_acc 1 / train/cont_neg_loss 1.1e-6 /
+train/cont_pos_acc 1 / train/cont_pos_loss 3.3e-9 / train/cont_pred 1 / 
+train/cont_rate 1 / train/dyn_loss_mean 1.82 / train/dyn_loss_std 6.29 / 
+train/extr_critic_critic_opt_critic_opt_grad_overflow 0 / 
+train/extr_critic_critic_opt_critic_opt_grad_scale 1e4 / 
+train/extr_critic_critic_opt_grad_norm 0.41 / 
+train/extr_critic_critic_opt_grad_steps 9.9e4 / 
+train/extr_critic_critic_opt_loss 1.2e4 / train/extr_critic_mag 807.81 / 
+train/extr_critic_max 807.81 / train/extr_critic_mean 553.09 / 
+train/extr_critic_min -9 / train/extr_critic_std 100.52 / 
+train/extr_return_normed_mag 1.84 / train/extr_return_normed_max 1.62 / 
+train/extr_return_normed_mean 0.49 / train/extr_return_normed_min -1.83 / 
+train/extr_return_normed_std 0.39 / train/extr_return_rate 1 / 
+train/extr_return_raw_mag 842.36 / train/extr_return_raw_max 842.36 / 
+train/extr_return_raw_mean 557.05 / train/extr_return_raw_min -22.85 / 
+train/extr_return_raw_std 97.35 / train/extr_reward_mag 125.76 / 
+train/extr_reward_max 122.74 / train/extr_reward_mean 1.61 / 
+train/extr_reward_min -70.1 / train/extr_reward_std 9.38 / train/image_loss_mean
+0.43 / train/image_loss_std 0.53 / train/model_loss_mean 2.01 / 
+train/model_loss_std 4.24 / train/model_opt_grad_norm 8.21 / 
+train/model_opt_grad_steps 9.9e4 / train/model_opt_loss 6081.73 / 
+train/model_opt_model_opt_grad_overflow 0 / train/model_opt_model_opt_grad_scale
+3022.73 / train/policy_entropy_mag 2.82 / train/policy_entropy_max 2.8 / 
+train/policy_entropy_mean -1.61 / train/policy_entropy_min -1.77 / 
+train/policy_entropy_std 0.52 / train/policy_logprob_mag 8.2 / 
+train/policy_logprob_max 2.77 / train/policy_logprob_mean 1.61 / 
+train/policy_logprob_min -8.2 / train/policy_logprob_std 1.13 / 
+train/policy_randomness_mag 0.99 / train/policy_randomness_max 0.99 / 
+train/policy_randomness_mean 0.03 / train/policy_randomness_min 1.8e-5 / 
+train/policy_randomness_std 0.11 / train/post_ent_mag 43.8 / train/post_ent_max 
+43.8 / train/post_ent_mean 10.17 / train/post_ent_min 3.41 / train/post_ent_std 
+5.46 / train/prior_ent_mag 77.66 / train/prior_ent_max 77.66 / 
+train/prior_ent_mean 12.27 / train/prior_ent_min 3.24 / train/prior_ent_std 9.63
+/ train/rep_loss_mean 1.82 / train/rep_loss_std 6.29 / train/reward_avg 0.99 / 
+train/reward_loss_mean 0.48 / train/reward_loss_std 0.21 / train/reward_max_data
+131.04 / train/reward_max_pred 130.81 / train/reward_neg_acc 1 / 
+train/reward_neg_loss 0.47 / train/reward_pos_acc 1 / train/reward_pos_loss 0.51
+/ train/reward_pred 0.99 / train/reward_rate 0.29 / train/vector_loss_mean 0.01 
+/ train/vector_loss_std 0.09 / replay/size 3488 / replay/inserts 0 / 
+replay/samples 1.8e4 / replay/insert_wait_avg nan / replay/insert_wait_frac nan 
+/ replay/sample_wait_avg 7e-7 / replay/sample_wait_frac 1 / fps 18.39
+
+Step 49696/50000 (99.4%) [0.0 min]
+Saving checkpoint at step 50000...
+Writing checkpoint: logdir/checkpoint.ckpt
+Writing checkpoint: logdir/checkpoint.ckpt
+Wrote checkpoint: logdir/checkpoint.ckpt
+
+============================================================
+Training complete!
+Checkpoint: logdir//checkpoint.ckpt
+Total steps: 50000
+============================================================
+Wrote checkpoint: logdir/checkpoint.ckpt
+
+Training complete at Thu Jul  2 08:12:28 PM EDT 2026
+============================================
