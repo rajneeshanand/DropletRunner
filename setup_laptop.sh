@@ -220,7 +220,7 @@ echo "       colcon build --symlink-install"
 echo "       source install/setup.bash"
 
 
-echo "  3. Connect camera and motors, then test:"
+echo "  3. Connect camera and motors, then test:" 
 
 echo "       ros2 run droplet_camera cam_publisher --ros-args -p device_id:=4"  #device_id may vary, check with `ls /dev/video*`
 echo "       ros2 run droplet_motor motor_controller --ros-args -p device_id:=4"  #device_id may vary, check with `ls /dev/ttyUSB*`
