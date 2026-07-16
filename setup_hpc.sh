@@ -64,7 +64,7 @@ pip install --upgrade "jax[cuda12_pip]" \
     -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
 
-# Step 5: install DreamerV3
+# Step 5: install DreamerV3 from Cyberrunner 
 
 echo ""
 echo "[Step 5] Installing DreamerV3 (CyberRunner fork)..."
