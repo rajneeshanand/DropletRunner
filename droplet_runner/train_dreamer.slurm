@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=dreamer_droplet
-#SBATCH --partition=ima40-gpu
+#SBATCH --partition=ima40-gpu  
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
@@ -10,7 +10,8 @@
 #SBATCH --account=mvk2_113026
 
 # DropletRunner DreamerV3 training on Lehigh Sol
-# Submit: cd ~/mvk2_proj/raa524/droplet_runner && sbatch train_dreamer.slurm
+# Submit: cd ~/mvk2_proj/raa524/droplet_runner && sbatch train_dreamer.slurm 
+# here we assume that the project directory is ~/mvk2_proj/raa524/droplet_runner, change as needed
 
 PROJ_DIR="$HOME/mvk2_proj/raa524/droplet_runner"
 
