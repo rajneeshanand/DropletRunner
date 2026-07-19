@@ -22,7 +22,6 @@ echo "DropletRunner: HPC Setup"
 echo "Project dir: $PROJ_DIR"
 
 
-
 # Step 1: create project directories
 
 echo ""
