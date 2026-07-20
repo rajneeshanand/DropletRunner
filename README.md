@@ -649,7 +649,7 @@ cp ~/droplet_runner_ws/policy/checkpoint.ckpt \
 
 **Terminals 1–3:** Camera, rqt, motor driver, estimator (same commands as Section 8.1).
 
-**Terminal 4 — Policy runner (instead of data collector):**
+**Terminal 4: Policy runner (instead of data collector):**
 ```bash
 cd ~/droplet_runner_ws && source install/setup.bash
 export PYTHONPATH="$HOME/cyberrunner/dreamerv3:$HOME/cyberrunner/dreamerv3/dreamerv3:$PYTHONPATH"
