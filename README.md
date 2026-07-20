@@ -829,7 +829,7 @@ If a trained policy behaves erratically, the replay buffer may contain episodes 
 
 7. **OCamCalib distortion amplifies coordinates near board edges.** For geometries that approach the board edges, add intermediate waypoints to prevent large coordinate jumps. 
 
-8. **Fixed lighting inside the lab** — Do not light up too much near the setup, it degrades the performance. 
+8. **Fixed lighting inside the lab.** Do not light up too much near the setup, it degrades the performance. 
 
 ---
 
