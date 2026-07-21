@@ -258,7 +258,7 @@ python3 -c "import jax; print(jax.devices())"
 
 ## 6. Camera Calibration (OCamCalib)
 
-The system uses the Scaramuzza omnidirectional camera model (OCamCalib toolbox for MATLAB). Calibration was performed at 1024×768 resolution, and the camera runs at 1280×720. The code handles the rescaling internally.
+The system uses the Scaramuzza omnidirectional (https://sites.google.com/site/scarabotix/ocamcalib-omnidirectional-camera-calibration-toolbox-for-matlab) camera model (OCamCalib toolbox for MATLAB). Calibration was performed at 1024×768 resolution, and the camera runs at 1280×720. The code handles the rescaling internally.
 
 The calibration file is at `src/droplet_state/calib/calib_results.txt` and contains:
 - Direct polynomial (`ss`): pixel → 3D ray direction
