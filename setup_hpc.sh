@@ -30,7 +30,6 @@ echo "[Step 1] creating project directories..."
 mkdir -p "$PROJ_DIR"/{episodes,logdir,logdir/replay}
 cd "$PROJ_DIR"
 
-
 # Step 2: load modules
 
 echo ""
