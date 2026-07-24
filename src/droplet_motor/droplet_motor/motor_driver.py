@@ -19,7 +19,6 @@ DXL_ID_2 = 2
 BAUDRATE = 1000000
 PROTOCOL_VERSION = 2.0
 
-
 class MotorDriver(Node):
     def __init__(self):
         super().__init__('motor_driver')
